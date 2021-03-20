@@ -1,0 +1,188 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{t1enc}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage{enumitem}
+\usepackage[version=4]{mhchem}
+\usepackage{graphicx}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{enumitem}
+
+%opening
+\title{Android oktatóalkalmazás Java programnyelvhez}
+\author{Gáspár Tamás}
+
+\begin{document}
+	
+	%FŐOLDAL ------------------------------------------------------------------
+	
+	%intézet
+	\thispagestyle{empty}
+	\centerline{\textsc{\Large{Szegedi Tudományegyetem}}}
+	\vspace{0.3 cm}
+	\centerline{\textsc{\Large{Természettudományi és Informatikai Kar}}}
+	
+	\vspace*{2 cm}
+	
+	\centerline{\textsc{\Large{Informatikai Intézet}}}
+	\vspace{0.3 cm}
+	\centerline{\textsc{\Large{Számítógépes Optimalizálás Tanszék (?)}}}
+	
+	\vspace{3 cm}
+	
+	%cím
+	\centerline{\LARGE{Android oktatóalkalmazás Java programnyelvhez}}
+	\vspace{0.5 cm}
+	\centerline{\Large{\textsc{Diplomamunka}}}
+	
+	\vspace{3 cm}
+	
+	\begin{flushleft}
+		Készítette: Gáspár Tamás \newline
+		Programtervező Informatikus MSc hallgató
+	\end{flushleft}
+
+	\vspace{1 cm}
+
+	\begin{flushright}
+		\hspace*{\fill} Témavezető: Dr. Csendes Tibor \newline
+		\hspace*{\fill} Egyetemi tanár \newline
+		\hspace*{\fill} Számítógépes Optimalizálás Tanszék 
+	\end{flushright}
+	
+	\vspace{3 cm}
+	
+	\centerline{\Large{\textsc{Szeged, 2021}}}
+	
+	%tartalomjegyzék oldala -------------------------------------------------
+	\newpage
+	\thispagestyle{empty}
+	
+	\tableofcontents
+	
+	%tényleges kezdet --------------------------------------------------------
+	\newpage
+	\setcounter{page}{1}
+	\fontsize{12}{16}\selectfont
+	
+	\section{Bevezető}
+
+	...
+
+	\section{A diplomamunka célja}
+	
+	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra.
+
+	\subsection{Követelmények a tananyaggal kapcsolatban}
+	
+	A tananyagnak strukturáltnak kell lennie, hogy a felhasználó könnyen tudjon navigálni benne. A programozás alapjaitól kell kezdődnie, hogy teljesen kezdők számára is használható lehessen. Fontos, hogy a tananyag csak olyan ismeretekre hivatkozzon, amik már a korábbi fejezetekben be lettek mutatva. Lenniük kell számonkéréseknek is, amelyekkel a felhasználó megbizonyosodhat róla, hogy megértette-e az anyagot. 
+
+	\subsection{Az alkalmazás követelményei}
+	
+	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot a struktúráját megőrizve megjelenítse. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni.
+	
+	\section{A tananyag struktúrája}  
+	
+	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A következő alfejezetekben részletesen leírom, hogy ezek mit takarnak.
+	
+	\subsection{Kurzus}
+	
+	A kurzus a legnagyobb egység, a \textit{Java} nyelv egy nagy területéhez kapcsolódó ismereteket tartalmazza. Ezek az ismeretek lehetnek egyszerűek (a tananyag elején), vagy magas szintűek, amelyek már a korábbi kurzusokra épülnek (jellemzően a későbbi kurzusok).
+	
+	Külön kurzusba vettem például az adatszerkezeteket, vagy a generikus programozást. Természetesen ezek a területek önmagukban is rengeteg ismeretet tartalmaznak, ezért további felosztásra van szükség.
+	
+	\subsection{Fejezet}
+	
+	A kurzus nem osztatlan egység, hanem fejezetekből épül fel. Ezek további kisebb, összefüggő részekre bontják a kurzus tartalmát, hogy az átláthatóbb és könnyebben elsajátítható legyen.
+	
+	Például az adatszerkezetek kurzus fejezetei a következők:
+	
+	\begin{enumerate}
+		\item Tömbök.
+		\item A tömbök hátrányai.
+		\item Listák.
+		\item Verem és sor.
+		\item Szótár.
+		\item Hasznos osztályok adatszerkezetek kezelésére.
+	\end{enumerate}  
+
+	A listából látszik, hogy vannak átkötő fejezetek is, melyek elmagyarázzák, hogy miért fontosak a korábbi, vagy későbbi fejezetek ismeretei. Például a \textit{Tömbök} fejezet után a felhasználóban felmerülhet, hogy miért kell további adatszerkezetekkel foglalkozni. Ezért közbeiktattam egy plusz fejezetet, ami részletesen megmagyarázza, hogy milyen hátrányai vannak a tömböknek és hogy mely esetekben érdemes más adatstruktúrát választani.
+	
+	\subsection{Feladat}
+	
+	A feladat egy önálló programozási munkát takar, ami mindig egy kurzushoz kapcsolódik. Ahhoz, hogy a felhasználó meg tudja oldani, szüksége lesz az adott kurzus és az azt megelőző kurzusok ismereteire is.
+	
+	Egy kurzushoz több feladat is tartozhat, de mindegyikhez adott legalább egy. Továbbra is maradva az adatszerkezetek kurzusnál, ehhez két feladatot mellékeltem:
+	
+	\begin{itemize}
+		\item Tömb alapú lista implementálása.
+		\item Láncolt lista implementálása.
+	\end{itemize}
+
+	Megjegyzem, hogy ezen feladatok megoldásának nem kell olyan hatékonynak vagy általánosnak lennie, mint egy valódi implementáció, a cél csak a két lista alapelveinek megértése. Mivel a generikus programozás kurzus az adatszerkezetek után következik, ezért itt természetesen nem elvárás generikus listák programozása.
+
+	Egy-egy feladatnak olyan sokféle helyes implementációja van, hogy lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak szeretné összevetni a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt mellékeltem, ami az adott feladat alatt megtekinthető.
+
+	\subsection{Vizsga}
+	
+	A vizsgák a tananyag valódi számonkérései, itt ugyanis a feladatokkal ellentétben lehetséges a megoldások pontos ellenőrzése. Minden kurzushoz egy vizsga tartozik, amelyben benne lehet bármi az adott kurzus fejezeteiből.
+	
+	Azért, hogy az alkalmazás a válaszokat ellenőrizni tudja, megkötéseket kell tenni a kérdések típusára. Nem lehet például esszékérdés. Ezt figyelembe véve a következő kérdéstípusokat implementáltam:
+	
+	\begin{itemize}
+		\item Feleletválasztós kérdés, egy választási lehetőséggel (\textit{single choice}).
+		\item Feleletválasztós kérdés, több választási lehetőséggel (\textit{multi choice}).
+		\item Szöveges kérdés, ahol a válasz egy szó vagy rövid kifejezés lehet.
+		\item Igaz-hamis kérdés.
+	\end{itemize}
+	
+	A vizsgákhoz kérdéshalmaz tartozik, melyből az alkalmazás véletlenszerűen választ annyi, amennyi kérdésből az adott vizsga áll (jellemzően 25-30 darabot). Időlimit is van, ami alatt a felhasználónak be kell fejeznie a kitöltést. Az idő lejárta esetén a kitöltés akkori állapota kerül kiértékelésre.
+	
+	\subsection{Előrehaladás a tananyagban}
+	
+	Az alkalmazás kezdeti indításakor a felhasználó csak az első kurzus fejezeteihez és feladataihoz fér hozzá. A vizsga zárolva van. El kell olvasnia az összes fejezetet ahhoz, hogy a vizsga kitölthető legyen. A feladatok elkészítése opcionális, de ajánlott.
+	
+	A vizsga sikeres teljesítésével nyitható meg a következő kurzus, majd a folyamat ismétlődik addig, amíg van további kurzus.
+	
+	Korábbi fejezetek, feladatok, és vizsgák bármikor újra megtekinthetőek és kitöltetőek. 
+	
+	\section{A tananyag tárolása}\label{tananyag_tarolasa}
+	
+	A tananyagot a forráskódtól el kell különíteni, viszont futásidőben elérhetőnek kell lennie, hogy a felhasználó kéréseit ki lehessen szolgálni. Fontos az egységes elkódolás. Például minden kurzust leíró erőforrásfájlnak azonos felépítésűnek kell lennie: meg kell mondaniuk mely fejezetek, feladatok és vizsga tartozik hozzájuk.
+	
+	\subsection{Android erőforráskezelés}
+	
+	Az \textit{Android} alapelve, hogy az erőforrásfájlok legyenek elkülönítve a kódtól, és erre több eszközt is kínál. Az első a \textit{Resource System}. Ebben olyan erőforrásfájlok tárolhatóak, melyekre a legtöbb alkalmazásnak szüksége van:
+	
+	\begin{itemize}
+		\item Grafikus elemek (\textit{drawable}): lehetnek ikonok, képek, hátterek, stb.
+		\item Szövegek (\textit{string}): a felhasználói felületen megjelenő feliratok.
+		\item Elrendezések (\textit{layout}): a felhasználói felület elrendezését tárolják.
+		\item Még sok további előre definiált kategória: stílusok, színek, stb.
+	\end{itemize} 
+
+	A \textit{Resource System} nem a legmegfelelőbb mód a tananyag tárolására, mivel az egyetlen gyakori, előre definiált kategóriába sem esik. 
+	
+	Biztosított továbbá az \textit{Asset System}, mely annyiban tér el az előbb bemutatott rendszertől, hogy itt nincsenek kategóriák, be tud fogadni bármilyen erőforrásfájlt, amelyre egy alkalmazásnak szüksége lehet. Ez a legalkalmasabb módszer a tananyag tárolására.
+	
+	\subsection{XML}
+	
+	Az \textit{XML} (\textit{Extensible Markup Language}) egy jelölőnyelv, ami alkalmas strukturált adattárolásra.
+	
+	Az beépített \textit{Android} erőforrástípusok mind ezt használják, ezért számomra is természetes volt, hogy ebben kódolom el a tananyag erőforrásfájljait.
+	
+	\section{Adatbázis}
+	
+	A \ref{tananyag_tarolasa} fejezetben említett \textit{Resource System} és \textit{Asset System} futásidőben csakis fájl olvasást tesznek lehetővé, írást nem. Ezért az alkalmazás egy kisebb relációs adatbázist használ arra, hogy a felhasználó előrehaladását tárolja.
+	 
+	\subsection{Struktúra}
+	 
+	...
+	 
+	\subsection{Megvalósítás: SQLite és Room}
+
+	...
+
+\end{document}
