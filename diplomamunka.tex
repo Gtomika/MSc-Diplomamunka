@@ -5,12 +5,20 @@
 \usepackage[magyar]{babel}
 \usepackage{enumitem}
 \usepackage[version=4]{mhchem}
+\usepackage{xspace}
+\usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{listings}
 \usepackage{tabu}
 \usepackage{makecell}
 \usepackage{enumitem}
 
-%opening
+\graphicspath{ {./images/} }
+
+\newcommand{\xml}{\textit{XML}\xspace}
+
+\lstset{ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{{\'\i}}}1 {ó}{{\'o}}1 {ö}{{\"o}}1 {ő}{{\H o}}1 {ú}{{\'u}}1 {Ú}{{\'U}}1 {ü}{{\"u}}1 {ű}{{\H u}}1 {Ü}{{\"U}}1 }
+
 \title{Android oktatóalkalmazás Java programnyelvhez}
 \author{Gáspár Tamás}
 
@@ -86,14 +94,64 @@
 	\section{A tananyag struktúrája}  
 	
 	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A következő alfejezetekben részletesen leírom, hogy ezek mit takarnak.
+		
+	\subsection{XML}
+	
+	Az \xml (\textit{Extensible Markup Language}) egy jelölőnyelv, ami alkalmas strukturált adattárolásra. Az \xml fájlok egymásba ágyazott \textit{tag}ekbből állnak. Egy példa \xml-ben megadott adatra, ami egy azonosító és egy név \textit{tag}et tartalmaz:
+	
+	\begin{lstlisting}[language=XML]
+<root>
+  <id>33</id>
+  <name>XML</name>
+</root>
+	\end{lstlisting}
+	
+	A beépített \textit{Android} erőforrástípusok \xml-t használnak, ezért számomra is természetes volt, hogy ebben kódolom el a tananyag erőforrásfájljait.
+	
+	A továbbiakban az \xml dokumentumokban azokat a részeket, ahol nem konkrét adatot kell érteni [ és ] jelek közé fogom írni, ezáltal általánosabban adhatom meg a struktúrákat. A fenti \xml így átírva:
+	
+	\begin{lstlisting}[language=XML]
+<root>
+  <id>[Azonosító]</id>
+  <name>[Név]</name>
+</root>
+	\end{lstlisting}
 	
 	\subsection{Kurzus}
 	
 	A kurzus a legnagyobb egység, a \textit{Java} nyelv egy nagy területéhez kapcsolódó ismereteket tartalmazza. Ezek az ismeretek lehetnek egyszerűek (a tananyag elején), vagy magas szintűek, amelyek már a korábbi kurzusokra épülnek (jellemzően a későbbi kurzusok).
 	
-	Külön kurzusba vettem például az adatszerkezeteket, vagy a generikus programozást. Természetesen ezek a területek önmagukban is rengeteg ismeretet tartalmaznak, ezért további felosztásra van szükség.
+	Külön kurzusba vettem például az adatszerkezeteket, vagy a generikus programozást. Természetesen ezek a területek önmagukban is rengeteg ismeretet tartalmaznak, ezért további felosztásra van szükség, ezért bevezettem a fejezeteket.
 	
-	\subsection{Fejezet}
+	Minden kurzus tartalmaz egy nevet és egy egyedi azonosítószámot, méghozzá úgy, hogy ezek a számok növekvő sorrendbe állítva meghatározzák a kurzusok sorrendjét.
+	
+	Ezen kívül minden kurzus tartalmazza, hogy mely fejezetek (\ref{fejezet}), feladatok (\ref{feladat}) és vizsga (\ref{vizsga}) tartozik hozzájuk.
+	
+	A fentiek alapján egy kurzust leíró \xml fájl a következőképpen néz ki:
+	
+	\begin{lstlisting}[language=XML]
+<resources>
+  <coursedata>
+    <id>[Kurzus azonosító]</id>
+    <name>[Kurzusnév]</name>
+    <finished>[Befejezettség jelölő]</finished>
+  </coursedata>
+  
+  <chapter>[Fejezet azonosító]</chapter>
+  ...
+  <chapter>[Fejezet azonosító]</chapter>
+  
+  <task>[Feladat azonosító]</task>
+  ...
+  <task>[Feladat azonosító]</task>
+  
+  <exam>[Vizsga azonosító]</exam>
+</resources>
+	\end{lstlisting}
+	
+	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok} alfejezetben írok.
+	
+	\subsection{Fejezet}\label{fejezet}
 	
 	A kurzus nem osztatlan egység, hanem fejezetekből épül fel. Ezek további kisebb, összefüggő részekre bontják a kurzus tartalmát, hogy az átláthatóbb és könnyebben elsajátítható legyen.
 	
@@ -110,11 +168,27 @@
 
 	A listából látszik, hogy vannak átkötő fejezetek is, melyek elmagyarázzák, hogy miért fontosak a korábbi, vagy későbbi fejezetek ismeretei. Például a \textit{Tömbök} fejezet után a felhasználóban felmerülhet, hogy miért kell további adatszerkezetekkel foglalkozni. Ezért közbeiktattam egy plusz fejezetet, ami részletesen megmagyarázza, hogy milyen hátrányai vannak a tömböknek és hogy mely esetekben érdemes más adatstruktúrát választani.
 	
-	\subsection{Feladat}
+	A fejezetek is rendelkeznek azonosítóval és névvel. Ezen kívül tartalmazzák a fejezet törzsét, ami majd konkrétan megjelenik a felhasználónak, amikor megnyitja az adott fejezetet. 
+	
+	\begin{lstlisting}[language=XML]
+<resources>
+  <chapterdata>
+	<id>[Fejezet azonosító]</id>
+    <name>[Fejezetnév]</name>
+  </chapterdata>
+
+  [Fejezet törzse]	
+	
+</resources>
+	\end{lstlisting}
+	
+	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{torzs_kodmintak_kerdesek}. részben írok részletesen.
+	
+	\subsection{Feladat}\label{feladat}
 	
 	A feladat egy önálló programozási munkát takar, ami mindig egy kurzushoz kapcsolódik. Ahhoz, hogy a felhasználó meg tudja oldani, szüksége lesz az adott kurzus és az azt megelőző kurzusok ismereteire is.
 	
-	Egy kurzushoz több feladat is tartozhat, de mindegyikhez adott legalább egy. Továbbra is maradva az adatszerkezetek kurzusnál, ehhez két feladatot mellékeltem:
+	Egy kurzushoz több feladat is tartozhat, de mindegyikhez adott legalább egy. Továbbra is maradva az adatszerkezetek kurzusnál, ehhez például két feladatot mellékeltem:
 	
 	\begin{itemize}
 		\item Tömb alapú lista implementálása.
@@ -123,9 +197,30 @@
 
 	Megjegyzem, hogy ezen feladatok megoldásának nem kell olyan hatékonynak vagy általánosnak lennie, mint egy valódi implementáció, a cél csak a két lista alapelveinek megértése. Mivel a generikus programozás kurzus az adatszerkezetek után következik, ezért itt természetesen nem elvárás generikus listák programozása.
 
-	Egy-egy feladatnak olyan sokféle helyes implementációja van, hogy lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak szeretné összevetni a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt mellékeltem, ami az adott feladat alatt megtekinthető.
+	Egy-egy feladatnak olyan sokféle helyes implementációja van, hogy lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak összevetné a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt mellékeltem, ami az adott feladat alatt megtekinthető.
 
-	\subsection{Vizsga}
+	A feladatok \xml elkódolása így néz ki:
+	
+	\begin{lstlisting}[language=XML]
+<resources>
+  <taskdata>
+    <id>[Feladat azonosító]</id>
+    <name>[Feladatnév]</name>
+  </taskdata>
+  
+  [Feladat törzs]
+  	
+  <solution>
+  
+  [Referencia implementáció törzs]
+  
+  </solution>
+</resources>
+	\end{lstlisting}
+
+	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{torzs_kodmintak_kerdesek}. részben írok részletesen.
+
+	\subsection{Vizsga}\label{vizsga}
 	
 	A vizsgák a tananyag valódi számonkérései, itt ugyanis a feladatokkal ellentétben lehetséges a megoldások pontos ellenőrzése. Minden kurzushoz egy vizsga tartozik, amelyben benne lehet bármi az adott kurzus fejezeteiből.
 	
@@ -140,6 +235,24 @@
 	
 	A vizsgákhoz kérdéshalmaz tartozik, melyből az alkalmazás véletlenszerűen választ annyi, amennyi kérdésből az adott vizsga áll (jellemzően 25-30 darabot). Időlimit is van, ami alatt a felhasználónak be kell fejeznie a kitöltést. Az idő lejárta esetén a kitöltés akkori állapota kerül kiértékelésre.
 	
+	A vizsgákat definiáló \xml fájlok a következőképpen néznek ki:
+	
+	\begin{lstlisting}[language=XML]
+<resources>
+  <examdata>
+	<id>[Vizsga azonosító]</id>
+	<questionAmount>[Kérdések mennyisége]</questionAmount>
+	<timeLimit>[Időkorlát, perceben]</timeLimit>
+    <finished>[Befejezettség jelölő]</finished>
+  </examdata>
+  
+  [Vizsgakérdések]
+  
+</resources>
+	\end{lstlisting}
+
+	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok}. alfejezetben írok. A kérdéstípusok részletes definiálása a \ref{kerdesek}. részben történik.
+	
 	\subsection{Előrehaladás a tananyagban}
 	
 	Az alkalmazás kezdeti indításakor a felhasználó csak az első kurzus fejezeteihez és feladataihoz fér hozzá. A vizsga zárolva van. El kell olvasnia az összes fejezetet ahhoz, hogy a vizsga kitölthető legyen. A feladatok elkészítése opcionális, de ajánlott.
@@ -147,6 +260,58 @@
 	A vizsga sikeres teljesítésével nyitható meg a következő kurzus, majd a folyamat ismétlődik addig, amíg van további kurzus.
 	
 	Korábbi fejezetek, feladatok, és vizsgák bármikor újra megtekinthetőek és kitöltetőek. 
+	
+	\subsection{Részben befejezett kurzusok}\label{reszben_befejezett_kurzusok}
+	
+	\section{Törzstartalom, kódminták és kérdések}\label{torzs_kodmintak_kerdesek}
+	
+	Már láttuk a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
+	
+	\subsection{Szöveges tartalmak}
+	
+	Egyszerű szöveg és cím tag leírása ide.
+	
+	\subsubsection{Bekeretezett szöveg}
+	
+	...
+	
+	\subsubsection{Magas szintű tartalom}
+	
+	...
+	
+	\subsection{Grafikus tartalmak}
+	
+	Kép beillesztés leírása ide.
+	
+	\subsection{Kódminták}
+	
+	...
+	
+	
+	\subsection{Interaktív kódminták}
+	
+	...
+	
+	
+	\subsection{Kérdések}\label{kerdesek}
+	
+	...
+	
+	\subsubsection{feleletválaszós kérdés egy válaszlehetőséggel}
+	
+	...
+	
+	\subsubsection{feleletválaszós kérdés több válaszlehetőséggel}
+	
+	...
+	
+	\subsubsection{Szöveges kérdés}
+	
+	...
+	
+	\subsubsection{Igaz-hamis kérdés}
+	
+	...
 	
 	\section{A tananyag tárolása}\label{tananyag_tarolasa}
 	
@@ -166,12 +331,6 @@
 	A \textit{Resource System} nem a legmegfelelőbb mód a tananyag tárolására, mivel az egyetlen gyakori, előre definiált kategóriába sem esik. 
 	
 	Biztosított továbbá az \textit{Asset System}, mely annyiban tér el az előbb bemutatott rendszertől, hogy itt nincsenek kategóriák, be tud fogadni bármilyen erőforrásfájlt, amelyre egy alkalmazásnak szüksége lehet. Ez a legalkalmasabb módszer a tananyag tárolására.
-	
-	\subsection{XML}
-	
-	Az \textit{XML} (\textit{Extensible Markup Language}) egy jelölőnyelv, ami alkalmas strukturált adattárolásra.
-	
-	Az beépített \textit{Android} erőforrástípusok mind ezt használják, ezért számomra is természetes volt, hogy ebben kódolom el a tananyag erőforrásfájljait.
 	
 	\section{Adatbázis}
 	

@@ -1,13 +1,29 @@
-\select@language {magyar} \contentsline {section}{\numberline {1}Bevezető}{1}%
-\select@language {magyar} \contentsline {section}{\numberline {2}A diplomamunka célja}{1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {2.1}Követelmények a tananyaggal kapcsolatban}{1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2}Az alkalmazás követelményei}{1}%
-\select@language {magyar} \contentsline {section}{\numberline {3}A tananyag struktúrája}{1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.1}Kurzus}{1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2}Fejezet}{2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.3}Feladat}{2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4}Vizsga}{3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5}Előrehaladás a tananyagban}{4}%
-\select@language {magyar} \contentsline {section}{\numberline {4}A tananyag tárolása}{4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.1}Android erőforráskezelés}{4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2}XML}{5}%
+\select@language {magyar} \contentsline {section}{\numberline {1}Bevezető}{1}{section.1}%
+\select@language {magyar} \contentsline {section}{\numberline {2}A diplomamunka célja}{1}{section.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1}Követelmények a tananyaggal kapcsolatban}{1}{subsection.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {2.2}Az alkalmazás követelményei}{1}{subsection.2.2}%
+\select@language {magyar} \contentsline {section}{\numberline {3}A tananyag struktúrája}{1}{section.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1}XML}{1}{subsection.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2}Kurzus}{2}{subsection.3.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3}Fejezet}{3}{subsection.3.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4}Feladat}{4}{subsection.3.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5}Vizsga}{5}{subsection.3.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.6}Előrehaladás a tananyagban}{6}{subsection.3.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.7}Részben befejezett kurzusok}{6}{subsection.3.7}%
+\select@language {magyar} \contentsline {section}{\numberline {4}Törzstartalom, kódminták és kérdések}{6}{section.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1}Szöveges tartalmak}{7}{subsection.4.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.1.1}Bekeretezett szöveg}{7}{subsubsection.4.1.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.1.2}Magas szintű tartalom}{7}{subsubsection.4.1.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2}Grafikus tartalmak}{7}{subsection.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.3}Kódminták}{7}{subsection.4.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.4}Interaktív kódminták}{7}{subsection.4.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.5}Kérdések}{7}{subsection.4.5}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.1}feleletválaszós kérdés egy válaszlehetőséggel}{7}{subsubsection.4.5.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.2}feleletválaszós kérdés több válaszlehetőséggel}{7}{subsubsection.4.5.2}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.3}Szöveges kérdés}{7}{subsubsection.4.5.3}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.4}Igaz-hamis kérdés}{8}{subsubsection.4.5.4}%
+\select@language {magyar} \contentsline {section}{\numberline {5}A tananyag tárolása}{8}{section.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.1}Android erőforráskezelés}{8}{subsection.5.1}%
+\select@language {magyar} \contentsline {section}{\numberline {6}Adatbázis}{8}{section.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {6.1}Struktúra}{9}{subsection.6.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {6.2}Megvalósítás: SQLite és Room}{9}{subsection.6.2}%
