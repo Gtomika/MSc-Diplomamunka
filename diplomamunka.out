@@ -25,5 +25,8 @@
 \BOOKMARK [1][-]{section.5}{A tananyag t\341rol\341sa}{}% 25
 \BOOKMARK [2][-]{subsection.5.1}{Android eroforr\341skezel\351s}{section.5}% 26
 \BOOKMARK [1][-]{section.6}{Adatb\341zis}{}% 27
-\BOOKMARK [2][-]{subsection.6.1}{Strukt\372ra}{section.6}% 28
-\BOOKMARK [2][-]{subsection.6.2}{Megval\363s\355t\341s: SQLite \351s Room}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.1}{St\341tusz annot\341ci\363}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.2}{Strukt\372ra}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.3}{Megval\363s\355t\341s: SQLite \351s Room}{section.6}% 30
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Room entit\341sok}{subsection.6.3}% 31
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Room adatkezelok}{subsection.6.3}% 32

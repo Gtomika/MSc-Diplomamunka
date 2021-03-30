@@ -17,6 +17,7 @@
 
 \newcommand{\xml}{\textit{XML}\xspace}
 
+\lstset{showstringspaces=false}
 \lstset{ literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{{\'\i}}}1 {ó}{{\'o}}1 {ö}{{\"o}}1 {ő}{{\H o}}1 {ú}{{\'u}}1 {Ú}{{\'U}}1 {ü}{{\"u}}1 {ű}{{\H u}}1 {Ü}{{\"U}}1 }
 
 \title{Android oktatóalkalmazás Java programnyelvhez}
@@ -235,6 +236,8 @@
 	
 	A vizsgákhoz kérdéshalmaz tartozik, melyből az alkalmazás véletlenszerűen választ annyi, amennyi kérdésből az adott vizsga áll (jellemzően 25-30 darabot). Időlimit is van, ami alatt a felhasználónak be kell fejeznie a kitöltést. Az idő lejárta esetén a kitöltés akkori állapota kerül kiértékelésre.
 	
+	Sikeres vizsga esetén a következő kurzus elérhetővé válik. Amennyiben a vizsga nem sikeres, akkor néhány óráig nem lesz újra kitölthető. Ezt a korlátozást azért vezettem be, hogy ne lehessen a vizsgákat "\textit{brute-force}" módon teljesíteni. Ha a felhasználó már korábban sikeresen elvégezte a vizsgát, akkor azt korlátozás nélkül bármikor újra elindíthatja. A vizsgán elért legmagasabb pontszám eltárolásra kerül.
+	
 	A vizsgákat definiáló \xml fájlok a következőképpen néznek ki:
 	
 	\begin{lstlisting}[language=XML]
@@ -334,14 +337,126 @@
 	
 	\section{Adatbázis}
 	
-	A \ref{tananyag_tarolasa} fejezetben említett \textit{Resource System} és \textit{Asset System} futásidőben csakis fájl olvasást tesznek lehetővé, írást nem. Ezért az alkalmazás egy kisebb relációs adatbázist használ arra, hogy a felhasználó előrehaladását tárolja.
+	Az alkalmazásnak képesnek kell lennie eltárolnia felhasználó előrehaladását a tananyagban. A következő adatokat kell elmenteni:
+	
+	\begin{itemize}
+		\item Teljesített vizsgák: Ez az információ a legfontosabb, mivel meghatározza, hogy melyik kurzusok elérhetőek.
+		\item Elolvasott fejezetek: Mivel egy kurzus vizsgája csak akkor nyílik meg, ha a felhasználó minden fejezetet elolvas az adott kurzusból.
+		\item Teljesített feladat: A feladatok teljesítése opcionális, de az alkalmazás ezt is eltárolja.
+	\end{itemize}
+	
+	A \ref{tananyag_tarolasa} fejezetben említett \textit{Resource System} és \textit{Asset System} futásidőben csakis fájl olvasást tesznek lehetővé, írást nem. Ezért egy relációs adatbázist használok. \textit{NoSQL} adatbázis is lehetne, arról hogy miért a választott módszer mellett döntöttem, a \ref{sqlite_roon} fejezetben írok.
+	 
+	\subsection{Státusz annotáció}\label{statusz}
+	
+	Az előrehaladást a programban és az adatbázisban is egységesen jelölöm. Erre egy saját \textit{Java} annotációt használok:
+	
+	\begin{lstlisting}[language=Java]
+@IntDef
+public @interface Status {
+
+	int LOCKED = 0;
+		
+	int UNLOCKED = 1;
+		
+	int COMPLETED = 2;
+}
+	\end{lstlisting}
+	
+	Az \textit{@IntDef} annotáció listázza, hogy mik lehetnek a lehetséges értékei egy olyan változónak, melyek \textit{@Status} annotációval látunk el. Ez fordítási időben ellenőrzésre kerül. Például ha a felhasználó először teljesít egy vizsgát, akkor annak státusza \textit{UNLOCKED}-ról \textit{COMPLETED}-re for változni az adatbázisban.
 	 
 	\subsection{Struktúra}
 	 
-	...
-	 
-	\subsection{Megvalósítás: SQLite és Room}
+	Az adatbázis szerkezete egyszerű. A tananyag négy egységéhez (kurzus, fejezete, feladat, vizsga) rendel egy-egy táblát, és ezen táblák rekordjai tárolják az előrehaladást. Így néz ki az egyed-kapcsolat diagram:
+	
+	\begin{center}
+		\includegraphics[width=\linewidth]{db_model}
+	\end{center}
+	
+	Táblák közti kapcsolatra, külső kulcsokra nincs szükség. Az, hogy mely fejezetek és feladatok tartoznak egy-egy kurzushoz nem az adatbázisban van eltárolva, hanem a tananyagot definiáló \xml dokumentumokban (mivel nem változik dinamikusan).
+	
+	Az azonosítók megegyeznek az \xml dokumentumokban használt azonosítókkal. A státusz mezők mindig a \ref{statusz} részben definiált annotáció valamelyik értékét tartalmazzák.
+	
+	A vizsgák esetén vannak további dinamikusan változó adatok:
+	
+	\begin{itemize}
+		\item Az utolsó indítás időpontja: Ez szükséges, hogy a \ref{vizsga} részben említett indítási korlátot be lehessen tartani.
+		\item Legmagasabb pontszám: Dinamikusan változó, ezért az adatbázisban kell tárolni.
+	\end{itemize}
+	
+	\subsection{Megvalósítás: SQLite és Room}\label{sqlite_roon}
 
-	...
+	Az Android rendszer minden alkalmazás számára biztosít egy \textit{SQLite} relációs adatbázist. Számomra egyértelmű volt, hogy ezt fogom használni. Az \textit{SQLite} egy olyan adatbázis kezelő, amely nem kliens-szerver alapú, hanem közvetlenül az őt használó alkalmazásba van beágyazva. 
+	
+	Ennek előnye, hogy nem kell hálózati kapcsolat az adatbázis eléréséhez, és nem kell szervert üzemeltetni. Hátránya viszont, hogy minden adat lokálisan kerül eltárolásra. Ennél az alkalmazásnál ez nem jelent gondot, mivel viszonylag kevés rekord keletkezik (a tananyag minden eleméhez egy).
+	
+	Az alkalmazás saját adatbázisának közvetlenül is küldhetünk üzenetet, ez azonban több okból sem javasolt:
+	
+	\begin{itemize}
+		\item Szintaktikus hibák: ha a kiadott \textit{SQL} utasításban szintaktikus hibát vétünk, az a program helytelen működéséhez, összeomlásához vezet. Ez nincs ellenőrizve.
+		\item Érvénytelen utasítások: ha olyan utasítást adunk ki, amelyet az \textit{SQLite} nem tud végrehajtani, akkor is helytelen viselkedés fog történni. Például, ha olyan rekordot szúrunk be, ami sérti az egyediség feltételt.
+		\item Adatbázis frissítés a főszálon: ha a főszálon adunk ki \textit{SQL} utasítást, akkor ez blokkolni fog, és a felhasználói felület nem lesz válaszképes. 
+	\end{itemize}
+
+	Pontos tervezéssel és helyes implementációval ez mind elkerülhető, de javasolt egy olyan keretrendszer használata, mely az adatbázis kezelés veszélyeit kezeli. Egy ilyen keretrendszer a \textit{Room}, amely az Android fejlesztői könyvtár (\textit{AndroidX}) része.
+	
+	A \textit{Room} elrejti a programozó elől az \textit{SQLite} adatbázist, helyette két komponenst biztosít, melyekkel a struktúrája és tartalma módosítható. Ezen kívül meg fogja tiltani, hogy a főszálról adatbázis műveletet végezzünk (ilyen esetben kivétel dobódik). 
+	
+	\subsubsection{Room entitások}
+	
+	Az entitások olyan \textit{@Entity} annotációval jelölt Java osztályok, melyek megadják az adatbázis tábláinak struktúráját. Például a fejezet táblát a következőképpen definiáltam:
+	
+	\begin{lstlisting}[language=Java]
+@Entity(tableName = "chapter_status")
+public class ChapterStatus {
+	
+ @PrimaryKey //külső kulcs jelző
+ @ColumnInfo(name = "chapter_id")
+ private int chapterId;
+	
+ @ColumnInfo(name = "status")
+ @Status //saját státusz annotáció
+ private int status;
+ 
+ //konstruktor...
+}
+	\end{lstlisting}  
+	
+	Látható, hogy annotációk segítségével adhatjuk meg, hogy milyen mezői legyenek az adott táblának. Az alkalmazás indításakor ez a tábla létre fog jönni az adatbázisban, anélkül, hogy egyetlen \textit{SQL} utasítást is írnunk kellene. Azokat a \textit{Room} fogja összeállítani, az általunk megadott adatok alapján, és garantáltan helyesek lesznek.
+	
+	A későbbiekben ezt az osztályt példányosíthatjuk, ezek az objektumok rekordokat fognak reprezentálni.
+
+	\subsubsection{Room adatkezelők}
+	
+	Az adatkezelő objektumok olyan \textit{@Dao} annotációval jelölt Java interfészek, amikkel az előző részben definiált táblák tartalmát módosíthatjuk. Például a fejezet táblához a következő módosító interfészt készítettem:
+	
+	\begin{lstlisting}[language=Java]
+@Dao
+public interface ChapterDao {
+	
+ @Insert //a beszúró SQL utasítás automatikusan generálódik
+ void addChapterStatus(ChapterStatus chapterStatus);
+	
+ @Update //a frissítő SQL utasítás automatikusan generálódik
+ void updateChapterStatus(ChapterStatus chapterStatus);
+	
+ @Query("SELECT * FROM chapter_status WHERE chapter_id == :chapterId")
+ ChapterStatus queryChapterStatus(int chapterId);
+}
+	\end{lstlisting}
+
+	Bizonyos egyszerű műveletekre vannak előre adott annotációk, melyek automatikusan fogják generálni a a megfelelő \textit{SQL} utasítást (beszúrás, frissítés, törlés). Ezek azonban nem elegendőek, ezért a \textit{@Query} annotációval saját utasítást írhatunk. Ennek a tartalma fordítási időben ellenőrizve lesz. Megfigyelhető, hogy még arra is lehetőség van, hogy a kapott paraméterek értékét behelyettesítsük az \textit{SQL} utasításba.
+
+	Egy példa arra, hogy hogyan kombinálhatjuk ezeket az osztályokat az adatbázis módosítására:
+	
+	\begin{lstlisting}[language=Java]
+//egy új szálon
+new Thread(() -> {
+ ChapterDao dao = ... ;
+ ChapterStatus cs = new ChapterStatus(id, Status.UNLOCKED);
+ //beszúrás
+ dao.addChapterStatus(cs);
+}).start();
+	\end{lstlisting}
 
 \end{document}
