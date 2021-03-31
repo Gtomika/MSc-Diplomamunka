@@ -358,11 +358,11 @@ textView.setText(formattedText);
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<advanced title="[Cím]">
-	<![CDATA[
-	[Formázott szöveg]
-	]]>
-	</advanced>	
+<advanced title="[Cím]">
+ <![CDATA[
+  [Formázott szöveg]
+ ]]>
+</advanced>	
 	\end{lstlisting}
 	\bigskip
 	
@@ -389,11 +389,58 @@ textView.setText(formattedText);
 		\includegraphics[width=5cm]{image_component}
 	\end{center}
 	
-	
 	\subsection{Kódminták}
 	
-	...
+	A programozás oktatásánál elengedhetetlen, hogy kódrészletekkel segítsük a megértést.
 	
+	\subsubsection{Formázás}
+	
+	A tananyagban lévő mintáknak egységes formázásúnak kell lenniük. Ezt úgy értem el, hogy előre definiáltam a színeket, amelyekkel a kód részeit kijelöltem. A következők kaptak saját kijelölőszínt:
+	
+	\begin{itemize}
+		\item A \textit{Java} nyelv kulcsszavai.
+		\item A \textit{Java} nyelv primitívei. Ide soroltam a \textit{void}-ot is, habár az valójában csak kulcsszó.
+		\item Szöveg és karakter konstansok.
+		\item Numerikus konstansok.
+		\item Osztálynevek.
+		\item Metódusok és adattagok nevei.
+		\item Annotációk.
+		\item Kommentek. 
+	\end{itemize}
+	
+	A megjelenő kódmintáknak ugyanolyan sortörésekkel és tabulálással kell megjelenni az alkalmazásban, mint ahogy megírásra kerültek. Ezért a minták szövegébe a sorok végére $<br>$ sortörő taget kell elhelyezni, és a tabulálást pedig a $\&nbsp;$ szimbólummal kellet jelölni. A korábban bemutatott komponenseknél ez nem volt lényeges, ezeket az Android rendszer úgy tördelheti, ahogy a képernyő méretei megengedik, azonban a kódmintáknál fontos a helyes tördelés.
+	
+	További formázást igényelt, hogy a \textit{HTML} nyelv esetén a $<$ szimbólumot speciálisan kell jelölni, hogy az értelmező ne vegye egy új tag kezdetének. A megoldás az $\&lt$ karaktersorozattal történő helyettesítés. Ezért az olyan kódminták, melyek például összehasonlítást tartalmaznak mind külön formázást igényelnek.
+	
+	Látható, hogy rengeteg formázási szabályt vezettem be. Ha ehhez hozzávesszük a kódminták nagy számát, akkor látszik, hogy a manuális formázás nem célszerű. Ezért erre  célra egy külön formázó programot készítettem, ami egy megadott mappában lévő \textit{Java} kódot átalakít olyan \textit{HTML} kóddá, ami a fent említett összes szabálynak eleget tesz. Ez a program reguláris kifejezések alapján azonosítja a listában látható kifejezéseket és elhelyezi körülöttük a színezést és a tördelést biztosító tageket.  
+	
+	\subsubsection{Megjelenítés}
+	
+	A fejezetekben és feladatokban kódmintát a $<code>$ tag segítségével definiálok. A tag belsejébe kell helyezni, azt a formázott kódot, amit az előző részben említett segédprogram ad eredményül.
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+<code>
+ <![CDATA[
+  [Formázott kód]
+ ]]>
+</code>	
+	\end{lstlisting}
+	\bigskip
+	
+	A megjelenítésnél nehézséget okoz, hogy a kódmintákban kosszú sorok lehetnek, amelyen nem minden eszköz képernyőjén férnek el egy sorban, viszont a mintákat a rendszer nem tördelheti szabadon. Ezért az alkalmazás kódmintái vízszintesen görgethetőek, ha vannak bennül olyan sorok, amelyek nem férnek el a képernyőn.
+	
+	Itt látható néhány kódminta az alkalmazásból:
+	
+	\begin{center}
+		\includegraphics[width=5cm]{code_component_1}
+	\end{center}
+
+	\begin{center}
+		\includegraphics[width=5cm]{code_component_2}
+	\end{center}
+	
+	A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync} részben írok.
 	
 	\subsection{Interaktív kódminták}
 	
@@ -566,5 +613,9 @@ new Thread(() -> {
  dao.addChapterStatus(cs);
 }).start();
 	\end{lstlisting}
+
+	\section{ClipSync funkció}\label{clipsync}
+	
+	...
 
 \end{document}
