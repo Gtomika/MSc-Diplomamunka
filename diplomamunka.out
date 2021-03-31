@@ -22,11 +22,12 @@
 \BOOKMARK [3][-]{subsubsection.4.5.2}{feleletv\341lasz\363s k\351rd\351s t\366bb v\341laszlehetos\351ggel}{subsection.4.5}% 22
 \BOOKMARK [3][-]{subsubsection.4.5.3}{Sz\366veges k\351rd\351s}{subsection.4.5}% 23
 \BOOKMARK [3][-]{subsubsection.4.5.4}{Igaz-hamis k\351rd\351s}{subsection.4.5}% 24
-\BOOKMARK [1][-]{section.5}{A tananyag t\341rol\341sa}{}% 25
-\BOOKMARK [2][-]{subsection.5.1}{Android eroforr\341skezel\351s}{section.5}% 26
-\BOOKMARK [1][-]{section.6}{Adatb\341zis}{}% 27
-\BOOKMARK [2][-]{subsection.6.1}{St\341tusz annot\341ci\363}{section.6}% 28
-\BOOKMARK [2][-]{subsection.6.2}{Strukt\372ra}{section.6}% 29
-\BOOKMARK [2][-]{subsection.6.3}{Megval\363s\355t\341s: SQLite \351s Room}{section.6}% 30
-\BOOKMARK [3][-]{subsubsection.6.3.1}{Room entit\341sok}{subsection.6.3}% 31
-\BOOKMARK [3][-]{subsubsection.6.3.2}{Room adatkezelok}{subsection.6.3}% 32
+\BOOKMARK [1][-]{section.5}{Beolvas\341si folyamat}{}% 25
+\BOOKMARK [1][-]{section.6}{A tananyag t\341rol\341sa}{}% 26
+\BOOKMARK [2][-]{subsection.6.1}{Android eroforr\341skezel\351s}{section.6}% 27
+\BOOKMARK [1][-]{section.7}{Adatb\341zis}{}% 28
+\BOOKMARK [2][-]{subsection.7.1}{St\341tusz annot\341ci\363}{section.7}% 29
+\BOOKMARK [2][-]{subsection.7.2}{Strukt\372ra}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.3}{Megval\363s\355t\341s: SQLite \351s Room}{section.7}% 31
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Room entit\341sok}{subsection.7.3}% 32
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Room adatkezelok}{subsection.7.3}% 33

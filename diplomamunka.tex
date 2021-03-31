@@ -100,17 +100,20 @@
 	
 	Az \xml (\textit{Extensible Markup Language}) egy jelölőnyelv, ami alkalmas strukturált adattárolásra. Az \xml fájlok egymásba ágyazott \textit{tag}ekbből állnak. Egy példa \xml-ben megadott adatra, ami egy azonosító és egy név \textit{tag}et tartalmaz:
 	
+	\bigskip
 	\begin{lstlisting}[language=XML]
 <root>
   <id>33</id>
   <name>XML</name>
 </root>
 	\end{lstlisting}
+	\bigskip
 	
 	A beépített \textit{Android} erőforrástípusok \xml-t használnak, ezért számomra is természetes volt, hogy ebben kódolom el a tananyag erőforrásfájljait.
 	
 	A továbbiakban az \xml dokumentumokban azokat a részeket, ahol nem konkrét adatot kell érteni [ és ] jelek közé fogom írni, ezáltal általánosabban adhatom meg a struktúrákat. A fenti \xml így átírva:
 	
+	\bigskip
 	\begin{lstlisting}[language=XML]
 <root>
   <id>[Azonosító]</id>
@@ -119,6 +122,7 @@
 	\end{lstlisting}
 	
 	\subsection{Kurzus}
+	\bigskip
 	
 	A kurzus a legnagyobb egység, a \textit{Java} nyelv egy nagy területéhez kapcsolódó ismereteket tartalmazza. Ezek az ismeretek lehetnek egyszerűek (a tananyag elején), vagy magas szintűek, amelyek már a korábbi kurzusokra épülnek (jellemzően a későbbi kurzusok).
 	
@@ -130,6 +134,7 @@
 	
 	A fentiek alapján egy kurzust leíró \xml fájl a következőképpen néz ki:
 	
+	\bigskip
 	\begin{lstlisting}[language=XML]
 <resources>
   <coursedata>
@@ -149,6 +154,7 @@
   <exam>[Vizsga azonosító]</exam>
 </resources>
 	\end{lstlisting}
+	\bigskip
 	
 	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok} alfejezetben írok.
 	
@@ -171,6 +177,7 @@
 	
 	A fejezetek is rendelkeznek azonosítóval és névvel. Ezen kívül tartalmazzák a fejezet törzsét, ami majd konkrétan megjelenik a felhasználónak, amikor megnyitja az adott fejezetet. 
 	
+	\bigskip
 	\begin{lstlisting}[language=XML]
 <resources>
   <chapterdata>
@@ -202,6 +209,7 @@
 
 	A feladatok \xml elkódolása így néz ki:
 	
+	\bigskip
 	\begin{lstlisting}[language=XML]
 <resources>
   <taskdata>
@@ -218,6 +226,7 @@
   </solution>
 </resources>
 	\end{lstlisting}
+	\bigskip
 
 	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{torzs_kodmintak_kerdesek}. részben írok részletesen.
 
@@ -240,6 +249,7 @@
 	
 	A vizsgákat definiáló \xml fájlok a következőképpen néznek ki:
 	
+	\bigskip
 	\begin{lstlisting}[language=XML]
 <resources>
   <examdata>
@@ -266,25 +276,119 @@
 	
 	\subsection{Részben befejezett kurzusok}\label{reszben_befejezett_kurzusok}
 	
+	Az alkalmazás természetesen bővíthető új kurzusokkal. Azonban egy kurzus elkészítésé hosszú időt vehet igénybe, mivel ebbe beletartozik a tananyag megírásán kívül a feladatok és vizsgakérdések összeállítása is. Ezért az alkalmazás támogatja a részben befejezett kurzusokat és vizsgákat. Ezek segítségével az alkalmazás lényegében fejezetenként bővíthető.
+	
+	Azt, hogy egy kurzus be van-e fejezve, az adott kurzus \xml dokumentumában lévő \textit{<finished>} tag mondja meg. Ha ennek értéke hamis, akkor a felhasználó jelzést kap arról, hogy a kurzus még bővítés alatt áll. Az \xml-ben definiált vizsgák szintén tartalmaznak  \textit{<finished>} taget. Amennyiben ez hamis, akkor a vizsga nem lesz elinítható, még akkor sem ha a felhasználó teljesítette a kurzus összes fejezetét. Az indulás helyett értesítés jelenik meg, ami tájékoztat arról, hogy a vizsga csak egy későbbi frissítés után nyílik meg.
+	
+	A fejezetek és feladatok nem támogatják ezt a funkciót, mivel ezek sokkal rövidebb terjedelműek.
+	
 	\section{Törzstartalom, kódminták és kérdések}\label{torzs_kodmintak_kerdesek}
 	
-	Már láttuk a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
+	Már leírtam a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
+	
+	Az ehhez használt egyik legfontosabb komponens a \textit{TextView} osztály, amit Android alatt szöveges tartalom megjelenítésére lehet használni. A formázott szöveg megjelenítése is támogatott, ahol a formázási szabályokat \textit{HTML} nyelven adhatjuk meg. Ugyan a \textit{HTML}-nek csak egy kis része használható, de ennek az alkalmazásnak ez elég, mivel a szövegstílus (dőlt, félkövér) és a betűszín változtatható.
+	
+	Például a következő módon lehet megjeleníteni egy szöveget, amelyben egy félkövér szó van:
+	
+	\bigskip
+	\begin{lstlisting}[language=Java]
+String rawText = "Ez egy <b>félkövér</b> szó.";
+Spanned formattedText = Html.fromHtml(rawText);
+textView.setText(formattedText);
+	\end{lstlisting}
+	\bigskip
+	
+	Ezt a funkcionalitást az alkalmazás erősen kihasználja, nem csak egy-egy szó kiemelésére vagy, linkek beillesztésére, hanem a kódminták megformázására is.
+	
+	Nehézséget okoz viszont, hogy a szövegek \textit{XML}-ben vannak megadva, mivel mind az \xml, mind a \textit{HTML} a $<$ és $>$ karaktereket használja. Azért, hogy ne legyenek ütközések, és az \xml ne próbálja meg értelmezni a \textit{HTML} tageket, a szöveget úgynevezett karakter-adat (\textit{CDATA}) blokkba kell helyezni:
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+<text>
+ <![CDATA[
+  Ez egy <b>félkövér</b> szó.
+ ]]>
+</text>
+	\end{lstlisting}
 	
 	\subsection{Szöveges tartalmak}
 	
-	Egyszerű szöveg és cím tag leírása ide.
+	A legegyszerűbb megjeleníthető komponens az egyszerű szöveg. Ilyet úgy helyezhetünk el egy fejezetben, vagy feladatban, hogy $<text>$ tagek közé helyezzük a formázott szöveget, használva az előző részben említett \textit{CDATA} blokkot. A megadott szöveg formázottan fog megjelenni az alkalmazásban.
+	
+	Lehetőség van címsor beszúrására. Ez a fejezetek vagy feladatok további kisebb, összefüggő részekre való felbontását teszi lehetővé. Címsort a $<title>$ taggel szúrhatunk be, tartalmát pedig egy attribútummal lehet szabályozni:
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+	<title text="Második paragrafus"/>
+	\end{lstlisting}
+	\bigskip
+	
+	Itt látható egy rész az \textit{input beolvasása} fejezetből, ami egy címsorból és szövegblokkból áll:
+	
+	\begin{center}
+		\includegraphics[width=5cm]{title_text_component}
+	\end{center}
+	
+	Már ezzel a két komponenssel meg lehet jeleníteni a tananyag nagy részét, de azért hogy a fejezetek kevésbé legyenek monotonok, további komponenseket is implementáltam, melyek "megtörik" a szöveget. 
 	
 	\subsubsection{Bekeretezett szöveg}
 	
-	...
+	Ez a komponens lényegében egy szövegdoboz, ami eltérő háttérszínnel és saját címmel rendelkezik, ezáltal jobban felhívja a felhasználó figyelmét. Definiálása a $<boxed>$ taggel történik:
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+<boxed title="[Szövegdoboz címe]">
+ <![CDATA[
+  [Formázott szöveg]
+ ]]>
+</boxed>	
+	\end{lstlisting}
+	\bigskip
+
+	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt.
+	Az adott fejezetet megnyitva ez a rész így fog megjelenni:
+	
+	\begin{center}
+		\includegraphics[width=5cm]{boxed_component}
+	\end{center}
 	
 	\subsubsection{Magas szintű tartalom}
 	
-	...
+	Ez a komponens hasonló a bekeretezett szöveghez, viszont speciálisan a nehezebb anyagrészek, kiegészítő információk megjelenítésére terveztem. Az $<advanced>$ taggel adható meg. Élénkpiros színnel fog megjelenni, és a felhasználó tudomására hozza, hogy az adott tartalom nehezebb, vagy csak egy későbbi kurzusban kerül részletes bemutatásra.
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+	<advanced title="[Cím]">
+	<![CDATA[
+	[Formázott szöveg]
+	]]>
+	</advanced>	
+	\end{lstlisting}
+	\bigskip
+	
+	Ilyen jelzővel láttam el például a \textit{absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével.  Ez részletesebben egy lésőbbi kurzusban, a \textit{Java 8} nevűben van leírva.
+	
+	\begin{center}
+		\includegraphics[width=5cm]{advanced_component}
+	\end{center}
+	
+	Ebben a komponensben még egy link is található, ami a megfelelő oldalra viszi a felhasználót (a telefon alapértelmezett böngészőjében).
 	
 	\subsection{Grafikus tartalmak}
 	
-	Kép beillesztés leírása ide.
+	Lehetőség van képek beillesztésére a fejezetekbe és feladatokba, az $<image>$ tag segítségével. Egy attribútumban kell megadni, hogy melyik kép jelenjen meg. Arról, hogy hol tárolom a tananyagban felhasznált képeket részletesen a \ref{tananyag_tarolasa} részben írok. Az \xml struktúra a következőképpen néz ki:
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+	<image name="[Kép neve]"/>
+	\end{lstlisting}
+	
+	Például itt látható egy részlet a \textit{tömbök} fejezetből, ahol az anyag megértéset egy képpel segítem elő:
+	
+	\begin{center}
+		\includegraphics[width=5cm]{image_component}
+	\end{center}
+	
 	
 	\subsection{Kódminták}
 	
@@ -313,6 +417,10 @@
 	...
 	
 	\subsubsection{Igaz-hamis kérdés}
+	
+	...
+	
+	\section{Beolvasási folyamat}
 	
 	...
 	
