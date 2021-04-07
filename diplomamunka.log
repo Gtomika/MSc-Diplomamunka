@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.14)  31 MAR 2021 14:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.14)  7 APR 2021 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -640,11 +640,11 @@ LaTeX Info: Redefining \mit on input line 497.
 
 
 {c:/Program Files/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./diplomamunka.toc [2])
+(./diplomamunka.toc)
 \tf@toc=\write4
 \openout4 = `diplomamunka.toc'.
 
- [3]
+ [2] [3]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 79.
@@ -692,14 +692,14 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 [7]
-<./images/title_text_component.png, id=313, 788.9475pt x 501.37312pt>
+<./images/title_text_component.png, id=303, 788.9475pt x 501.37312pt>
 File: ./images/title_text_component.png Graphic file (type png)
 <use ./images/title_text_component.png>
 Package pdftex.def Info: ./images/title_text_component.png  used on input line 
 329.
 (pdftex.def)             Requested size: 142.26378pt x 90.40392pt.
  [8]
-<./images/boxed_component.png, id=332, 810.02625pt x 585.68813pt>
+<./images/boxed_component.png, id=322, 810.02625pt x 585.68813pt>
 File: ./images/boxed_component.png Graphic file (type png)
 <use ./images/boxed_component.png>
 Package pdftex.def Info: ./images/boxed_component.png  used on input line 352.
@@ -710,7 +710,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 355.
 
 [9 <./images/title_text_component.png> <./images/boxed_component.png>]
-<./images/advanced_component.png, id=344, 804.00375pt x 700.11563pt>
+<./images/advanced_component.png, id=334, 804.00375pt x 700.11563pt>
 File: ./images/advanced_component.png Graphic file (type png)
 <use ./images/advanced_component.png>
 Package pdftex.def Info: ./images/advanced_component.png  used on input line 37
@@ -722,89 +722,122 @@ Overfull \hbox (0.41951pt too wide) in paragraph at lines 379--380
 l-ada-tok-ba, az $\OML/cmm/m/it/12 < image >$
  []
 
-<./images/image_component.png, id=346, 797.98125pt x 770.88pt>
+<./images/image_component.png, id=336, 797.98125pt x 770.88pt>
 File: ./images/image_component.png Graphic file (type png)
 <use ./images/image_component.png>
 Package pdftex.def Info: ./images/image_component.png  used on input line 389.
 (pdftex.def)             Requested size: 142.26378pt x 137.42323pt.
 [10 <./images/advanced_component.png>] [11 <./images/image_component.png>]
-<./images/code_component_1.png, id=366, 807.015pt x 706.13812pt>
+<./images/code_component_1.png, id=357, 807.015pt x 706.13812pt>
 File: ./images/code_component_1.png Graphic file (type png)
 <use ./images/code_component_1.png>
-Package pdftex.def Info: ./images/code_component_1.png  used on input line 436.
+Package pdftex.def Info: ./images/code_component_1.png  used on input line 430.
 
 (pdftex.def)             Requested size: 142.26378pt x 124.4811pt.
-
-[12]
-<./images/code_component_2.png, id=378, 805.50937pt x 415.5525pt>
+<./images/code_component_2.png, id=358, 805.50937pt x 415.5525pt>
 File: ./images/code_component_2.png Graphic file (type png)
 <use ./images/code_component_2.png>
-Package pdftex.def Info: ./images/code_component_2.png  used on input line 440.
+Package pdftex.def Info: ./images/code_component_2.png  used on input line 432.
 
 (pdftex.def)             Requested size: 142.26378pt x 73.38855pt.
 
+[12 <./images/code_component_1.png> <./images/code_component_2.png>]
 
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 454.
+LaTeX Warning: Reference `kodmintak_formazas' on page 13 undefined on input lin
+e 441.
 
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 458.
-
-[13 <./images/code_component_1.png> <./images/code_component_2.png>]
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 478.
-
-[14] [15]
-<./images/db_model.png, id=407, 462.22687pt x 234.8775pt>
-File: ./images/db_model.png Graphic file (type png)
-<use ./images/db_model.png>
-Package pdftex.def Info: ./images/db_model.png  used on input line 528.
-(pdftex.def)             Requested size: 390.0pt x 198.1774pt.
- [16 <./images/db_model.png (PNG copy)>] [17]
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 584.
-
-
-Overfull \hbox (25.85205pt too wide) in paragraph at lines 592--593
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (32.90039pt too wide) in paragraph at lines 595--596
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (103.38379pt too wide) in paragraph at lines 598--599
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[18]
-Overfull \hbox (25.85205pt too wide) in paragraph at lines 611--612
+[13]
+Overfull \hbox (4.70703pt too wide) in paragraph at lines 474--475
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 621.
-[19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 621.
+[14]
+<./images/interactive_not_completed.png, id=404, 807.015pt x 575.14874pt>
+File: ./images/interactive_not_completed.png Graphic file (type png)
+<use ./images/interactive_not_completed.png>
+Package pdftex.def Info: ./images/interactive_not_completed.png  used on input 
+line 516.
+(pdftex.def)             Requested size: 142.26378pt x 101.38972pt.
+<./images/interactive_correct.png, id=406, 804.00375pt x 575.14874pt>
+File: ./images/interactive_correct.png Graphic file (type png)
+<use ./images/interactive_correct.png>
+Package pdftex.def Info: ./images/interactive_correct.png  used on input line 5
+25.
+(pdftex.def)             Requested size: 142.26378pt x 101.76709pt.
+<./images/interactive_incorrect.png, id=407, 810.02625pt x 575.14874pt>
+File: ./images/interactive_incorrect.png Graphic file (type png)
+<use ./images/interactive_incorrect.png>
+Package pdftex.def Info: ./images/interactive_incorrect.png  used on input line
+ 527.
+(pdftex.def)             Requested size: 142.26378pt x 101.01234pt.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\H' on input line 536.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\H' on input line 540.
+
+[15 <./images/interactive_not_completed.png> <./images/interactive_correct.png>
+ <./images/interactive_incorrect.png>]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\H' on input line 560.
+
+[16] [17]
+<./images/db_model.png, id=436, 462.22687pt x 234.8775pt>
+File: ./images/db_model.png Graphic file (type png)
+<use ./images/db_model.png>
+Package pdftex.def Info: ./images/db_model.png  used on input line 610.
+(pdftex.def)             Requested size: 390.0pt x 198.1774pt.
+ [18 <./images/db_model.png (PNG copy)>] [19]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\H' on input line 666.
+
+
+Overfull \hbox (25.85205pt too wide) in paragraph at lines 674--675
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (32.90039pt too wide) in paragraph at lines 677--678
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (103.38379pt too wide) in paragraph at lines 680--681
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[20]
+Overfull \hbox (25.85205pt too wide) in paragraph at lines 693--694
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 703.
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 703.
  (./diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 621.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 621.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 703.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 703.
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
-(rerunfilecheck)             Checksum: 9CF2A143273F4AF26D4DEEBDF0CF8F35;2630.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 621.
+(rerunfilecheck)             Checksum: 7711D1E9836AF6140D547DDF2515A7A2;2478.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 703.
  ) 
 Here is how much of TeX's memory you used:
- 21550 strings out of 492163
- 380066 string characters out of 6122411
- 676378 words of memory out of 5000000
- 25512 multiletter control sequences out of 15000+600000
+ 21615 strings out of 492163
+ 381281 string characters out of 6122411
+ 675417 words of memory out of 5000000
+ 25554 multiletter control sequences out of 15000+600000
  543181 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,5n,67p,787b,1836s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,10n,67p,787b,1836s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Program Files/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<c:/Program Files/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmmi12.pfb><c:/Program Files/texlive/2019/texmf-dist/fonts/type1/public/amsfont
@@ -817,10 +850,10 @@ e1/public/cm-super/sfbx1728.pfb><c:/Program Files/texlive/2019/texmf-dist/fonts
 onts/type1/public/cm-super/sfrm1200.pfb><c:/Program Files/texlive/2019/texmf-di
 st/fonts/type1/public/cm-super/sfrm2074.pfb><c:/Program Files/texlive/2019/texm
 f-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on diplomamunka.pdf (22 pages, 634287 bytes).
+Output written on diplomamunka.pdf (24 pages, 756650 bytes).
 PDF statistics:
- 541 PDF objects out of 1000 (max. 8388607)
- 490 compressed objects within 5 object streams
- 205 named destinations out of 1000 (max. 500000)
- 324 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 576 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 228 named destinations out of 1000 (max. 500000)
+ 323 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -389,13 +389,9 @@ textView.setText(formattedText);
 		\includegraphics[width=5cm]{image_component}
 	\end{center}
 	
-	\subsection{Kódminták}
+	\subsection{Kódminták} \label{kodmintak}
 	
-	A programozás oktatásánál elengedhetetlen, hogy kódrészletekkel segítsük a megértést.
-	
-	\subsubsection{Formázás}
-	
-	A tananyagban lévő mintáknak egységes formázásúnak kell lenniük. Ezt úgy értem el, hogy előre definiáltam a színeket, amelyekkel a kód részeit kijelöltem. A következők kaptak saját kijelölőszínt:
+	A programozás oktatásánál elengedhetetlen, hogy kódrészletekkel segítsük a megértést. Az alkalmazásban lévő mintáknak egységes formázásúnak kell lenniük. Ezt úgy értem el, hogy előre definiáltam a színeket, amelyekkel a kód részeit kijelöltem. A következők kaptak saját kijelölőszínt:
 	
 	\begin{itemize}
 		\item A \textit{Java} nyelv kulcsszavai.
@@ -414,8 +410,6 @@ textView.setText(formattedText);
 	
 	Látható, hogy rengeteg formázási szabályt vezettem be. Ha ehhez hozzávesszük a kódminták nagy számát, akkor látszik, hogy a manuális formázás nem célszerű. Ezért erre  célra egy külön formázó programot készítettem, ami egy megadott mappában lévő \textit{Java} kódot átalakít olyan \textit{HTML} kóddá, ami a fent említett összes szabálynak eleget tesz. Ez a program reguláris kifejezések alapján azonosítja a listában látható kifejezéseket és elhelyezi körülöttük a színezést és a tördelést biztosító tageket.  
 	
-	\subsubsection{Megjelenítés}
-	
 	A fejezetekben és feladatokban kódmintát a $<code>$ tag segítségével definiálok. A tag belsejébe kell helyezni, azt a formázott kódot, amit az előző részben említett segédprogram ad eredményül.
 	
 	\bigskip
@@ -430,22 +424,110 @@ textView.setText(formattedText);
 	
 	A megjelenítésnél nehézséget okoz, hogy a kódmintákban kosszú sorok lehetnek, amelyen nem minden eszköz képernyőjén férnek el egy sorban, viszont a mintákat a rendszer nem tördelheti szabadon. Ezért az alkalmazás kódmintái vízszintesen görgethetőek, ha vannak bennül olyan sorok, amelyek nem férnek el a képernyőn.
 	
-	Itt látható néhány kódminta az alkalmazásból:
-	
+	\bigskip
 	\begin{center}
-		\includegraphics[width=5cm]{code_component_1}
+		\begin{tabular}{c c}
+			\includegraphics[width=5cm]{code_component_1}
+			&
+			\includegraphics[width=5cm]{code_component_2}
+		\end{tabular}
 	\end{center}
-
-	\begin{center}
-		\includegraphics[width=5cm]{code_component_2}
-	\end{center}
+	\bigskip
 	
 	A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync} részben írok.
 	
 	\subsection{Interaktív kódminták}
 	
-	...
+	Azért, hogy a tananyagot interaktívabbá tegyem, implementáltam a kódmintáknak olyan változatát is, ahol egyes szavak, vagy kifejezések hiányosak, kitöltésüket a felhasználó egy feladatkiírás alapján elvégezheti. Ez a komponens is \xml-ben van definiálva, és formázott kódot vár. A formázás folyamatáról a \ref{kodmintak_formazas}. részben írtam.
 	
+	Az interaktív kódmintának meg kell adni, hogy hol legyenek benne módosítható részek, mezők, melyek tartalmát a felhasználó átírhatja. Ezek megadásához a formázott kódba három alulvonás jelet kell beszúrni. Ahol a beolvasás során ezt a karaktersorozatot találja az alkalmazás, oda egy módosítható rész fog kerülni. Például így lehet megjeleníteni egy változódeklarálást, ahol a változó értéke módosítható lesz:
+	
+	\bigskip
+	\begin{lstlisting}[language=Java]
+int x = ___ ;
+	\end{lstlisting}  
+	\bigskip
+	
+	Az olvashatóság miatt itt nem tüntettem fel a formázást, egy valódi minta esetén \textit{HTML} tagek is szerepelnek a formázott kódban.
+	
+	A mezők azonosítása indexelés alapján történik. Mindegyik mezőhöz meg kell adni, hogy oda milyen megoldásokat vár az alkalmazás. Szintén megadható alapértelmezett tartalom, ilyenkor az adott mező nem üresen, hanem a megadott tartalommal jelenik meg. Ez felhasználható például olyan interaktív minta megadására, ahol a felhasználó dolga a kódrészlet kijavítása, nem pedig egyszerűen a kitöltése.
+	
+	Az interaktív kódmintákat a következő \xml struktúrával lehet megadni:
+	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+<interactive instruction=[Kitöltési instrukció]>
+ <data>
+  [Formázott kód, mezőket jelölő karakterekkel]
+ </data>
+ <answer place=[Index]>[Válasz]</answer>
+ ...
+ <answer place=[Index]>[Válasz]</answer>
+</interactive>
+	\end{lstlisting}
+	\bigskip
+	
+	Egy indexhez több $<answer>$ tag is tartozhat, ilyenkor az adott mezőnek több megoldása is van. Az opcionális alapértelmezett tartalmakat $<default>$ tagek közt kell megadni:
+	
+	\bigskip % Ide nem írok language jelölőt, mert valamiért kijelöli a default szót
+	\begin{lstlisting}
+<default place=[Index]>[Alapértelmezett érték]</default>
+	\end{lstlisting}
+	\bigskip
+	
+	Amikor a fent megadott módon elkezdtem az interaktív minták megírását, hamar rájöttem, hogy ez az eszköztár sokszor még a legegyszerűbb feladatok megadásához is kevés. Vegyük a következő példát:
+	
+	Az utasítás az, hogy egészítsük ki a kapott kódmintát, méghozzá úgy, hogy a változó végső értéke legyen 8!
+	
+	\bigskip
+	\begin{lstlisting}[language=Java]
+	int num = ___ ;
+	num = num ___ 5 ;
+	\end{lstlisting}  
+	\bigskip
+	
+	Látható, hogy több megoldás is van:
+	
+	\begin{itemize}
+		\item Az első mezőbe 3, a másodikba \textit{+} beírásával az eredmény 8 lesz.
+		\item A 13 és a \textit{-} jel kombinációja is helyes.
+		\item Nyolcat kapunk továbbá a 40 és a \textit{\%} megadásával is.
+	\end{itemize}
+	
+	A probléma azonban nem oldható meg annyival, hogy lehetséges megoldásként az első mezőhöz felvesszük a 3, 13 és 40 értékeket, a másodikhoz pedig a \textit{+}, \textit{-} és \textit{\%} szimbólumokat. Ebben az esetben ugyanis ezek helytelen kombinációját is elfogadná az alkalmazás, pedig csak a listában megadott kombinációk helyesek.
+	
+	Ezt a nehézséget úgy hidaltam át, hogy csoportosíthatóvá tettem a válaszokat. Egy csoportba tartozó válaszok csak együtt lesznek elfogadva. Az előző példa válaszait így a következőképpen lehet elkódolni:
+	
+	\bigskip
+	\begin{lstlisting}
+<answer place="0" group="add">3</answer>
+<answer place="1" group="add">+</answer>
+<answer place="0" group="subtract">13</answer>
+<answer place="1" group="subtract">-</answer>
+<answer place="0" group="div">40</answer>
+<answer place="1" group="div">/</answer>
+	\end{lstlisting}
+	\bigskip
+	
+	Most bemutatom, hogy miként jelenik meg egy interaktív minta az alkalmazáson belül. Az itt látható példa az egyszerűbbek közé tartozik, a felhasználónak egy mezőt kell benne kitöltenie:
+	
+	\bigskip
+	\begin{center}
+		\includegraphics[width=5cm]{interactive_not_completed}
+	\end{center}
+	\bigskip
+	
+	A bal alsó sarokban lévő ikonok a \ref{kodmintak} fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzete állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek:
+	
+	\bigskip
+	\begin{center}
+		\begin{tabular}{c c}
+			\includegraphics[width=5cm]{interactive_correct}
+			&
+			\includegraphics[width=5cm]{interactive_incorrect}
+		\end{tabular}
+	\end{center}
+	\bigskip
 	
 	\subsection{Kérdések}\label{kerdesek}
 	
