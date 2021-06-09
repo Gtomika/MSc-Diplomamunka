@@ -82,15 +82,13 @@
 
 	\section{A diplomamunka célja}
 	
-	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra.
+	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két fő komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra. 
 
-	\subsection{Követelmények a tananyaggal kapcsolatban}
+	A tananyagnak strukturáltnak kell lennie, hogy a felhasználó könnyen tudjon navigálni benne. A programozás alapjaitól kell kezdődnie, hogy teljesen kezdők számára is használható lehessen. Fontos, hogy a tananyag csak olyan ismeretekre hivatkozzon, amik már a korábbi fejezetekben be lettek mutatva. Lenniük kell számonkéréseknek is, amelyekkel a felhasználó megbizonyosodhat róla, hogy megértette-e az anyagot. A tananyagnak elérhetőnek kell lennie magyar nyelven.
 	
-	A tananyagnak strukturáltnak kell lennie, hogy a felhasználó könnyen tudjon navigálni benne. A programozás alapjaitól kell kezdődnie, hogy teljesen kezdők számára is használható lehessen. Fontos, hogy a tananyag csak olyan ismeretekre hivatkozzon, amik már a korábbi fejezetekben be lettek mutatva. Lenniük kell számonkéréseknek is, amelyekkel a felhasználó megbizonyosodhat róla, hogy megértette-e az anyagot. 
-
-	\subsection{Az alkalmazás követelményei}
+	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot, a struktúra megőrzésével megjeleníteni. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni. Az alkalmazás által támogatott nyelvek (lokalizáció) között ott kell lennie a magyarnak.
 	
-	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot a struktúráját megőrizve megjelenítse. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni.
+	A két fő komponens tehát az alkalmazás és a tananyag. Az első verziók mindössze ezekből épültek fel. Ahogy azonban haladtam a fejlesztés folyamatával, világossá vált, hogy további komponensekre is szükség van, ha az általam tervezett funkciókat meg szeretném valósítani. Ilyen további komponens lesz például egy kis asztali alkalmazás, ami a telefon és a számítógép közti szövegmegosztáshoz szükséges, és egy szerver alkalmazás, ami a beépített programozó funkciót működteti. Ezekről a későbbiekben részletesen írok. 
 	
 	\section{A tananyag struktúrája}  
 	
@@ -190,7 +188,7 @@
 </resources>
 	\end{lstlisting}
 	
-	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{torzs_kodmintak_kerdesek}. részben írok részletesen.
+	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{android_alk_felepites}. részben írok részletesen.
 	
 	\subsection{Feladat}\label{feladat}
 	
@@ -228,7 +226,7 @@
 	\end{lstlisting}
 	\bigskip
 
-	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{torzs_kodmintak_kerdesek}. részben írok részletesen.
+	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{android_alk_felepites}. részben írok részletesen.
 
 	\subsection{Vizsga}\label{vizsga}
 	
@@ -282,7 +280,7 @@
 	
 	A fejezetek és feladatok nem támogatják ezt a funkciót, mivel ezek sokkal rövidebb terjedelműek.
 	
-	\section{Törzstartalom, kódminták és kérdések}\label{torzs_kodmintak_kerdesek}
+	\section{Az Android alkalmazás felépítése}\label{android_alk_felepites}
 	
 	Már leírtam a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
 	
@@ -491,7 +489,7 @@ int x = ___ ;
 	\begin{itemize}
 		\item Az első mezőbe 3, a másodikba \textit{+} beírásával az eredmény 8 lesz.
 		\item A 13 és a \textit{-} jel kombinációja is helyes.
-		\item Nyolcat kapunk továbbá a 40 és a \textit{\%} megadásával is.
+		\item Nyolcat kapunk továbbá a 40 és a \textit{/} megadásával is.
 	\end{itemize}
 	
 	A probléma azonban nem oldható meg annyival, hogy lehetséges megoldásként az első mezőhöz felvesszük a 3, 13 és 40 értékeket, a másodikhoz pedig a \textit{+}, \textit{-} és \textit{\%} szimbólumokat. Ebben az esetben ugyanis ezek helytelen kombinációját is elfogadná az alkalmazás, pedig csak a listában megadott kombinációk helyesek.
@@ -529,6 +527,8 @@ int x = ___ ;
 	\end{center}
 	\bigskip
 	
+	A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
+	
 	\subsection{Kérdések}\label{kerdesek}
 	
 	...
@@ -549,17 +549,15 @@ int x = ___ ;
 	
 	...
 	
-	\section{Beolvasási folyamat}
+	\subsection{Beolvasási folyamat}
 	
 	...
 	
-	\section{A tananyag tárolása}\label{tananyag_tarolasa}
+	\subsection{A tananyag tárolása}\label{tananyag_tarolasa}
 	
 	A tananyagot a forráskódtól el kell különíteni, viszont futásidőben elérhetőnek kell lennie, hogy a felhasználó kéréseit ki lehessen szolgálni. Fontos az egységes elkódolás. Például minden kurzust leíró erőforrásfájlnak azonos felépítésűnek kell lennie: meg kell mondaniuk mely fejezetek, feladatok és vizsga tartozik hozzájuk.
 	
-	\subsection{Android erőforráskezelés}
-	
-	Az \textit{Android} alapelve, hogy az erőforrásfájlok legyenek elkülönítve a kódtól, és erre több eszközt is kínál. Az első a \textit{Resource System}. Ebben olyan erőforrásfájlok tárolhatóak, melyekre a legtöbb alkalmazásnak szüksége van:
+	Az \textit{Android} alapelve, hogy az erőforrásfájlok legyenek elkülönítve a kódtól, és erre több eszközt is kínál. Az első a \textit{Resource System} (erőforrás rendszer). Ebben olyan erőforrásfájlok tárolhatóak, melyekre a legtöbb alkalmazásnak szüksége van:
 	
 	\begin{itemize}
 		\item Grafikus elemek (\textit{drawable}): lehetnek ikonok, képek, hátterek, stb.
@@ -568,11 +566,15 @@ int x = ___ ;
 		\item Még sok további előre definiált kategória: stílusok, színek, stb.
 	\end{itemize} 
 
-	A \textit{Resource System} nem a legmegfelelőbb mód a tananyag tárolására, mivel az egyetlen gyakori, előre definiált kategóriába sem esik. 
+	Az erőforrás rendszer nem a legmegfelelőbb mód a tananyag tárolására, mivel az egyetlen gyakori, előre definiált kategóriába sem esik. Ennek ellenére az első verziókban az erőforrás rendszert használtam, mivel egyszerűen nem tudtam arról, hogy van jobb alternatíva.
 	
-	Biztosított továbbá az \textit{Asset System}, mely annyiban tér el az előbb bemutatott rendszertől, hogy itt nincsenek kategóriák, be tud fogadni bármilyen erőforrásfájlt, amelyre egy alkalmazásnak szüksége lehet. Ez a legalkalmasabb módszer a tananyag tárolására.
+	Biztosított továbbá az \textit{Asset System} (eszköz rendszer), mely annyiban tér el az előbb bemutatott erőforrás rendszertől, hogy itt nincsenek kategóriák, be tud fogadni bármilyen erőforrásfájlt, amelyre egy alkalmazásnak szüksége lehet. Ez tehát alkalmasabb módszer a tananyag tárolására, mint az erőforrás rendszer, és át is tértem ennek a használatára.
 	
-	\section{Adatbázis}
+	Egy további érdekes lehetőség a tananyag tárolására a szerver alkalmazás használata. A szerver biztosíthatna egy \textit{REST API}-t, amellyel az alkalmazás le tudná kérni a tananyag tartalmait. Ennek a módszernek az előnye, hogy így az alkalmazásból nem nyerhetőek ki a tananyagot alkotó \xml fájlok, mivel azok a szerveren vannak. Továbbá az alkalmazás mérete is csökkenne. Hátrány, hogy az alkalmazás alapvető használata internettől függővé válna, anélkül még egy fejezetet sem lehetne betölteni. 
+	
+	A fejlesztés során ez a tárolási lehetőség egyáltalán nem merült fel. Ennek oka, hogy amikor az alkalmazás kezdeti változatát terveztem, akkor még nem gondolkodtam szerver alkalmazásban, az csak egy később hozzáadott funkció miatt készült el. Ahhoz, hogy a tananyagot a fejlesztés késői státuszában átmozgassam a szerverre, az alkalmazás nagyon jelentős átírására lett volna szükség, ami szerintem nem érte volna meg a ráfordított időt. 
+	
+	\subsection{Adatbázis}
 	
 	Az alkalmazásnak képesnek kell lennie eltárolnia felhasználó előrehaladását a tananyagban. A következő adatokat kell elmenteni:
 	
@@ -583,8 +585,6 @@ int x = ___ ;
 	\end{itemize}
 	
 	A \ref{tananyag_tarolasa} fejezetben említett \textit{Resource System} és \textit{Asset System} futásidőben csakis fájl olvasást tesznek lehetővé, írást nem. Ezért egy relációs adatbázist használok. \textit{NoSQL} adatbázis is lehetne, arról hogy miért a választott módszer mellett döntöttem, a \ref{sqlite_roon} fejezetben írok.
-	 
-	\subsection{Státusz annotáció}\label{statusz}
 	
 	Az előrehaladást a programban és az adatbázisban is egységesen jelölöm. Erre egy saját \textit{Java} annotációt használok:
 	
@@ -602,7 +602,7 @@ public @interface Status {
 	
 	Az \textit{@IntDef} annotáció listázza, hogy mik lehetnek a lehetséges értékei egy olyan változónak, melyek \textit{@Status} annotációval látunk el. Ez fordítási időben ellenőrzésre kerül. Például ha a felhasználó először teljesít egy vizsgát, akkor annak státusza \textit{UNLOCKED}-ról \textit{COMPLETED}-re for változni az adatbázisban.
 	 
-	\subsection{Struktúra}
+	\subsubsection{Struktúra}\label{adatbazis_struktura}
 	 
 	Az adatbázis szerkezete egyszerű. A tananyag négy egységéhez (kurzus, fejezete, feladat, vizsga) rendel egy-egy táblát, és ezen táblák rekordjai tárolják az előrehaladást. Így néz ki az egyed-kapcsolat diagram:
 	
@@ -612,7 +612,7 @@ public @interface Status {
 	
 	Táblák közti kapcsolatra, külső kulcsokra nincs szükség. Az, hogy mely fejezetek és feladatok tartoznak egy-egy kurzushoz nem az adatbázisban van eltárolva, hanem a tananyagot definiáló \xml dokumentumokban (mivel nem változik dinamikusan).
 	
-	Az azonosítók megegyeznek az \xml dokumentumokban használt azonosítókkal. A státusz mezők mindig a \ref{statusz} részben definiált annotáció valamelyik értékét tartalmazzák.
+	Az azonosítók megegyeznek az \xml dokumentumokban használt azonosítókkal. A státusz mezők mindig a fent definiált \textit{@Status} annotáció valamelyik értékét tartalmazzák.
 	
 	A vizsgák esetén vannak további dinamikusan változó adatok:
 	
@@ -621,7 +621,7 @@ public @interface Status {
 		\item Legmagasabb pontszám: Dinamikusan változó, ezért az adatbázisban kell tárolni.
 	\end{itemize}
 	
-	\subsection{Megvalósítás: SQLite és Room}\label{sqlite_roon}
+	\subsubsection{Megvalósítás: SQLite és Room}\label{sqlite_roon}
 
 	Az Android rendszer minden alkalmazás számára biztosít egy \textit{SQLite} relációs adatbázist. Számomra egyértelmű volt, hogy ezt fogom használni. Az \textit{SQLite} egy olyan adatbázis kezelő, amely nem kliens-szerver alapú, hanem közvetlenül az őt használó alkalmazásba van beágyazva. 
 	
@@ -695,6 +695,14 @@ new Thread(() -> {
  dao.addChapterStatus(cs);
 }).start();
 	\end{lstlisting}
+	
+	\subsubsection{Megvalósítás: szerver alkalmazásban}
+	
+	Ahogy a tananyag tárolásával (\ref{tananyag_tarolasa}) kapcsolatban is felmerült a szerver használata, úgy itt is megjelenik, mint lehetőség. Az adatbázist kezelhetné a szerver, melyet az alkalmazás \textit{REST API} segítségével ér el. Ennek előnye, hogy az adatbázis biztonságosabbá válna. Míg az \textit{Android}-os eszközön lévő adatbázist a felhasználó el tudja érni és módosíthatja, addig a szerverhez nincs hozzáférése. Ez az előny azonban nem olyan jelentős, mivel ez az alkalmazás nem biztonság kritikus. 
+	
+	Hátrány, hogy a tananyagban történő előrehaladás mentése így internet kapcsolatot igényel. Az adatbázis struktúrája is bonyolódna. A \ref{adatbazis_struktura}. fejezetben látható modell egy felhasználót ír le, ilyenből a szervernek többet is kezelnie kellene.
+	
+	A szerveroldali adatbázis nem merült fel valós lehetőségként, ugyan azon okok miatt, mint ahogy a tananyag tárolásához sem használtam a szervert. Az adatbázis tervezésekor még nem létezett szerver alkalmazás, az áttérés pedig nem biztosít jelentős előnyöket, és nagy munkával jár.
 
 	\section{ClipSync funkció}\label{clipsync}
 	
