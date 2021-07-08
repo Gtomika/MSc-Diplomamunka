@@ -78,7 +78,25 @@
 	
 	\section{Bevezető}
 
-	...
+	Mindig is érdekelt, hogy a programozási ismereteimet hogyan tudom hatékonyan átadni kezdő programozóknak, vagy olyanoknak akiknek egyáltalán nincs e téren tapasztalatuk. Foglakoztat ezen kívül az androidos okos eszközökre történő alkalmazás fejlesztés is, ezek elterjedtsége miatt. Ezt a két érdeklődési körömet szerettem volna 
+	összekapcsolni, egy programozást oktató Androidos alkalmazás létrehozásával.
+	
+	Ennek az alkalmazásnak az ötlete, és első verziói időben messze megelőzik a jelen dolgozatot. Amikor a fejlesztésbe belekezdtem, még igen csekély Android fejlesztéssel kapcsolatos ismerettel rendelkeztem, ez az egyik első alkalmazásom. Ennek megfelelő volt az állapota is. Sok helyen félkész, hibákkal teli, nem megfelelően 
+	tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet, azonban mind a kettő megtörtént.
+	
+	Ez egy több éves fejlesztési folyamat része, melynek során feljavítottam és modernizáltam a kódot, teszteseteket készítettem és a tananyagot is jelentősen bővítettem és pontosítottam.
+	
+	Az alkalmazás és a tanagyag eredetileg angol nyelven készült. A témavezetőm tanácsára magyar fordítást készítettem és most az alkalmazás és a teljes tananyag két nyelven is elérhető. Az androidos világban ezt úgy mondják, hogy lokalizált alkalmazás. A futtató eszköz beállított országától és beállításaitól függ, hogy kinél milyen 
+	nyelven fog megnyílni a program.
+	
+	Az alkalmazást nyilvánosan elérhetővé és ingyenessé tettem. Ehhez az androidos irányelveknek megfelelően a \textit{Google Play Store}-t (\textit{Play} áruházat) használtam. Egy \textit{QR} kód segítségével megnyitható az alkalmazás áruházi adatlapja, ami szintén lokalizált (lásd \ref{qr}. ábra).
+	
+	 \begin{figure}[h!]
+	 	\centering
+	 	\includegraphics[width=5cm]{learn_java_qr_code}
+	 	\caption{\textit{QR} kód, amivel elérhető az alkalmazás.}
+	 	\label{qr}
+	 \end{figure}
 
 	\section{A diplomamunka célja}
 	
@@ -88,11 +106,11 @@
 	
 	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot, a struktúra megőrzésével megjeleníteni. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni. Az alkalmazás által támogatott nyelvek (lokalizáció) között ott kell lennie a magyarnak.
 	
-	A két fő komponens tehát az alkalmazás és a tananyag. Az első verziók mindössze ezekből épültek fel. Ahogy azonban haladtam a fejlesztés folyamatával, világossá vált, hogy további komponensekre is szükség van, ha az általam tervezett funkciókat meg szeretném valósítani. Ilyen további komponens lesz például egy kis asztali alkalmazás, ami a telefon és a számítógép közti szövegmegosztáshoz szükséges, és egy szerver alkalmazás, ami a beépített programozó funkciót működteti. Ezekről a későbbiekben részletesen írok. 
+	A két fő komponens tehát az alkalmazás és a tananyag. Az első verziók mindössze ezekből épültek fel. Ahogy azonban haladtam a fejlesztés folyamatával, világossá vált, hogy további komponensekre is szükség van, ha az általam tervezett funkciókat meg szeretném valósítani. Ilyen további komponens lesz például egy kis asztali alkalmazás, ami a telefon és a számítógép közti szövegmegosztáshoz szükséges, és egy formázó program, ami kódmintákat olvasható formába alakítja. Ezekről a későbbiekben írok.
 	
 	\section{A tananyag struktúrája}  
 	
-	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A következő alfejezetekben részletesen leírom, hogy ezek mit takarnak.
+	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A következő alfejezetekben részletesen leírom, hogy ezek mit takarnak, hogyan kapcsolódnak egymáshoz és milyen formában kerülnek tárolásra.
 		
 	\subsection{XML}
 	
@@ -280,6 +298,10 @@
 	
 	A fejezetek és feladatok nem támogatják ezt a funkciót, mivel ezek sokkal rövidebb terjedelműek.
 	
+	\section{A tananyag tartalma}
+	
+	TODO: konkrét kurzusok fejezetek bemutatása, tervek...
+	
 	\section{Az Android alkalmazás felépítése}\label{android_alk_felepites}
 	
 	Már leírtam a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
@@ -321,11 +343,14 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	Itt látható egy rész az \textit{input beolvasása} fejezetből, ami egy címsorból és szövegblokkból áll:
+	Egy példáért lásd az \ref{title_component_figure} ábrát.
 	
-	\begin{center}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[width=5cm]{title_text_component}
-	\end{center}
+		\caption{Részlet az \textit{input beolvasása} fejezetből (angol változat): címsor és szöveg.}
+		\label{title_component_figure}
+	\end{figure}
 	
 	Már ezzel a két komponenssel meg lehet jeleníteni a tananyag nagy részét, de azért hogy a fejezetek kevésbé legyenek monotonok, további komponenseket is implementáltam, melyek "megtörik" a szöveget. 
 	
@@ -343,12 +368,14 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 
-	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt.
-	Az adott fejezetet megnyitva ez a rész így fog megjelenni:
+	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt. Ezt lásd a \ref{boxed_component_figure} ábrán.
 	
-	\begin{center}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[width=5cm]{boxed_component}
-	\end{center}
+		\caption{Részlet a \textit{Metódusok} fejezetből (angol változat): bekeretezett szöveg.}
+		\label{boxed_component_figure}
+	\end{figure}
 	
 	\subsubsection{Magas szintű tartalom}
 	
@@ -364,11 +391,14 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	Ilyen jelzővel láttam el például a \textit{absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével.  Ez részletesebben egy lésőbbi kurzusban, a \textit{Java 8} nevűben van leírva.
+	Ilyen jelzővel láttam el például a \textit{absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével (\ref{advanced_component_figure}. ábra). Ez részletesebben egy későbbi kurzusban, a \textit{Java 8} nevűben van leírva.
 	
-	\begin{center}
+	\begin{figure}[h!]
+		\centering
 		\includegraphics[width=5cm]{advanced_component}
-	\end{center}
+		\caption{Részlet a \textit{Interfészek} fejezetből (angol változat): magas szintű tartalom.}
+		\label{advanced_component_figure}
+	\end{figure}
 	
 	Ebben a komponensben még egy link is található, ami a megfelelő oldalra viszi a felhasználót (a telefon alapértelmezett böngészőjében).
 	
@@ -381,11 +411,14 @@ textView.setText(formattedText);
 	<image name="[Kép neve]"/>
 	\end{lstlisting}
 	
-	Például itt látható egy részlet a \textit{tömbök} fejezetből, ahol az anyag megértéset egy képpel segítem elő:
+	Például \textit{tömbök} fejezetben a több dimenziós tömbök megértését képpel segítettem elő, amint az a \ref{image_component_figure}. ábrán látható.
 	
-	\begin{center}
+	\begin{figure}
+		\centering
 		\includegraphics[width=5cm]{image_component}
-	\end{center}
+		\caption{Részlet a \textit{Tömbök} fejezetből: grafikus tartalom.}
+		\label{image_component_figure}
+	\end{figure}
 	
 	\subsection{Kódminták} \label{kodmintak}
 	
@@ -422,17 +455,15 @@ textView.setText(formattedText);
 	
 	A megjelenítésnél nehézséget okoz, hogy a kódmintákban kosszú sorok lehetnek, amelyen nem minden eszköz képernyőjén férnek el egy sorban, viszont a mintákat a rendszer nem tördelheti szabadon. Ezért az alkalmazás kódmintái vízszintesen görgethetőek, ha vannak bennül olyan sorok, amelyek nem férnek el a képernyőn.
 	
-	\bigskip
-	\begin{center}
-		\begin{tabular}{c c}
-			\includegraphics[width=5cm]{code_component_1}
-			&
-			\includegraphics[width=5cm]{code_component_2}
-		\end{tabular}
-	\end{center}
-	\bigskip
+	\begin{figure}
+		\centering
+		\includegraphics[width=5cm]{code_component_1}
+		\includegraphics[width=5cm]{code_component_2}
+		\caption{Kódminták az alkalmazásból (angol változat).}
+		\label{code_component_figure}
+	\end{figure}
 	
-	A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync} részben írok.
+	Megjelenített kódmintákért lásd a \ref{code_component_figure}. ábrát. A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync} részben írok.
 	
 	\subsection{Interaktív kódminták}
 	
@@ -507,51 +538,157 @@ int x = ___ ;
 	\end{lstlisting}
 	\bigskip
 	
-	Most bemutatom, hogy miként jelenik meg egy interaktív minta az alkalmazáson belül. Az itt látható példa az egyszerűbbek közé tartozik, a felhasználónak egy mezőt kell benne kitöltenie:
+	Példák alap és javított állapotban lévő kódmintákról a \ref{interactive_component_figure}. és a \ref{interactive_component_completed_figure}. ábrákon láthatóak. 
 	
-	\bigskip
-	\begin{center}
+	\begin{figure}
+		\centering
 		\includegraphics[width=5cm]{interactive_not_completed}
-	\end{center}
-	\bigskip
+		\caption{Interaktív kódminta az alkalmazásból (angol változat).}
+		\label{interactive_component_figure}
+	\end{figure}
 	
-	A bal alsó sarokban lévő ikonok a \ref{kodmintak} fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzete állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek:
+	\begin{figure}
+		\centering
+		\includegraphics[width=5cm]{interactive_correct}
+		\includegraphics[width=5cm]{interactive_incorrect}
+		\caption{A \ref{interactive_component_figure}. ábrán látható interaktív kódminta, javítva (angol változat).}
+		\label{interactive_component_completed_figure}
+	\end{figure}
 	
-	\bigskip
-	\begin{center}
-		\begin{tabular}{c c}
-			\includegraphics[width=5cm]{interactive_correct}
-			&
-			\includegraphics[width=5cm]{interactive_incorrect}
-		\end{tabular}
-	\end{center}
-	\bigskip
-	
-	A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
+	A bal alsó sarokban lévő ikonok a \ref{kodmintak} fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzete állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek. A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
 	
 	\subsection{Kérdések}\label{kerdesek}
 	
-	...
+	A kérdések hasonló elven működnek, mint a fejezeteben megjelenő komponensek, a kérdések azonban csak a vizsgákban fordulnak elő. Szintén \xml-ben vannak definiálva.
 	
-	\subsubsection{feleletválaszós kérdés egy válaszlehetőséggel}
+	Míg a fejezeteket és feladatokat megadó \xml fájlokban minden komponens felhasználásra kerül, méghozzá a megadott sorrendben, addig a vizsgákat definiáló fájlokban a kérdések sorrendje nem számít, és az sem biztos, hogy mind meg is fog jelenni. Ennek oka a változatosság. Ha egy vizsga megnyitásakor mindig ugyanazok a kérdések, ugyanabban a sorrendben jelennének meg, az kiszámítható lenne.
 	
-	...
+	Ennek elkerülésére az alkalmazás a vizsga megnyitásakor az \xml értelmezése után egy véletlenszerű, előre megadott méretű listát állít össze a kérdésekből. Az egy vizsgához tartozó kérdés mennyiség szintén a vizsgát leíró \xml-ben van megadva, ez jellemzően 20-25 kérdés.
 	
-	\subsubsection{feleletválaszós kérdés több válaszlehetőséggel}
+	Ahogy a fejezetekben megjelenő komponenseknek, úgy a kérdéseknek is több típusa van. Ennek oka egyrészt a monotonitás megtörése, másrészt a különböző kérdéstípusok lehetőséget adnak a vizsga készítőjének, hogy sokféle kérdést fel tudjon tenni. Például, ha csak feleletválasztós kérdés lenne, akkor nem lehetne olyan kérdést feltenni, amiben írásos választ várunk.
 	
-	...
+	Minden kérdéstípusban közös, hogy tartalmazza a kérdés szövegét, a lehetséges és a helyes megoldásokat. Az azonban, hogy ezek minként vannak elkódolva, már az egyes fajtáktól függ. Most bemutatom a támogatott kérdéstípusokat.
+	
+	\subsubsection{Feleletválasztós kérdés egy válaszlehetőséggel}
+	
+	Ez a kérdéstípus tetszőleges számú lehetséges választ tud megjeleníteni, amelyek közül a felhasználó egyet jelölhet meg helyesként. Alap állapotában egyik válasz sincs megjelölve. A következőképpen van \xml-ben definiálva:
+	
+		\bigskip
+	\begin{lstlisting}[language=XML]
+<question type="single_choice">
+ <text>[A kérdés szövege]</text>
+ <answer>[Lehetséges válasz]</answer>
+ ...
+ <answer>[Lehetséges válasz]</answer>
+ <correct>[Helyes válasz száma]</correct>
+</question>
+	\end{lstlisting}
+	\bigskip
+	
+	Minden $<answer>$ tag elkódol egy lehetséges megoldást, a $<correct>$ tag pedig ezek közül a helyes válasz (0-tól számolt) indexe. Én jellemzően olyan kérdéseket írtam, ahol 3-4 válaszlehetőség van. 
+	
+	Az, hogy miként jelennek meg az alkalmazásban ezek a kérdések, a \ref{question_single_choice_figure} ábrán látható.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{question_single_choice}
+		\includegraphics[width=5cm]{question_single_choice_dark}
+		\caption{Feleletválasztós kérdések az alkalmazás angol változatából, normál és sötét témában.}
+		\label{question_single_choice_figure}
+	\end{figure}
+	
+	\subsubsection{Feleletválasztós kérdés több válaszlehetőséggel}
+	
+	Egy újabb feleletválasztós típus, éppen ezért sokban hasonlít a fent ismertettet egy választási lehetőséggel rendelkező kérdésre. A különbség, hogy ebben az esetben a felhasználó a megjelenített lehetséges válaszok közül bármyennyit megjelölhet helyesként.
+	
+	Az elkódolás ennek megfelelően változik. Több $<correct>$ tag is megjelenhet, de egyébként pontosan ugyan olyan, mint az egy választási lehetőséggel rendelkező kérdések esetén. Megjelenített kédések több válaszlehetőséggel a \ref{question_multi_choice_figure}. ábrán láthatóak.
+	
+ 	\begin{figure}[h!]
+ 		\centering
+ 		\includegraphics[width=5cm]{question_multi_choice}
+ 		\includegraphics[width=5cm]{question_multi_choice_dark}
+ 		\caption{Több válaszlehetőséges kérdések az alkalmazás angol változatából, normál és sötét témában.}
+ 		\label{question_multi_choice_figure}
+	 \end{figure}
 	
 	\subsubsection{Szöveges kérdés}
 	
-	...
+	A legösszetettebb kérdéstípus, ami szöveges választ vár a felhasználótól. \xml elkódolása (egyszerű esetben) a következő:
 	
+	\bigskip
+	\begin{lstlisting}[language=XML]
+<question type="text">
+ <text>[A kérdés szövege]</text>
+ <correct>[Elfogadott szöveges válasz]</correct>
+ ...
+ <correct>[Elfogadott szöveges válasz]</correct>
+</question>
+	\end{lstlisting}
+	\bigskip
+	
+	\noindent
+	Megfigyelhető, hogy itt nincsen $<answer>$ tag, mivel ez a kérdéstípus nem mutat lehetséges válaszokat a felhasználónak. $<correct>$ tagből több is támogatott, mindegyik esetén pontos egyezés lesz szükséges a felhasználó válaszával, hogy az el legyen fogadva.
+	
+	Amikor elkezdtem ténylegesen kérdéseket írni, rájöttem, hogy ez a fajta validáció rugalmatlan, és nagyon hosszú kérdés definíciókat eredményez. Például szeretném megkérdezni a felhasználótól, hogy \textit{minek a rövidítése a JDK}. A válasz persze \textit{Java Development Kit}, de mi történjem, ha a vizsgázó ezt kis betűkkel írja le, vagy esetleg csak az első szó lesz nagybetűs. Szerettem volna ezeket mind elfogadni, mivel teljesen helyes válaszok, ehhez azonban nagyon sokféle helyes választ kellett definiálnom, és még így is előfordulhat, hogy a felhasználó által beírt válasz helyes, de éppen nem lesz köztük.
+	
+	A probléma megoldására hoztam létre a nagybetűt figyelmen kívül hagyó kérdést, amit az $<ignoreCase>$ tag elhelyezésével lehet megadni:
+	
+	\begin{lstlisting}[language=XML]	
+<question type="text">
+ <text>Minek a rövidítése a JDK?</text>
+ <correct>Java Development Kit</correct>
+ <ignoreCase/>
+</question>
+	\end{lstlisting}
+	
+	\noindent
+	Egy sokkal nehezebb problémával szembesültem, amikor olyan kérdéseket kezdtem írni, amelyek valamilyen kódrészlet megadását kérik. Vegyük azt a példát, ahol adott egy $i$ nevű változó, és azt kérjük a felhasználótól, hogy írjon utasítást, ami ennek a változónak a $4$ értéket adja. A helyes válasz persze $i = 4;$, de a szóközök gondot jelenthetnek. Korrekt megoldás az is, ha egyáltalán nem írunk szóközt az egyenlőség jel elé, vagy után, de a Java fordító azt is elfogadja, ha 20 szóközt írunk elé, vagy mögé.
+	
+	Logikusnak tűnik egy $<ignoreSpace>$ tag bevezetése, ami majd minden szóközt töröl a felhasználó válaszából, és csak utána veti össze a helyes megoldással. A fenti példát megoldaná, viszont könnyen találhatunk olyat, ahol ez nem kivitelezhető. Tegyük fel, hogy egy olyan utasításra akarunk rákérdezni, ami deklarál egy $int$ típusú $i$ változót, és az értékét $0$-ra állítja. Ez nyilván $int \ i = 0;$ lesz. Ha azonban erre alkalmaznánk a szóközöket kidobó ellenőrzést, akkor az elfogadná a $inti=0;$ választ is, ami pedig érvénytelen.
+	
+	Ezt a nehézséget úgy oldottam meg, hogy a megoldásba elhelyezhetőek "fontos" szóközök, amiket az $<ignoreSpace>$ tag nem fog figyelmen kívül hagyni. Ha egy fontos szóköz hiányzik akkor a válasz nem lesz elfogadva. Itt látható a példa, ahol a fontos szóközöket jelölő $[s]$ karaktersorozatot illesztettem az $int$ és az $i$ közé:
+	
+	\begin{lstlisting}[language=XML]	
+<question type="text">
+ <text>...</text>
+ <correct>int[s]i = 0;</correct>
+ <ignoreSpace/>
+</question>
+	\end{lstlisting}
+	
+	\noindent
+	Megjegyzem, hogy a két módosító tag együtt is használható, de ez jellemzően nem szükséges, mert ha kódrészletre kérdezünk, akkor az abban lévő kulcsszavak esetén csak a kisbetűs írásmód helyes. Megjelenített szöveges kérdések a \ref{question_text_figure}. ábrán láthatóak.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{question_text}
+		\includegraphics[width=5cm]{question_text_dark}
+		\caption{Szöveges kérdések az alkalmazás angol változatából, normál és sötét témában.}
+		\label{question_text_figure}
+	\end{figure}
+
 	\subsubsection{Igaz-hamis kérdés}
 	
-	...
+	A kérdések írása során rengetegszer előjött az olyan feleletválasztós kérdés, ahol a két lehetséges válasz mindössze az $igaz$ és a $hamis$ volt. Erre az esetre külön típust készítettem, egyrészt azért, hogy a kérdés definíciója egyszerűsödjön, másrészt pedig, hogy a felhasználó számára is világosan látszódjon, hogy itt igaz-hamis kérdésről van szó. \xml elkódolása így néz ki:
 	
-	\subsection{Beolvasási folyamat}
+	\begin{lstlisting}[language=XML]	
+<question type="true_false">
+ <text>[A kérdés szövege]</text>
+ <correct>[Itt 'true' vagy 'false' állhat]</correct>
+</question>
+	\end{lstlisting}
 	
-	...
+	Ez a kérdéstípus a feleletválasztós helyett két gombot jelenít meg, ahogy az a \ref{question_true_false_figure}. ábrán látható.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{question_true_false}
+		\includegraphics[width=5cm]{question_true_false_dark}
+		\caption{Igaz-hamis kérdések az alkalmazás angol változatából, normál és sötét témában.}
+		\label{question_true_false_figure}
+	\end{figure}
+	
+	%\subsection{Beolvasási folyamat} --> kell-e ez?
 	
 	\subsection{A tananyag tárolása}\label{tananyag_tarolasa}
 	
@@ -570,9 +707,9 @@ int x = ___ ;
 	
 	Biztosított továbbá az \textit{Asset System} (eszköz rendszer), mely annyiban tér el az előbb bemutatott erőforrás rendszertől, hogy itt nincsenek kategóriák, be tud fogadni bármilyen erőforrásfájlt, amelyre egy alkalmazásnak szüksége lehet. Ez tehát alkalmasabb módszer a tananyag tárolására, mint az erőforrás rendszer, és át is tértem ennek a használatára.
 	
-	Egy további érdekes lehetőség a tananyag tárolására a szerver alkalmazás használata. A szerver biztosíthatna egy \textit{REST API}-t, amellyel az alkalmazás le tudná kérni a tananyag tartalmait. Ennek a módszernek az előnye, hogy így az alkalmazásból nem nyerhetőek ki a tananyagot alkotó \xml fájlok, mivel azok a szerveren vannak. Továbbá az alkalmazás mérete is csökkenne. Hátrány, hogy az alkalmazás alapvető használata internettől függővé válna, anélkül még egy fejezetet sem lehetne betölteni. 
+	Egy további érdekes lehetőség a tananyag tárolására egy szerver alkalmazás használata. A \textit{backend} biztosíthatna egy \textit{REST API}-t, amellyel az alkalmazás le tudná kérni a tananyag tartalmát. Ennek a módszernek az előnye, hogy így az alkalmazásból nem nyerhetőek ki a tananyagot alkotó \xml fájlok, mivel azok a szerveren vannak. Továbbá az alkalmazás mérete is csökkenne. Hátrány, hogy az alkalmazás alapvető használata internettől függővé válna, anélkül még egy fejezetet sem lehetne betölteni. 
 	
-	A fejlesztés során ez a tárolási lehetőség egyáltalán nem merült fel. Ennek oka, hogy amikor az alkalmazás kezdeti változatát terveztem, akkor még nem gondolkodtam szerver alkalmazásban, az csak egy később hozzáadott funkció miatt készült el. Ahhoz, hogy a tananyagot a fejlesztés késői státuszában átmozgassam a szerverre, az alkalmazás nagyon jelentős átírására lett volna szükség, ami szerintem nem érte volna meg a ráfordított időt. 
+	Valós lehetőségként ez a tárolási forma egyáltalán nem merült fel, mivel a tervezés során nem gondolkodtam szerver alkalmazásban.
 	
 	\subsection{Adatbázis}
 	
@@ -682,9 +819,10 @@ public interface ChapterDao {
 }
 	\end{lstlisting}
 
-	Bizonyos egyszerű műveletekre vannak előre adott annotációk, melyek automatikusan fogják generálni a a megfelelő \textit{SQL} utasítást (beszúrás, frissítés, törlés). Ezek azonban nem elegendőek, ezért a \textit{@Query} annotációval saját utasítást írhatunk. Ennek a tartalma fordítási időben ellenőrizve lesz. Megfigyelhető, hogy még arra is lehetőség van, hogy a kapott paraméterek értékét behelyettesítsük az \textit{SQL} utasításba.
+	Bizonyos egyszerű műveletekre vannak előre adott annotációk, melyek automatikusan fogják generálni a a megfelelő \textit{SQL} utasítást (beszúrás, frissítés, törlés). Ezek azonban nem elegendőek, ezért a \textit{@Query} annotációval saját utasítást írhatunk. Ennek a tartalma fordítási időben ellenőrizve lesz. Megfigyelhető, hogy még arra is lehetőség van, hogy a kapott paraméterek értékét behelyettesítsük az \textit{SQL} utasításba. A fenti kódban is látható egy saját utasítás, ami képes az adatbázisból egy fejezetet az azonosítója alapján lekérni.
 
-	Egy példa arra, hogy hogyan kombinálhatjuk ezeket az osztályokat az adatbázis módosítására:
+	Ezután az adatbázist ezzel az interfésszel módosíthatjuk, anélkül, hogy a kód más részeibe \textit{SQL} utasítást kelleni írni. Ez növeli a karbantarthatóságot és 
+	csökkenti az \textit{SQL} írásakor gyakran előforduló hibákat (elírt tábla vagy oszlop név). A következő kódminta például hozzáad egy új fejezetet az adatbázisba, ami elérhető lesz (\textit{UNLOCKED} státusz):
 	
 	\begin{lstlisting}[language=Java]
 //egy új szálon
@@ -696,16 +834,124 @@ new Thread(() -> {
 }).start();
 	\end{lstlisting}
 	
+	Itt nagyon fontos, hogy az adatbázis művelet új szálon fut és nem az alkalmazás főszálán. A főszálon futtatott hosszú művelet megakasztaná a program felhasználói felületét is, amitől az úgy tűnik, mintha "lefagyott" volna. Az Android újabb verziói esetén már maga a rendszer is tiltja, hogy ilyen műveleteket 
+	a főszálon végezzünk, ezzel kényszerítve a programozókat reszponzív alkalmazások írására. Ez a korlátozás más típusú műveletekre is érvényben van, például hálózati operációt sem lehet főszálon végezni.
+	
+	Megjegyzem, hogy a fenti kódmintában az olvashatóság érdekében a háttérszálon történő futtatás egyszerű formában látható (\textit{Thread} osztály). Az alkalmazás kódjában ez összetettebb és hatékonyabb módon van megvalósítva. 
+	
 	\subsubsection{Megvalósítás: szerver alkalmazásban}
 	
 	Ahogy a tananyag tárolásával (\ref{tananyag_tarolasa}) kapcsolatban is felmerült a szerver használata, úgy itt is megjelenik, mint lehetőség. Az adatbázist kezelhetné a szerver, melyet az alkalmazás \textit{REST API} segítségével ér el. Ennek előnye, hogy az adatbázis biztonságosabbá válna. Míg az \textit{Android}-os eszközön lévő adatbázist a felhasználó el tudja érni és módosíthatja, addig a szerverhez nincs hozzáférése. Ez az előny azonban nem olyan jelentős, mivel ez az alkalmazás nem biztonság kritikus. 
 	
-	Hátrány, hogy a tananyagban történő előrehaladás mentése így internet kapcsolatot igényel. Az adatbázis struktúrája is bonyolódna. A \ref{adatbazis_struktura}. fejezetben látható modell egy felhasználót ír le, ilyenből a szervernek többet is kezelnie kellene.
+	Hátrány, hogy a tananyagban történő előrehaladás mentése így internet kapcsolatot igényelne. Az adatbázis struktúrája is bonyolódna. A \ref{adatbazis_struktura}. fejezetben látható modell egy felhasználót ír le, ilyenből a szervernek többet is kezelnie kellene.
 	
-	A szerveroldali adatbázis nem merült fel valós lehetőségként, ugyan azon okok miatt, mint ahogy a tananyag tárolásához sem használtam a szervert. Az adatbázis tervezésekor még nem létezett szerver alkalmazás, az áttérés pedig nem biztosít jelentős előnyöket, és nagy munkával jár.
+	A szerveroldali adatbázis nem merült fel valós lehetőségként, ugyan azon okok miatt, mint ahogy a tananyag tárolásához sem használtam a szervert.
 
-	\section{ClipSync funkció}\label{clipsync}
+	\subsection{Hirdetések az alkalmazásban}
 	
-	...
+	A fejlesztés során elkezdett érdekelni, hogy miként lehet hirdetéseket integrálni egy androidos alkalmazásba, ezért megvalósítottam ezt. Természetesen figyeltem arra, hogy a megjelenő hirdetések ne legyenek zavaróak és csak időnként jelenjenek meg.
+	
+	A hirdetések megjelenítéséhez a \textit{Google AdMob} saját androidos könyvtárat biztosít, amellyel megkönnyíti a fejlesztők dolgát. A programozónak annyi a dolga, hogy regisztrálja az alkalmazását az \textit{AdMob} oldalán, ahol hirdetési kulcsokat kap. Ezután pedig az alkalmazás képernyő elrendezéseibe be kell szúrni egy hirdetés nézetet, úgy, ahogy egy egyszerű gombot vagy szövegnézetet illesztenénk be. A könyvtár elrejti a következő nehézségeket:
+	
+	\begin{itemize}
+		\item Hálózati műveletek: honnan és hogyan kell letölteni a hirdetést.
+		\item Személyre szabás: milyen hirdetés jelenjen meg az adott felhasználónak.
+		\item Megjelenítés: kép megjelenítése, videó lejátszása. Annak kezelése, hogy a felhasználó eltünteti a hirdetést.
+	\end{itemize} 
+
+	A fentiek figyelembe vételével a következő helyekre raktam hirdetéseket az alkalmazásban:
+	
+	\begin{itemize}
+		\item Kurzus-, és fejezetválasztó képernyők: itt kis, úgynevezett \textit{banner} hirdetések jelennek meg.
+		\item Fejezet vagy feladat \textbf{bezárásakor}: itt 50\% eséllyel jelenik meg egy egész képernyős, úgynevezett \textit{interstitial} hirdetés.
+	\end{itemize}
+
+	Az \textit{AdMob} által adott hirdetési kulcsok biztonsági szempontból kritikusak, ezért nem vittem fel őket a verziókövető rendszerbe sem, csak a saját fejlesztőkörnyezetemben vannak meg. 
+	
+	Fontos, hogy a valódi kulcsokat nem szabad használni a fejlesztés és tesztelés során, csakis a végleges, kiadott változatokban. Ennek oka, hogy az \textit{AdMob} el akarja kerülni, hogy a szervereit felesleges terhelés érje fejlesztés vagy tesztelés alatt álló alkalmazásoktól. A programozónak azonban mindenképpen meg kell győződnie arról, hogy az általa elhelyezett hirdetések megfelelően működnek (megjelenik-e? jó helyen jelenik-e meg?). Az ilyen esetekre az \textit{AdMob} teszt kulcsokat biztosít. Ezeket bármilyen céllal fel lehet használni, ilyenkor a valódi hirdetésekkel azonosan viselkedő, de teszt szövegeket megjelenítő "hirdetések" töltődnek be. Itt a kurzusokat listázó képernyő látszik, ahol betöltődött egy teszt hirdetés:  
+	
+	\begin{center}
+		\includegraphics[width=5cm]{test_ad}
+	\end{center}
+
+	A hirdetési fiók tulajdonosa bevételhez jut, ha a felhasználók az éles hirdetések valamelyikére kattintanak. Megjegyzem, hogy mivel az alkalmazást eddig nagyon kevesen töltötték le, ezért az ebből származó bevételeim is igen csekélyek, havonta nagyjából 20-30 Forintot tesznek ki.
+
+	\section{A ClipSync funkció}\label{clipsync}
+	
+	Az alkalmazás útmutatójában arra biztatom a felhasználót, hogy mindenképpen telepítsen fejlesztőkörnyezetet a számítógépére, ahol végigkövetheti a tananyagot (ehhez egy útmutatót is készítettem, ami a legelső fejezetben található). Ha valaki így használja az alkalmazást, annak nagyon hasznos lehet, ha a tananyagban lévő kódmintákat egyszerűen át tudja vinni a számítógépére, ahol azonnal beillesztheti őket fejlesztőkörnyezetbe.
+	
+	Rövid kutatás után kiderült, hogy ilyen funkcionalitást biztosító programok vannak, még \textit{Android}ra is és a legtöbb helyen \textit{ClipSync} (\textit{clipboard synchronization}, azaz vágólap szinkronizálás) néven szerepelnek. Az alkalmazás első verzióiban átirányítottam a 
+	felhasználót egy ilyen tudással rendelkező alkalmazáshoz. A fejlesztés során azonban, több okból fakadóan, úgy döntöttem, hogy ezt a funkciót beépítem az alkalmazásba. Ezek az okok a következőek voltak:
+	
+	\begin{itemize}
+		\item Úgy véltem, hogy a felhasználónak kényelmetlenséget okoz és nem ideális, ha az alkalmazás optimális használatához további alkalmazás letöltésére van szükség.
+		\item Szerettem volna kipróbálni, hogy miként küldhetnek és fogadhatnak adatokat az alkalmazások \textit{Android}on, az eszköz \textit{Bluetooth} kapcsolata segítségével.
+	\end{itemize} 
+	
+	Úgy határoztam, hogy két különböző módot is implementálok, amelyekkel meg lehet osztani a kódmintákat: egyet a \textit{Bluetooth} segítségével, a másikat pedig hálózaton keresztül. Az alkalmazás önmagában azonban egyikhez sem elég, mivel ez csak küldeni tudja az adatokat. Kellett egy program, ami a számítógépen fut és képes fogadni az érkező adatokat, majd azokat vágólapra másolni. Ezt \textit{ClipSync} szervernek neveztem el.
+	
+	\subsection{ClipSync szerver}
+	
+	A "szerver" program azon a számítógépen fut, ahová az alkalmazásban kiválasztott kódmintáknak kerülniük kell. Minimális felhasználói felülettel rendelkezik, amit a \textit{Java Swing} keretrendszerrel készítettem el, így platform független. Ahogy az alkalmazás, úgy ez is rendelkezik magyar és angol változattal is.
+	
+	\begin{figure}[h!]
+		\includegraphics[width=6cm]{clipsync_server_select}\hfill
+		\includegraphics[width=6cm]{clipsync_server_bluetooth}
+		\caption{A mód választó és a \textit{Bluetooth} képernyők, a szerver magyar változatából.}
+	\end{figure}
+
+	Természetesen előfordulhat, hogy a futtató számítógép nem alkalmas az adatok fogadására valamelyik módon (például nem rendelkezik \textit{Bluetooth}-al). Ilyenkor hibaüzenet jelenik meg.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=10cm]{clipsync_server_error}
+		\caption{\textit{Bluetooth} hiba képernyő, a szerver magyar változatából.}
+	\end{figure}
+	
+	A szerver letöltési linkjét megjelenítettem az alkalmazáson belül, ahogyan az utasításokat is a beüzemelésére. Ezek megtalálhatóak a szerver weboldalán, ami \textit{GitHub} segítségével van hostolva az itt látható címen, vagy elérhető \textit{QR} kóddal is (\ref{qr_clipsync}. ábra).
+	
+	\begin{center}
+		\url{https://gtomika.github.io/learn-java-clipsync/}
+	\end{center}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{clipsync_server_qr}
+		\caption{\textit{QR} kód, amivel elérhető a ClipSync szerver oldala.}
+		\label{qr_clipsync}
+	\end{figure}
+
+	A felhasználó, érthető módon, vonakodhat attól, hogy számára ismeretlen forrásból letöltött programokat futtasson. Annak igazolására, hogy a program semmilyen káros kódot nem tartalmaz, nyílt forráskódúvá tettem. A forráskód szintén a fenti linkről érhető el.
+	
+	\subsection{Bluetooth mód}
+	
+	Az első lehetőség a kódminták megosztására a \textit{Bluetooth}. Ennek használhatóságához több feltételnek is teljesülnie kell:
+	
+	\begin{itemize}
+		\item Mind az androidos eszköz, mind a számítógép rendelkezik \textit{Bluetooth}-al.
+		\item A felhasználó megadja a szükséges engedélyeket (ezek az \textit{Android} verziójától függően változnak).
+	\end{itemize}
+
+	Ha ezek teljesülnek, akkor elindulhat a párosítási folyamat, ami az alkalmazáson belülről levezényelhető. Természetesen, ha a két eszköz már korábban párosításra 
+	került, akkor erre a lépésre nincs szükség.
+	
+	Amint a két eszköz párosítva van, és a felhasználó kiválasztotta a \textit{Bluetooth} módot mind az alkalmazáson, mind a \textit{ClipSync} szerveren belül, a kódminták mellett lévő másolás gombok küldik a minta tartalmát.
+	
+	\subsection{Hálózati mód}
+	
+	Ezt a módot alternatívaként vezettem be azoknak, akik nem kívánnak végigmenni a nehézkes \textit{Bluetooth} párosításon. A következő feltételek mellett használható:
+	
+	\begin{itemize}
+		\item Az androidos eszköz és a számítógép ugyanazon a helyi hálózaton vannak.
+		\item Az androidos eszköz \textbf{nem mobil HotSpot}, azaz nem osztja meg a saját internetét.
+	\end{itemize}
+
+	A megvalósítás igen egyszerű, az alkalmazás szórt üzenetet (\textit{broadcast}-ot) küld a helyi hálózatra, amit a szerver figyel. Ha olyan adatot kap, ami az alkalmazástól jött, akkor arra válaszol. Az alkalmazás attól függően értesíti a felhasználót, hogy ez a válasz megjött-e.  
+	
+	\section{A játszótér funkció}
+
+	
+
+	\section{Tesztelés}
 
 \end{document}

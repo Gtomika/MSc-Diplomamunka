@@ -1,31 +1,37 @@
 \select@language {magyar} \contentsline {section}{\numberline {1}Bevezető}{1}{section.1}%
 \select@language {magyar} \contentsline {section}{\numberline {2}A diplomamunka célja}{1}{section.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3}A tananyag struktúrája}{1}{section.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.1}XML}{2}{subsection.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2}Kurzus}{2}{subsection.3.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.3}Fejezet}{3}{subsection.3.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4}Feladat}{4}{subsection.3.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5}Vizsga}{5}{subsection.3.5}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.6}Előrehaladás a tananyagban}{7}{subsection.3.6}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.7}Részben befejezett kurzusok}{7}{subsection.3.7}%
-\select@language {magyar} \contentsline {section}{\numberline {4}Az Android alkalmazás felépítése}{7}{section.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.1}Szöveges tartalmak}{8}{subsection.4.1}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.1.1}Bekeretezett szöveg}{9}{subsubsection.4.1.1}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.1.2}Magas szintű tartalom}{10}{subsubsection.4.1.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2}Grafikus tartalmak}{10}{subsection.4.2}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3}Kódminták}{11}{subsection.4.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4}Interaktív kódminták}{13}{subsection.4.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.5}Kérdések}{16}{subsection.4.5}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.1}feleletválaszós kérdés egy válaszlehetőséggel}{16}{subsubsection.4.5.1}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.2}feleletválaszós kérdés több válaszlehetőséggel}{16}{subsubsection.4.5.2}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.3}Szöveges kérdés}{16}{subsubsection.4.5.3}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.5.4}Igaz-hamis kérdés}{16}{subsubsection.4.5.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.6}Beolvasási folyamat}{16}{subsection.4.6}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.7}A tananyag tárolása}{16}{subsection.4.7}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.8}Adatbázis}{17}{subsection.4.8}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.8.1}Struktúra}{18}{subsubsection.4.8.1}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.8.2}Megvalósítás: SQLite és Room}{19}{subsubsection.4.8.2}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.8.3}Room entitások}{20}{subsubsection.4.8.3}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.8.4}Room adatkezelők}{21}{subsubsection.4.8.4}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.8.5}Megvalósítás: szerver alkalmazásban}{22}{subsubsection.4.8.5}%
-\select@language {magyar} \contentsline {section}{\numberline {5}ClipSync funkció}{22}{section.5}%
+\select@language {magyar} \contentsline {section}{\numberline {3}A tananyag struktúrája}{2}{section.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1}XML}{3}{subsection.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2}Kurzus}{3}{subsection.3.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.3}Fejezet}{4}{subsection.3.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4}Feladat}{5}{subsection.3.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5}Vizsga}{6}{subsection.3.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.6}Előrehaladás a tananyagban}{8}{subsection.3.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.7}Részben befejezett kurzusok}{8}{subsection.3.7}%
+\select@language {magyar} \contentsline {section}{\numberline {4}A tananyag tartalma}{8}{section.4}%
+\select@language {magyar} \contentsline {section}{\numberline {5}Az Android alkalmazás felépítése}{8}{section.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.1}Szöveges tartalmak}{9}{subsection.5.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.1.1}Bekeretezett szöveg}{10}{subsubsection.5.1.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.1.2}Magas szintű tartalom}{11}{subsubsection.5.1.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.2}Grafikus tartalmak}{11}{subsection.5.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.3}Kódminták}{12}{subsection.5.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.4}Interaktív kódminták}{14}{subsection.5.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.5}Kérdések}{17}{subsection.5.5}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.5.1}Feleletválasztós kérdés egy válaszlehetőséggel}{17}{subsubsection.5.5.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.5.2}Feleletválasztós kérdés több válaszlehetőséggel}{18}{subsubsection.5.5.2}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.5.3}Szöveges kérdés}{19}{subsubsection.5.5.3}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.5.4}Igaz-hamis kérdés}{21}{subsubsection.5.5.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.6}A tananyag tárolása}{21}{subsection.5.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.7}Adatbázis}{22}{subsection.5.7}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.1}Struktúra}{23}{subsubsection.5.7.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.2}Megvalósítás: SQLite és Room}{24}{subsubsection.5.7.2}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.3}Room entitások}{25}{subsubsection.5.7.3}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.4}Room adatkezelők}{26}{subsubsection.5.7.4}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.5}Megvalósítás: szerver alkalmazásban}{27}{subsubsection.5.7.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.8}Hirdetések az alkalmazásban}{28}{subsection.5.8}%
+\select@language {magyar} \contentsline {section}{\numberline {6}A ClipSync funkció}{29}{section.6}%
+\select@language {magyar} \contentsline {subsection}{\numberline {6.1}ClipSync szerver}{30}{subsection.6.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {6.2}Bluetooth mód}{31}{subsection.6.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {6.3}Hálózati mód}{32}{subsection.6.3}%
+\select@language {magyar} \contentsline {section}{\numberline {7}A játszótér funkció}{32}{section.7}%
+\select@language {magyar} \contentsline {section}{\numberline {8}Tesztelés}{32}{section.8}%
