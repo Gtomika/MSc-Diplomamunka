@@ -465,7 +465,7 @@ textView.setText(formattedText);
 	
 	Megjelenített kódmintákért lásd a \ref{code_component_figure}. ábrát. A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync} részben írok.
 	
-	\subsection{Interaktív kódminták}
+	\subsection{Interaktív kódminták}\label{interaktiv_kodmintak}
 	
 	Azért, hogy a tananyagot interaktívabbá tegyem, implementáltam a kódmintáknak olyan változatát is, ahol egyes szavak, vagy kifejezések hiányosak, kitöltésüket a felhasználó egy feladatkiírás alapján elvégezheti. Ez a komponens is \xml-ben van definiálva, és formázott kódot vár. A formázás folyamatáról a \ref{kodmintak_formazas}. részben írtam.
 	
@@ -567,6 +567,8 @@ int x = ___ ;
 	
 	Ahogy a fejezetekben megjelenő komponenseknek, úgy a kérdéseknek is több típusa van. Ennek oka egyrészt a monotonitás megtörése, másrészt a különböző kérdéstípusok lehetőséget adnak a vizsga készítőjének, hogy sokféle kérdést fel tudjon tenni. Például, ha csak feleletválasztós kérdés lenne, akkor nem lehetne olyan kérdést feltenni, amiben írásos választ várunk.
 	
+	Minden kérdéstípusnak automatikusan javíthatónak kell lennie, hogy az alkalmazás ki tudja értékelni az elkészült vizsgát. Ez kizárja az olyan kérdéseket, amik hosszú szöveges választ várnak (esszé).
+	
 	Minden kérdéstípusban közös, hogy tartalmazza a kérdés szövegét, a lehetséges és a helyes megoldásokat. Az azonban, hogy ezek minként vannak elkódolva, már az egyes fajtáktól függ. Most bemutatom a támogatott kérdéstípusokat.
 	
 	\subsubsection{Feleletválasztós kérdés egy válaszlehetőséggel}
@@ -611,7 +613,7 @@ int x = ___ ;
  		\label{question_multi_choice_figure}
 	 \end{figure}
 	
-	\subsubsection{Szöveges kérdés}
+	\subsubsection{Szöveges kérdés}\label{question_text}
 	
 	A legösszetettebb kérdéstípus, ami szöveges választ vár a felhasználótól. \xml elkódolása (egyszerű esetben) a következő:
 	
@@ -687,6 +689,26 @@ int x = ___ ;
 		\caption{Igaz-hamis kérdések az alkalmazás angol változatából, normál és sötét témában.}
 		\label{question_true_false_figure}
 	\end{figure}
+	
+	\subsubsection{A kérdések kiértékelése}
+	
+	Az alkalmazás kiértékeli a felhasználó által megadott válaszokat, ami alapján pontszámot rendel a vizsgához. A vizsga kiértékelését több minden is okozhatja: a felhasználó megnyomja a befejezés gombot, lejár az idő, megszakad a vizsga.
+	
+	A pontozásnál nagyon egyszerű szabályt követtem: minden helyes kérdés egy pontot ér, a helytelen nullát, nincsenek részpontok. Az, hogy mi számít helyesnek, a kérdés típusától függ. Egy választási lehetőséges illetve igaz-hamis kérdések esetén ez triviális. Több válaszlehetőséges kérdésnél akkor lesz helyes a válasz, ha a felhasználó megjelölt minden jó választ, és nem jelölt meg egy rosszat sem. Szöveges válasz esetén alapból pontos egyezésre van szükség, de azok a kérdések, melyek $<ignoreCase>$ vagy $<ignoreSpace>$ tagekkel vannak jelölve speciális módon értékelődnek ki, ahogy arról a szöveges kérdés fejezetben (\ref{question_text}) írtam.
+	
+	Minden egyes kérdés megjeleníti a javítás eredményét. A jó válaszokat zöld színnel, a hibásakat pirossal emeltem ki. Azoknál a kérdés típusoknál, ahol látszódnak a lehetséges válaszok, ott ez a javítás egyértelművé teszi a felhasználó számára, hogy hol hibázott, és mi lett volna a helyes megoldás. A szöveges kérdésnél azonban nincsenek megjelenítve lehetséges válaszok, így ha ezt a vizsgázó elrontotta, akkor mutatok egy helyes választ is.
+	
+	Azt bemutatni, hogy miként néz ki minden kérdéstípus javítás után, helyes és helytelen megoldással túl sok képet eredményezne, de a \ref{corrected_questions}. ábrán látható néhány javított kérdés.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{corrected_question_1}
+		\includegraphics[width=5cm]{corrected_question_2}
+		\caption{Javított kérdések, ahol a felhasználó hibás választ adott meg.}
+		\label{corrected_questions}
+	\end{figure}
+	
+	A vizsga befejeződésekor a kérdések egyéni javítása mellett megjelenik az összpontszám is, ami alapján az alkalmazás eldönti, hogy a vizsga sikeres volt-e, vagy sem. A beállításoknál lehetőség van az vizsgák nehézségének megadására, az itt megadott nehézség dönti el, hogy hány százalék elérésére van szükség a sikeres vizsgához.
 	
 	%\subsection{Beolvasási folyamat} --> kell-e ez?
 	
@@ -939,7 +961,7 @@ new Thread(() -> {
 	
 	\subsection{Hálózati mód}
 	
-	Ezt a módot alternatívaként vezettem be azoknak, akik nem kívánnak végigmenni a nehézkes \textit{Bluetooth} párosításon. A következő feltételek mellett használható:
+	Ezt a módot alternatívaként vezettem be azoknak, akik nem kívánnak végigmenni a nehézkes \textit{Bluetooth} párosításon, vagy nem áll rendelkezésükre \textit{Bluetooth} valamelyik eszközön. A következő feltételek mellett használható:
 	
 	\begin{itemize}
 		\item Az androidos eszköz és a számítógép ugyanazon a helyi hálózaton vannak.
@@ -950,7 +972,61 @@ new Thread(() -> {
 	
 	\section{A játszótér funkció}
 
+	Mivel az alkalmazás a programozásról szól, szerettem volna egy olyan lehetőséget beépíteni, ahol a felhasználó az alkalmazáson belül készíthet egyszerűbb Java programokat, és azokat futtatni is tudja. Ennek a \textit{játszótér} nevet adtam (angol változatban \textit{playground}). Már az elejétől fogva tudtam, hogy ez jelentős feladat lesz, ahol nehézséget főleg ez a két dolog fogja okozni:
 	
+	\begin{itemize}
+		\item Dinamikusan szerkeszthető kódminta, ami formázottan jelenik meg.
+		\item A kód futtatása, és a kimenet, vagy a hibák megjelenítése.
+	\end{itemize}
+
+	\subsection{Dinamikusan formázott kód}
+	
+	A célom az volt, hogy olyan kódot jelenítsek meg, ami kinézetében megegyezik a fejezetekben és feladatokban látható statikus kódmintákkal (\ref{kodmintak}), és az úgynevezett interaktív kódmintákkal (\ref{interaktiv_kodmintak}), de teljes mértékben szerkeszthető.  
+	
+	A \ref{kodmintak}. fejezetben leírtam, hogy a tananyagban lévő kódmintákat egy erre célra készült, főleg reguláris kifejezéseket használó program segítségével formáztam meg, majd a tananyagot alkotó \xml fájlokba már a formázott kód került. Ez a megközelítés nem kivitelezhető a játszótér esetén, mert a lehetséges kódminták száma végtelen.
+	
+	A probléma megoldására a már meglévő formázó programot használtam, amit kisebb módosításokkal beépítettem az alkalmazásba. Ezt nagyban segítette, hogy mind az alkalmazás, mind a formázó program azonos nyelven, Java-ban íródtak. A kód formázása így már dinamikusan megoldható, és minden esetben újra fog futni, ha a felhasználó szerkeszti a tartalmát. Ezt persze optimalizálásnak vetettem alá, mivel a formázás viszonylag hosszú folyamat. Az alkalmazás megvárja, amíg a felhasználó már nem gépel, és csak utána indít formázást.
+	
+	A \ref{playground_code_figure}. ábra mutatja a szerkesztőfelületet. Ahogy a képen is látszik, több forrásfájl is támogatott, ezek közül mindig a kiválasztott jelenik meg.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{playground_code}
+		\caption{Kód szerkesztése az alkalmazás angol változatában.}
+		\label{playground_code_figure}
+	\end{figure}
+
+	Ahhoz, hogy az induláskor ne kelljen túl sokat gépelni, sablonokat készítettem. Például a \textit{Main.java} "fájl" alapból tartalmazni fogja az osztály deklarációt, és azon belül a főmetódust. Az alkalmazás menti a megírt kódot, és az a játszótér újbóli megnyitása esetén be fog töltődni. 
+
+	\subsection{Futtatás}
+	
+	Több lehetőséget is számba vettem, hogy miként lehetne a megírt kódot lefuttatni.
+	
+	\begin{enumerate}
+		\item Futtatás helyben, az \textit{Android} eszközön.
+		\item Szerver alkalmazás készítése, ami megkapja a kódot és futtatja, majd az eredményt visszaküldi.
+		\item Már létező \textit{API} használata.
+	\end{enumerate}
+
+	Először az első lehetőséget szerettem volna megvalósítani, mivel ez nem igényel internetkapcsolatot és költségekkel sem jár, mert nem kell szervert fenntartani, vagy fizetni bármilyen \textit{API} használatáért. Ezt azonban nem tudtam megvalósítani. Több fórumon való konzultáció után kiderült, hogy az általános vélekedés szerint lehetetlen Java kódot fordítani és futtatni Android eszközön. Találtam ugyan olyan alkalmazást a \textit{Play} áruházban, ami képes erre, de nem tudtam megfejteni, hogy hogyan működik.
+	
+	Ezután saját szerver alkalmazásban gondolkodtam. \textit{Spring Boot} alapú szervert szerettem volna, mivel ez Java-ban íródik és a Java viszonylag jó felületet biztosít fordításra és futtatásra, a \href{https://docs.oracle.com/javase/7/docs/api/java/lang/Compiler.html}{\textit{java.lang.Compiler}} segítségével (ez sajnos Android-on nem csinál semmit). Kiderült azonban, hogy ilyen szerver készítése nehezebb, mint vártam. Ki kell dolgozni, hogy hol hozza létre a kapott forrásfájlokat, úgy, hogy akár egyszerre több futtatási kérés is érkezhet. 
+	
+	Továbbá komoly biztonsági kockázat is van, ugyanis a felhasználó lényegében bármilyen kódot küldhet, ami aztán a szerveren fut majd. Ennek kivédésére a \href{https://docs.oracle.com/javase/8/docs/api/java/lang/SecurityManager.html}{\textit{java.lang.SecurityManager}} osztály használatát terveztem, amivel meg lehet akadályozni a fájl írást vagy a hálózati hívásokat.
+	
+	A saját szerver tervezése közben felmerült sok nehézség miatt úgy döntöttem, hogy már létező \textit{API}-t keresek, ami tud Java fordítást és futtatást készíteni.
+	Meglepetésemre találtam olyan ingyenes és nyílt forráskódú futtató \textit{API}-t, ez a \href{https://glot.io/}{\textit{Glot.io}}\footnote{A Glot.io itt érhető el: https://glot.io/}. A dolgozat írásakor az alkalmazás ezt használja a futtatásra, azonban a jövőben ez lehet, hogy megváltozik. A \textit{Glot.io}-nál ugyan nincsenek időbeli vagy mennyiségi korlátok, de elképzelhető, hogy tiltana, ha túl sok hívás érkezik az alkalmazástól.
+	
+	Megjegyzem, hogy a \textit{Glot.io} a saját szerver legtöbb problémáját elegáns módon, \textit{Docker} konténerek használatával hidalja át. A jövőben, ha mégis saját szerver mellett döntök, én is ezt a módszert fogom alkalmazni.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{playground_output}
+		\caption{Az eredményablak, miután futtattuk a \ref{playground_code_figure}. ábrán látható kódot.}
+		\label{playground_output_figure}
+	\end{figure}
+
+	A \ref{playground_output_figure}. ábrán látható a futtatás eredménye. Bemenet megadására is lehetőség van, ami standard inputra (\textit{System.in}) fog kerülni, ez a \ref{playground_code_figure}. és a \ref{playground_output_figure}. ábrák bal felső sarkában látható \textit{Input} rész kiválasztásával tehető meg.
 
 	\section{Tesztelés}
 

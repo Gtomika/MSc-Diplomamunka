@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.14)  8 JUL 2021 14:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.14)  9 JUL 2021 15:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,7 +649,7 @@ LaTeX Info: Redefining \mit on input line 497.
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 79.
 
-<./images/learn_java_qr_code.png, id=210, 3011.25pt x 3011.25pt>
+<./images/learn_java_qr_code.png, id=225, 3011.25pt x 3011.25pt>
 File: ./images/learn_java_qr_code.png Graphic file (type png)
 <use ./images/learn_java_qr_code.png>
 Package pdftex.def Info: ./images/learn_java_qr_code.png  used on input line 96
@@ -703,13 +703,13 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 [9]
-<./images/title_text_component.png, id=343, 788.9475pt x 501.37312pt>
+<./images/title_text_component.png, id=358, 788.9475pt x 501.37312pt>
 File: ./images/title_text_component.png Graphic file (type png)
 <use ./images/title_text_component.png>
 Package pdftex.def Info: ./images/title_text_component.png  used on input line 
 350.
 (pdftex.def)             Requested size: 142.26378pt x 90.40392pt.
-<./images/boxed_component.png, id=345, 810.02625pt x 585.68813pt>
+<./images/boxed_component.png, id=360, 810.02625pt x 585.68813pt>
 File: ./images/boxed_component.png Graphic file (type png)
 <use ./images/boxed_component.png>
 Package pdftex.def Info: ./images/boxed_component.png  used on input line 375.
@@ -723,7 +723,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 380.
 
 [10 <./images/title_text_component.png>]
-<./images/advanced_component.png, id=363, 804.00375pt x 700.11563pt>
+<./images/advanced_component.png, id=378, 804.00375pt x 700.11563pt>
 File: ./images/advanced_component.png Graphic file (type png)
 <use ./images/advanced_component.png>
 Package pdftex.def Info: ./images/advanced_component.png  used on input line 39
@@ -740,19 +740,19 @@ l-ada-tok-ba, az $\OML/cmm/m/it/12 < image >$
  []
 
 [11 <./images/boxed_component.png>]
-<./images/image_component.png, id=377, 797.98125pt x 770.88pt>
+<./images/image_component.png, id=392, 797.98125pt x 770.88pt>
 File: ./images/image_component.png Graphic file (type png)
 <use ./images/image_component.png>
 Package pdftex.def Info: ./images/image_component.png  used on input line 418.
 (pdftex.def)             Requested size: 142.26378pt x 137.42323pt.
  [12 <./images/advanced_component.png> <./images/image_component.png>] [13]
-<./images/code_component_1.png, id=398, 807.015pt x 706.13812pt>
+<./images/code_component_1.png, id=414, 807.015pt x 706.13812pt>
 File: ./images/code_component_1.png Graphic file (type png)
 <use ./images/code_component_1.png>
 Package pdftex.def Info: ./images/code_component_1.png  used on input line 460.
 
 (pdftex.def)             Requested size: 142.26378pt x 124.4811pt.
-<./images/code_component_2.png, id=399, 805.50937pt x 415.5525pt>
+<./images/code_component_2.png, id=415, 805.50937pt x 415.5525pt>
 File: ./images/code_component_2.png Graphic file (type png)
 <use ./images/code_component_2.png>
 Package pdftex.def Info: ./images/code_component_2.png  used on input line 461.
@@ -769,19 +769,19 @@ Overfull \hbox (4.70703pt too wide) in paragraph at lines 503--504
  []
 
 [15]
-<./images/interactive_not_completed.png, id=432, 807.015pt x 575.14874pt>
+<./images/interactive_not_completed.png, id=447, 807.015pt x 575.14874pt>
 File: ./images/interactive_not_completed.png Graphic file (type png)
 <use ./images/interactive_not_completed.png>
 Package pdftex.def Info: ./images/interactive_not_completed.png  used on input 
 line 545.
 (pdftex.def)             Requested size: 142.26378pt x 101.38972pt.
-<./images/interactive_correct.png, id=433, 804.00375pt x 575.14874pt>
+<./images/interactive_correct.png, id=448, 804.00375pt x 575.14874pt>
 File: ./images/interactive_correct.png Graphic file (type png)
 <use ./images/interactive_correct.png>
 Package pdftex.def Info: ./images/interactive_correct.png  used on input line 5
 52.
 (pdftex.def)             Requested size: 142.26378pt x 101.76709pt.
-<./images/interactive_incorrect.png, id=434, 810.02625pt x 575.14874pt>
+<./images/interactive_incorrect.png, id=449, 810.02625pt x 575.14874pt>
 File: ./images/interactive_incorrect.png Graphic file (type png)
 <use ./images/interactive_incorrect.png>
 Package pdftex.def Info: ./images/interactive_incorrect.png  used on input line
@@ -790,172 +790,193 @@ Package pdftex.def Info: ./images/interactive_incorrect.png  used on input line
  [16 <./images/interactive_not_completed.png>]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 572.
+(hyperref)                removing `\H' on input line 574.
 
 [17 <./images/interactive_correct.png> <./images/interactive_incorrect.png>]
-<./images/question_single_choice.png, id=459, 534.99875pt x 403.5075pt>
+<./images/question_single_choice.png, id=474, 534.99875pt x 403.5075pt>
 File: ./images/question_single_choice.png Graphic file (type png)
 <use ./images/question_single_choice.png>
 Package pdftex.def Info: ./images/question_single_choice.png  used on input lin
-e 594.
+e 596.
 (pdftex.def)             Requested size: 142.26378pt x 107.2984pt.
-<./images/question_single_choice_dark.png, id=460, 539.01375pt x 317.185pt>
+<./images/question_single_choice_dark.png, id=475, 539.01375pt x 317.185pt>
 File: ./images/question_single_choice_dark.png Graphic file (type png)
 <use ./images/question_single_choice_dark.png>
 Package pdftex.def Info: ./images/question_single_choice_dark.png  used on inpu
-t line 595.
+t line 597.
 (pdftex.def)             Requested size: 142.26378pt x 83.71483pt.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 600.
+(hyperref)                removing `\H' on input line 602.
 
-<./images/question_multi_choice.png, id=462, 537.00626pt x 437.635pt>
+[18 <./images/question_single_choice.png> <./images/question_single_choice_dark
+.png>]
+<./images/question_multi_choice.png, id=490, 537.00626pt x 437.635pt>
 File: ./images/question_multi_choice.png Graphic file (type png)
 <use ./images/question_multi_choice.png>
 Package pdftex.def Info: ./images/question_multi_choice.png  used on input line
- 608.
+ 610.
 (pdftex.def)             Requested size: 142.26378pt x 115.93933pt.
-<./images/question_multi_choice_dark.png, id=463, 528.97626pt x 322.20375pt>
+<./images/question_multi_choice_dark.png, id=491, 528.97626pt x 322.20375pt>
 File: ./images/question_multi_choice_dark.png Graphic file (type png)
 <use ./images/question_multi_choice_dark.png>
 Package pdftex.def Info: ./images/question_multi_choice_dark.png  used on input
- line 609.
+ line 611.
 (pdftex.def)             Requested size: 142.26378pt x 86.65202pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (0.12361pt too wide) in paragraph at lines 616--617
+Overfull \hbox (0.12361pt too wide) in paragraph at lines 618--619
 \T1/cmr/m/n/12 A leg-össze-tet-tebb kér-dés-tí-pus, ami szö-ve-ges vá-laszt vár
  a fel-hasz-ná-ló-tól. \T1/cmr/m/it/12 XML
  []
 
-[18 <./images/question_single_choice.png> <./images/question_single_choice_dark
-.png>] [19 <./images/question_multi_choice.png> <./images/question_multi_choice
-_dark.png>]
-<./images/question_text.png, id=490, 542.025pt x 184.69pt>
+[19 <./images/question_multi_choice.png> <./images/question_multi_choice_dark.p
+ng>] [20]
+<./images/question_text.png, id=521, 542.025pt x 184.69pt>
 File: ./images/question_text.png Graphic file (type png)
 <use ./images/question_text.png>
-Package pdftex.def Info: ./images/question_text.png  used on input line 664.
+Package pdftex.def Info: ./images/question_text.png  used on input line 666.
 (pdftex.def)             Requested size: 142.26378pt x 48.4748pt.
-<./images/question_text_dark.png, id=491, 542.025pt x 182.6825pt>
+<./images/question_text_dark.png, id=522, 542.025pt x 182.6825pt>
 File: ./images/question_text_dark.png Graphic file (type png)
 <use ./images/question_text_dark.png>
 Package pdftex.def Info: ./images/question_text_dark.png  used on input line 66
-5.
+7.
 (pdftex.def)             Requested size: 142.26378pt x 47.94789pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[20]
-<./images/question_true_false.png, id=510, 542.025pt x 174.6525pt>
+<./images/question_true_false.png, id=524, 542.025pt x 174.6525pt>
 File: ./images/question_true_false.png Graphic file (type png)
 <use ./images/question_true_false.png>
 Package pdftex.def Info: ./images/question_true_false.png  used on input line 6
-85.
+87.
 (pdftex.def)             Requested size: 142.26378pt x 45.8403pt.
-<./images/question_true_false_dark.png, id=511, 542.025pt x 200.24812pt>
+<./images/question_true_false_dark.png, id=525, 542.025pt x 200.24812pt>
 File: ./images/question_true_false_dark.png Graphic file (type png)
 <use ./images/question_true_false_dark.png>
 Package pdftex.def Info: ./images/question_true_false_dark.png  used on input l
-ine 686.
+ine 688.
 (pdftex.def)             Requested size: 142.26378pt x 52.55827pt.
  [21 <./images/question_text.png> <./images/question_text_dark.png> <./images/q
-uestion_true_false.png> <./images/question_true_false_dark.png>] [22]
-<./images/db_model.png, id=530, 462.22687pt x 234.8775pt>
+uestion_true_false.png> <./images/question_true_false_dark.png>]
+<./images/corrected_question_1.png, id=540, 531.9875pt x 405.01312pt>
+File: ./images/corrected_question_1.png Graphic file (type png)
+<use ./images/corrected_question_1.png>
+Package pdftex.def Info: ./images/corrected_question_1.png  used on input line 
+705.
+(pdftex.def)             Requested size: 142.26378pt x 108.3044pt.
+<./images/corrected_question_2.png, id=541, 540.0175pt x 331.2375pt>
+File: ./images/corrected_question_2.png Graphic file (type png)
+<use ./images/corrected_question_2.png>
+Package pdftex.def Info: ./images/corrected_question_2.png  used on input line 
+706.
+(pdftex.def)             Requested size: 142.26378pt x 87.26198pt.
+
+[22 <./images/corrected_question_1.png> <./images/corrected_question_2.png>]
+[23]
+<./images/db_model.png, id=554, 462.22687pt x 234.8775pt>
 File: ./images/db_model.png Graphic file (type png)
 <use ./images/db_model.png>
-Package pdftex.def Info: ./images/db_model.png  used on input line 747.
+Package pdftex.def Info: ./images/db_model.png  used on input line 769.
 (pdftex.def)             Requested size: 390.0pt x 198.1774pt.
-
-[23] [24 <./images/db_model.png (PNG copy)>] [25]
+ [24] [25 <./images/db_model.png (PNG copy)>] [26]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 803.
+(hyperref)                removing `\H' on input line 825.
 
 
-Overfull \hbox (25.85205pt too wide) in paragraph at lines 811--812
+Overfull \hbox (25.85205pt too wide) in paragraph at lines 833--834
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (32.90039pt too wide) in paragraph at lines 814--815
+Overfull \hbox (32.90039pt too wide) in paragraph at lines 836--837
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (103.38379pt too wide) in paragraph at lines 817--818
+Overfull \hbox (103.38379pt too wide) in paragraph at lines 839--840
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[26]
-Overfull \hbox (25.85205pt too wide) in paragraph at lines 831--832
+[27]
+Overfull \hbox (25.85205pt too wide) in paragraph at lines 853--854
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[27] [28]
-<./images/test_ad.png, id=604, 537.50812pt x 293.095pt>
+[28] [29]
+<./images/test_ad.png, id=628, 537.50812pt x 293.095pt>
 File: ./images/test_ad.png Graphic file (type png)
 <use ./images/test_ad.png>
-Package pdftex.def Info: ./images/test_ad.png  used on input line 874.
+Package pdftex.def Info: ./images/test_ad.png  used on input line 896.
 (pdftex.def)             Requested size: 142.26378pt x 77.57141pt.
- [29 <./images/test_ad.png>]
-<./images/clipsync_server_select.png, id=609, 316.68312pt x 123.96312pt>
+ [30 <./images/test_ad.png>]
+<./images/clipsync_server_select.png, id=633, 316.68312pt x 123.96312pt>
 File: ./images/clipsync_server_select.png Graphic file (type png)
 <use ./images/clipsync_server_select.png>
 Package pdftex.def Info: ./images/clipsync_server_select.png  used on input lin
-e 898.
+e 920.
 (pdftex.def)             Requested size: 170.71652pt x 66.82748pt.
-<./images/clipsync_server_bluetooth.png, id=610, 333.74687pt x 120.45pt>
+<./images/clipsync_server_bluetooth.png, id=634, 333.74687pt x 120.45pt>
 File: ./images/clipsync_server_bluetooth.png Graphic file (type png)
 <use ./images/clipsync_server_bluetooth.png>
 Package pdftex.def Info: ./images/clipsync_server_bluetooth.png  used on input 
-line 899.
+line 921.
 (pdftex.def)             Requested size: 170.71652pt x 61.61247pt.
-<./images/clipsync_server_error.png, id=611, 553.56813pt x 107.40125pt>
+<./images/clipsync_server_error.png, id=635, 553.56813pt x 107.40125pt>
 File: ./images/clipsync_server_error.png Graphic file (type png)
 <use ./images/clipsync_server_error.png>
 Package pdftex.def Info: ./images/clipsync_server_error.png  used on input line
- 907.
+ 929.
 (pdftex.def)             Requested size: 284.52756pt x 55.20326pt.
- [30 <./images/clipsync_server_select.png> <./images/clipsync_server_bluetooth.
+ [31 <./images/clipsync_server_select.png> <./images/clipsync_server_bluetooth.
 png> <./images/clipsync_server_error.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
-14.
+36.
 (c:/Program Files/texlive/2019/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-<./images/clipsync_server_qr.png, id=620, 3011.25pt x 3011.25pt>
+<./images/clipsync_server_qr.png, id=645, 3011.25pt x 3011.25pt>
 File: ./images/clipsync_server_qr.png Graphic file (type png)
 <use ./images/clipsync_server_qr.png>
-Package pdftex.def Info: ./images/clipsync_server_qr.png  used on input line 91
-9.
+Package pdftex.def Info: ./images/clipsync_server_qr.png  used on input line 94
+1.
 (pdftex.def)             Requested size: 142.26378pt x 142.25475pt.
- [31 <./images/clipsync_server_qr.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 957.
- [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 957.
+ [32 <./images/clipsync_server_qr.png>] [33]
+<./images/playground_code.png, id=661, 1309.89375pt x 2499.3375pt>
+File: ./images/playground_code.png Graphic file (type png)
+<use ./images/playground_code.png>
+Package pdftex.def Info: ./images/playground_code.png  used on input line 994.
+(pdftex.def)             Requested size: 142.26378pt x 271.41939pt.
+ [34 <./images/playground_code.png>] [35]
+<./images/playground_output.png, id=684, 1309.89375pt x 2499.3375pt>
+File: ./images/playground_output.png Graphic file (type png)
+<use ./images/playground_output.png>
+Package pdftex.def Info: ./images/playground_output.png  used on input line 102
+4.
+(pdftex.def)             Requested size: 142.26378pt x 271.41939pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1033.
+
+[36 <./images/playground_output.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1033.
  (./diplomamunka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 957.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 957.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1033.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1033.
+
 Package rerunfilecheck Info: File `diplomamunka.out' has not changed.
-(rerunfilecheck)             Checksum: 67274ACFDD46A8484223420B1BDE5EB5;2687.
+(rerunfilecheck)             Checksum: A225E97A41060949F3458577F4CD5804;2927.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 957.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1033.
  ) 
 Here is how much of TeX's memory you used:
- 21819 strings out of 492163
- 386285 string characters out of 6122411
- 672571 words of memory out of 5000000
- 25693 multiletter control sequences out of 15000+600000
- 543494 words of font info for 47 fonts, out of 8000000 for 9000
+ 21877 strings out of 492163
+ 387502 string characters out of 6122411
+ 672971 words of memory out of 5000000
+ 25734 multiletter control sequences out of 15000+600000
+ 546243 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,5n,67p,824b,1846s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,8n,67p,824b,1824s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Program Files/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}<c:/Program Files/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmmi12.pfb><c:/Program Files/texlive/2019/texmf-dist/fonts/type1/public/amsfont
@@ -965,14 +986,17 @@ c/cm-super/sfbx1200.pfb><c:/Program Files/texlive/2019/texmf-dist/fonts/type1/p
 ublic/cm-super/sfbx1440.pfb><c:/Program Files/texlive/2019/texmf-dist/fonts/typ
 e1/public/cm-super/sfbx1728.pfb><c:/Program Files/texlive/2019/texmf-dist/fonts
 /type1/public/cm-super/sfcc1728.pfb><c:/Program Files/texlive/2019/texmf-dist/f
-onts/type1/public/cm-super/sfrm1200.pfb><c:/Program Files/texlive/2019/texmf-di
-st/fonts/type1/public/cm-super/sfrm2074.pfb><c:/Program Files/texlive/2019/texm
-f-dist/fonts/type1/public/cm-super/sfti1200.pfb><c:/Program Files/texlive/2019/
-texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on diplomamunka.pdf (35 pages, 1313751 bytes).
+onts/type1/public/cm-super/sfrm0700.pfb><c:/Program Files/texlive/2019/texmf-di
+st/fonts/type1/public/cm-super/sfrm0800.pfb><c:/Program Files/texlive/2019/texm
+f-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/Program Files/texlive/2019/
+texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/Program Files/texlive/2
+019/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/Program Files/texli
+ve/2019/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><c:/Program Files/t
+exlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on diplomamunka.pdf (39 pages, 1680342 bytes).
 PDF statistics:
- 734 PDF objects out of 1000 (max. 8388607)
- 645 compressed objects within 7 object streams
- 289 named destinations out of 1000 (max. 500000)
- 417 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 810 PDF objects out of 1000 (max. 8388607)
+ 707 compressed objects within 8 object streams
+ 303 named destinations out of 1000 (max. 500000)
+ 461 words of extra memory for PDF output out of 10000 (max. 10000000)
 
