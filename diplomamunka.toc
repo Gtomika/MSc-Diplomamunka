@@ -1,16 +1,16 @@
 \select@language {magyar} \contentsline {section}{\numberline {1}Bevezető}{1}{section.1}%
 \select@language {magyar} \contentsline {section}{\numberline {2}A diplomamunka célja}{1}{section.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3}A tananyag struktúrája}{2}{section.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3}A tananyag struktúrája}{3}{section.3}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1}XML}{3}{subsection.3.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.2}Kurzus}{3}{subsection.3.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.3}Fejezet}{4}{subsection.3.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.4}Feladat}{5}{subsection.3.4}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.5}Vizsga}{6}{subsection.3.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.4}Feladat}{6}{subsection.3.4}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.5}Vizsga}{7}{subsection.3.5}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.6}Előrehaladás a tananyagban}{8}{subsection.3.6}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.7}Részben befejezett kurzusok}{8}{subsection.3.7}%
-\select@language {magyar} \contentsline {section}{\numberline {4}A tananyag tartalma}{8}{section.4}%
-\select@language {magyar} \contentsline {section}{\numberline {5}Az Android alkalmazás felépítése}{8}{section.5}%
-\select@language {magyar} \contentsline {subsection}{\numberline {5.1}Szöveges tartalmak}{9}{subsection.5.1}%
+\select@language {magyar} \contentsline {section}{\numberline {4}A tananyag tartalma}{9}{section.4}%
+\select@language {magyar} \contentsline {section}{\numberline {5}Az Android alkalmazás felépítése}{9}{section.5}%
+\select@language {magyar} \contentsline {subsection}{\numberline {5.1}Szöveges tartalmak}{10}{subsection.5.1}%
 \select@language {magyar} \contentsline {subsubsection}{\numberline {5.1.1}Bekeretezett szöveg}{10}{subsubsection.5.1.1}%
 \select@language {magyar} \contentsline {subsubsection}{\numberline {5.1.2}Magas szintű tartalom}{11}{subsubsection.5.1.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {5.2}Grafikus tartalmak}{11}{subsection.5.2}%
@@ -24,7 +24,7 @@
 \select@language {magyar} \contentsline {subsubsection}{\numberline {5.5.5}A kérdések kiértékelése}{21}{subsubsection.5.5.5}%
 \select@language {magyar} \contentsline {subsection}{\numberline {5.6}A tananyag tárolása}{23}{subsection.5.6}%
 \select@language {magyar} \contentsline {subsection}{\numberline {5.7}Adatbázis}{24}{subsection.5.7}%
-\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.1}Struktúra}{24}{subsubsection.5.7.1}%
+\select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.1}Struktúra}{25}{subsubsection.5.7.1}%
 \select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.2}Megvalósítás: SQLite és Room}{25}{subsubsection.5.7.2}%
 \select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.3}Room entitások}{26}{subsubsection.5.7.3}%
 \select@language {magyar} \contentsline {subsubsection}{\numberline {5.7.4}Room adatkezelők}{27}{subsubsection.5.7.4}%
@@ -35,6 +35,9 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {6.2}Bluetooth mód}{32}{subsection.6.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {6.3}Hálózati mód}{33}{subsection.6.3}%
 \select@language {magyar} \contentsline {section}{\numberline {7}A játszótér funkció}{33}{section.7}%
-\select@language {magyar} \contentsline {subsection}{\numberline {7.1}Dinamikusan formázott kód}{33}{subsection.7.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {7.2}Futtatás}{35}{subsection.7.2}%
-\select@language {magyar} \contentsline {section}{\numberline {8}Tesztelés}{36}{section.8}%
+\select@language {magyar} \contentsline {subsection}{\numberline {7.1}Dinamikusan formázott kód}{34}{subsection.7.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {7.2}Futtatás}{34}{subsection.7.2}%
+\select@language {magyar} \contentsline {section}{\numberline {8}Tesztelés}{37}{section.8}%
+\select@language {magyar} \contentsline {subsection}{\numberline {8.1}Egységtesztek}{37}{subsection.8.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {8.2}Instrumentális tesztek}{38}{subsection.8.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {8.3}Felhasználói felület tesztek}{40}{subsection.8.3}%

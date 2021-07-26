@@ -13,6 +13,13 @@
 \usepackage{makecell}
 \usepackage{enumitem}
 
+\usepackage{array}
+\newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+	#1\ignorespaces
+}
+
 \graphicspath{ {./images/} }
 
 \newcommand{\xml}{\textit{XML}\xspace}
@@ -94,9 +101,10 @@
 	 \begin{figure}[h!]
 	 	\centering
 	 	\includegraphics[width=5cm]{learn_java_qr_code}
-	 	\caption{\textit{QR} kód, amivel elérhető az alkalmazás.}
+	 	\caption[Alkalmazás QR Caption]{\textit{QR} kód, amivel elérhető az alkalmazás. Ha a kód nem működne, lásd a lábjegyzetet\footnotemark.}
 	 	\label{qr}
 	 \end{figure}
+ 	\footnotetext{Az alkalmazás linkje: \url{http://play.google.com/store/apps/details?id=com.gaspar.learnjava}}
 
 	\section{A diplomamunka célja}
 	
@@ -930,18 +938,15 @@ new Thread(() -> {
 		\caption{\textit{Bluetooth} hiba képernyő, a szerver magyar változatából.}
 	\end{figure}
 	
-	A szerver letöltési linkjét megjelenítettem az alkalmazáson belül, ahogyan az utasításokat is a beüzemelésére. Ezek megtalálhatóak a szerver weboldalán, ami \textit{GitHub} segítségével van hostolva az itt látható címen, vagy elérhető \textit{QR} kóddal is (\ref{qr_clipsync}. ábra).
-	
-	\begin{center}
-		\url{https://gtomika.github.io/learn-java-clipsync/}
-	\end{center}
+	A szerver letöltési linkjét megjelenítettem az alkalmazáson belül, ahogyan az utasításokat is a beüzemelésére. Ezek megtalálhatóak a szerver weboldalán, ami \textit{GitHub} segítségével van hostolva és a \ref{qr_clipsync}. ábrán látható \textit{QR} kóddal érhető el.
 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=5cm]{clipsync_server_qr}
-		\caption{\textit{QR} kód, amivel elérhető a ClipSync szerver oldala.}
+		\caption[ClipSync szerver caption.]{\textit{QR} kód, amivel elérhető a ClipSync szerver oldala. Ha a kód nem működne, lásd a lábjegyzetet\footnotemark.}
 		\label{qr_clipsync}
 	\end{figure}
+	\footnotetext{A ClipSync szerver linkje: \url{https://github.com/Gtomika/learn-java-clipsync}}
 
 	A felhasználó, érthető módon, vonakodhat attól, hogy számára ismeretlen forrásból letöltött programokat futtasson. Annak igazolására, hogy a program semmilyen káros kódot nem tartalmaz, nyílt forráskódúvá tettem. A forráskód szintén a fenti linkről érhető el.
 	
@@ -970,7 +975,7 @@ new Thread(() -> {
 
 	A megvalósítás igen egyszerű, az alkalmazás szórt üzenetet (\textit{broadcast}-ot) küld a helyi hálózatra, amit a szerver figyel. Ha olyan adatot kap, ami az alkalmazástól jött, akkor arra válaszol. Az alkalmazás attól függően értesíti a felhasználót, hogy ez a válasz megjött-e.  
 	
-	\section{A játszótér funkció}
+	\section{A játszótér funkció}\label{playground}
 
 	Mivel az alkalmazás a programozásról szól, szerettem volna egy olyan lehetőséget beépíteni, ahol a felhasználó az alkalmazáson belül készíthet egyszerűbb Java programokat, és azokat futtatni is tudja. Ennek a \textit{játszótér} nevet adtam (angol változatban \textit{playground}). Már az elejétől fogva tudtam, hogy ez jelentős feladat lesz, ahol nehézséget főleg ez a két dolog fogja okozni:
 	
@@ -979,7 +984,7 @@ new Thread(() -> {
 		\item A kód futtatása, és a kimenet, vagy a hibák megjelenítése.
 	\end{itemize}
 
-	\subsection{Dinamikusan formázott kód}
+	\subsection{Dinamikusan formázott kód}\label{dinamikusan_formazott_kod}
 	
 	A célom az volt, hogy olyan kódot jelenítsek meg, ami kinézetében megegyezik a fejezetekben és feladatokban látható statikus kódmintákkal (\ref{kodmintak}), és az úgynevezett interaktív kódmintákkal (\ref{interaktiv_kodmintak}), de teljes mértékben szerkeszthető.  
 	
@@ -1029,5 +1034,149 @@ new Thread(() -> {
 	A \ref{playground_output_figure}. ábrán látható a futtatás eredménye. Bemenet megadására is lehetőség van, ami standard inputra (\textit{System.in}) fog kerülni, ez a \ref{playground_code_figure}. és a \ref{playground_output_figure}. ábrák bal felső sarkában látható \textit{Input} rész kiválasztásával tehető meg.
 
 	\section{Tesztelés}
+
+	A tesztelés minden komoly szoftver fejlesztési folyamatának része. A teszteknek sok fajtája van, ezeket érdemes módszeresen végezni. 
+	
+	Az Android alkalmazások tesztelése jellemzően két teszt típussal történik, ezek az egységtesztek és az instrumentális tesztek. A továbbiakban részletesen írok ezekről és hogy az alkalmazás mely részeit teszteltem velük. 
+
+	\subsection{Egységtesztek}
+	
+	Az egységtesztelés olyan alacsony szintű, fehérdobozos módszer, amellyel jellemzően a kód egy kis egységei, például metódusok tesztelhetőek. Majdnem minden tesztelési folyamatnak a részei, általában ezekből van a legtöbb egy tesztbázisban.  
+	
+	Az egységteszt mindig elszigetelten fut, a keretrendszer csakis azt a metódust fogja futtatni, amire az adott teszt vonatkozik, majd az eredményt ellenőrzi. Az ellenőrzés feltételekkel (\textit{assertion}) történik, például változókra és logikai kifejezésekre adhatunk meg feltételeket.
+	
+	Android esetén az egységtesztek a fejlesztő számítógépén futnak, nem pedig a mobil eszközön, vagy emulátoron. Ez lényegében azt jelenti, hogy tisztán \textit{Java} kódot tesztelhetünk, de olyat ami az Android fejlesztőcsomagból tartalmaz hívásokat már nem. Ebből következik, hogy az alkalmazáshoz sem férünk hozzá tesztelés közben.
+	
+	Ez jelentős limitáció, de azért egy Android alkalmazásnak is vannak olyan részei, amely tisztán \textit{Java} kódot tartalmaznak és ezek tesztelésére az egységtesztek a legalkalmasabbak. A dolgozat témáját alkotó alkalmazás tesztelésekor is használtam egységteszteket, azonban elég keveset, ennek oka éppen a fent említett korlát. Az általam kigondolt tesztesetek nagy részéhez ugyanis szükség van a futó alkalmazásra.
+	
+	A kód formázásának tesztelésekor például jól tudtam alkalmazni az egységteszteket. Ahogy azt a \ref{kodmintak}. és a \ref{dinamikusan_formazott_kod}. fejezetekben kifejtettem, az alkalmazás képes a kódminták formázott megjelenítésére. A formázást végző kód reguláris kifejezéseken alapul, nem használ semmit az Android fejlesztőcsomagból ezért egységtesztekkel is tesztelhető.
+	
+	Vegyük például a következő egyszerű utasítást, amit formázni szeretnénk:
+	
+	\begin{lstlisting}[language=Java]
+String s;
+	\end{lstlisting}
+	
+	A \ref{kodmintak}. fejezetben megadott formázási szabályok alapján itt egyedül a \textit{String} osztálynévnek kell kijelölést kapnia, ezért a formázott kódnak a következőképpen kell kinéznie (a konkrét színértéket az egyszerűség kedvéért nem mutatom):
+	
+	\begin{lstlisting}[language=Java]
+<font color=...>String</font> s;
+	\end{lstlisting}
+	
+	Ha tehát ismerjük az eredeti és a formázott kódot, ebből egyszerűen kapunk egy tesztesetet, ami egységtesztként megvalósítható (a \textit{Java} kód egységteszteléséhez általában használt \textit{JUnit} keretrendszerrel):
+	
+	\begin{lstlisting}[language=Java]
+@Test
+public void testClassFormatting() {
+  String unformatted = "String s;";
+  String formatted = formatter.formatContent(unformatted);
+  assertEquals("...", formatted);
+}
+	\end{lstlisting}
+	
+	Az \textit{assertEquals} egyenlőség feltételt definiál, az első paraméter természetesen az elvárt, helyesen formázott kód, ami a formázó által adott eredménnyel lesz összehasonlítva (második paraméter).
+	
+	\subsection{Instrumentális tesztek}\label{instrumental_tests}
+
+	Az instrumentális tesztek adják a megoldást az egységtesztek korlátjaira. Egy instrumentális teszt lényegében "egységteszt", de fontos különbség, hogy ezek Android eszközön (vagy emulátoron) futnak, és a keretrendszer minden teszt előtt elindítja az alkalmazásunkat. Ennek eredményeképpen itt már teljes körűen tesztelhetjük az alkalmazást, hozzáférünk az Android fejlesztő csomag osztályaihoz és az operációs rendszerhez is intézhetünk hívásokat.
+	
+	Az instrumentális tesztek futtatása is a \textit{JUnit} feladata, de ez önmagában nem elég, még két teszt keretrendszerre is szükség van:
+	
+	\begin{itemize}
+		\item \textit{Espresso}: képes minden teszteset előtt a megfelelő helyen elindítani az alkalmazást (majd utána bezárni). A felhasználói felületére is hatni lehet vele, feltételeket lehet megfogalmazni a felület állapotára (lásd \ref{felhasznaloi_fel_teszt}).
+		\item \textit{UI Automator}: nem az alkalmazást, hanem más alkalmazásokat és az Android rendszert irányíthatjuk és ellenőrizhetjük vele tesztek közben. Akkor hasznos, ha egy teszteset eredménye nem az alkalmazáson belül van (például azt szeretnénk tesztelni, hogy megjelent-e egy értesítés).
+	\end{itemize}
+	
+	Az instrumentális teszt lehet fehérdobozos és feketedobozos is. Előbbire itt fogok példát adni, az utóbbira pedig a \ref{felhasznaloi_fel_teszt}. fejezetben.
+	
+	Ahhoz, hogy az itt következő tesztesetet az olvasó teljes mértékben megértse, pár mondatot írnom kell bizonyos Androidos koncepciókról. Az első az alkalmazáshoz tartozó \textit{preferenciák} fogalma. Ez egyszerű kulcs-érték párokat jelent, lényegében egy szótár adatstruktúra, ahol a kulcsok szövegek, az értékek pedig akármilyen primitív típusok lehetnek. Egy ilyen (kezdetben üres) preferencia szótár minden alkalmazásnak biztosított. Azok a kulcs-érték párok, amiket az alkalmazás ebbe belerak megmaradnak az újraindítások között is.
+	
+	Fejlesztésnél gyakori követelmény, hogy tudjuk, mikor indul először az alkalmazás. Ilyenkor általában különféle inicializálásokat kell elvégezni. Ezt a preferenciák segítségével a legegyszerűbb megoldani. Definiálunk egy kulcsot, például \textit{FIRST\_START} néven. Az alkalmazás minden induláskor megnézi, hogy ez a kulcs benne van-e a preferenciákban.  Ha még nincs, akkor tudjuk, hogy most indul először, futtathatjuk az inicializáló kódot, majd végül beletesszük a kulcsot a preferenciák közé. Ha a kulcs már jelen van, akkor az alkalmazás már nem az első alkalommal indul.
+	
+	Ezt a módszert én is használtam, a működését pedig egy instrumentális teszt segítségével ellenőriztem. A teszt elindítja az alkalmazást, majd pedig egy feltételt fogalmaz meg arra, hogy a preferenciák már tartalmazzák az első indítást jelölő kulcsot. Látható, hogy ez fehérdobozos teszt, mivel ismernünk kell hozzá a forráskódban lévő első indítás kulcs nevét. A teszt kódja (vázlatosan) itt látható:
+	
+	\begin{lstlisting}[language=Java]
+@Test
+public void testFirstStartPreference() {
+  //preferenciák megszerése a 'prefs' változóba
+  ...
+  //feltétel a kulcs meglétére
+  assertTrue(prefs.contains("FIRST_START"));
+}
+	\end{lstlisting}
+	
+	A fent említett \textit{Espresso} keretrendszer fog arról gondoskodni, hogy a teszteset előtt elindul az alkalmazás. Látható, hogy a feltétel megadásához itt még a \textit{JUnit} is elegendő. 
+	
+	\subsection{Felhasználói felület tesztek}\label{felhasznaloi_fel_teszt}
+	
+	A felhasználói felület (\textit{UI}) tesztek olyan instrumentális tesztek, ahol az alkalmazással kizárólag a felhasználói felület segítségével kommunikálunk, és a teszteset helyességét is a felület állapota adja meg. Ezzel nagyon jól lehet felhasználói interakciókat tesztelni, olyanokat mint "ha a felhasználó megnyomja az $X$ gombot, jelenjen meg az $Y$ szöveg". Ezek alapvetően feketedobozos tesztek, mivel az alkalmazással csakis a felhasználói felület segítségével beszélhetünk, mintha egy felhasználó használná. Ennek ellenére fehérdobozos elemek is vannak benne, mert a felület elemeinek beazonosításához általában a forráskódban definiált azonosítókat használunk.
+	
+	Az ilyen tesztek írásához már erősen ki kell használni az \textit{Espresso} által nyújtott lehetőségeket. Most példaként bemutatok néhány ilyen tesztet, melyeket az alkalmazás tesztbázisából vettem ki. Az első példa a vizsga képernyőhöz tartozik. Ezen a képernyőn van egy "befejezés" gomb, amivel a felhasználó lezárhatja a vizsgát (ennek a gombnak az azonosítója \textit{finish\_button}). Előtte azonban megjelenik egy megerősítő dialógus ablak, ami megkérdezi a felhasználótól, hogy biztosan befejezi-e a kitöltést. A megjelenő szövegkonstans neve \textit{confirm\_finish\_exam}. Ismerve az elvárt viselkedést, erre felhasználói felület tesztet írhatunk. A keretrendszer fog arról gondoskodni, hogy a teszt futása előtt megnyílik az alkalmazás megfelelő része (jelen esetben a vizsga képernyő).
+	
+	\begin{lstlisting}[language=Java]
+@Test
+public void testConfirmDialog() {
+  //a befejező gomb megnyomása
+  onView(withId(R.id.finish_button)).perform(click());
+  //felétel arra, hogy látszik elem a megerősítő szöveggel
+  onView(withText(R.string.confirm_finish_exam))
+  	.check(matches(isDisplayed()));
+}
+	\end{lstlisting}
+	
+	Ebből a tesztesetből az \textit{Espresso} által nyújtott lehetőségek is jól látszanak. Be tudunk azonosítani egy elemet (vagy egyszerre többet) a felhasználói felületről, az azonosítója (\textit{withId}), az általa megjelenített szöveg (\textit{withText}) és még sok más alapján is.
+	
+	Amikor megvan az elem, akkor azon műveletet végezhetünk (\textit{perform}), ebben a tesztesetben például egy kattintást szimuláltam a vizsga befejező gombon. Továbbá beazonosított elemre feltételt is definiálhatunk (\textit{matches}). Ebben a tesztesetben az \textit{isDisplayed} feltételt tettem, ami akkor teljesül, ha az elem éppen megjelenik a képernyőn. Természetesen az itt látottakon kívül az \textit{Espresso} még sokféle műveletet és feltételt definiál.
+	
+	Érdemes egy-egy teszteset rendelni a felhasználó minden egyes döntéséhez. A fenti példához két döntés kapcsolódik: a felhasználó a megerősíti, hogy befejezi a vizsgát, vagy visszakozik. Ezt a két döntést a megjelenő dialógusablak megfelelő gombjainak megnyomásával (szintén a \textit{perform} segítségével) lehet szimulálni. Ezeket a teszteseteket meg is valósítottam, és a vizsga eredményét megjelenítő nézetre tettem feltételt. Ha felhasználó megerősíti, a befejezést, akkor a feltétel az, hogy ez a nézet látszódik (\textit{isDisplayed}), ha pedig visszakozik, akkor az elvárt viselkedés, hogy az eredménynézet nem jelenik meg (erre is van beépített feltétel, \textit{isNotDisplayed}).
+	
+	Az eddig bemutatott instrumentális tesztek az egyszerűbbek közé tartoznak. A gyakorlatban a tesztek általában több felhasználói interakció szimulálásából, és több feltétel megadásából állnak. Ilyen összetett teszt például az, amit a vizsga folyamat teljes ellenőrzésére készíttettem. Ez a teszt megnyit egy próba vizsgát, ami minden kérdéstípusból tartalmaz néhányat, fix sorrendben. Az \textit{Espresso} keretrendszer segítségével a tesztet úgy programoztam, hogy az összes kérdésre adja meg a helyes választ, majd zárja le a vizsgát. A folyamat során több feltételt is ellenőrzök, például, hogy sikeresen befejeződött-e a vizsga, és hogy maximális pontszám lett-e megadva. A teszt futásáról videót is készítettem, ahol látszik, hogy a keretrendszer emberfeletti sebességgel kitölti a próbavizsgát, majd megkapja rá a legmagasabb pontszámot. A videóért lásd a \ref{qr_instrumental_test}. ábrát.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{instrumental_test_qr_code}
+		\caption[Alkalmazás instrumentális teszt Caption]{\textit{QR} kód, amivel megnézhető egy instrumentális teszt. Ha a kód nem működne, lásd a lábjegyzetet\footnotemark.}
+		\label{qr_instrumental_test}
+	\end{figure}
+	\footnotetext{Az instrumentális teszt videó linkje: \url{https://youtu.be/4YkI0qD0FVg}}
+	
+	 At instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (játszótér funkció, lásd \ref{playground}.) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
+	 
+	 Ennek ellenére néhány esetben nem tudtam elkerülni a külső függőséget. Ilyek voltak például azok a tesztek, amikkel az alkalmazás és \textit{ClipSync} szerver (lásd \ref{clipsync}) együttműködését ellenőriztem. Ezek sikeres futásához értelemszerűen kell, hogy egy közeli számítógépen fusson a \textit{ClipSync} szerver.
+	
+	 Az alkalmazás minden képernyőjéhez (Android esetén ezeket \textit{activity}-nek nevezik) írtam instrumentális teszteket. Egyes esetekben egy képernyőhöz túl sok funkcionalitás tartozott, ilyenkor ezt szétbontottam kisebb részekre (ezek neve \textit{fragmens}) és a teszteket is eszerint csoportosítottam. Az összesítést a \ref{table_test_summary}. táblázat mutatja. 
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{|l|c|}
+			\hline
+			\textbf{Képernyő} & \textbf{Tesztesetek} \\
+			\hline
+			Kezdőképernyő & 13 \\
+			\hline
+			Beállítások & 9 \\
+			\hline
+			Fejezet/feladat/vizsga választó & 10 \\
+			\hline
+			Fejezet mutató & 13 \\
+			\hline
+			Feladat mutató & 6 \\
+			\hline
+			Vizsga mutató & 24 \\
+			\hline
+			ClipSync & 13* \\
+			\hline
+			Játszótér (bemenet fragmens) & 7 \\
+			\hline
+			Játszótér (kód fragmens) & 12 \\
+			\hline
+			Játszótér (kimenet fragmens, futtatás) & 10 \\
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Összesen 177 teszt.}}\\
+			\hline
+		\end{tabular}
+		\caption{Az instrumentális tesztek felbontása képernyőnként. A csillaggal jelölt sorok külső függőséggel rendelkező teszteket tartalmaznak.}
+		\label{table_test_summary}
+	\end{table}
 
 \end{document}
