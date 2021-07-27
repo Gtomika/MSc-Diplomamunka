@@ -49,7 +49,7 @@
 	\vspace{3 cm}
 	
 	%cím
-	\centerline{\LARGE{Android oktatóalkalmazás Java programnyelvhez}}
+	\centerline{\LARGE{Android oktatóalkalmazás és tananyag Java programnyelvhez}}
 	\vspace{0.5 cm}
 	\centerline{\Large{\textsc{Diplomamunka}}}
 	
@@ -85,18 +85,20 @@
 	
 	\section{Bevezető}
 
-	Mindig is érdekelt, hogy a programozási ismereteimet hogyan tudom hatékonyan átadni kezdő programozóknak, vagy olyanoknak akiknek egyáltalán nincs e téren tapasztalatuk. Foglakoztat ezen kívül az androidos okos eszközökre történő alkalmazás fejlesztés is, ezek elterjedtsége miatt. Ezt a két érdeklődési körömet szerettem volna 
-	összekapcsolni, egy programozást oktató Androidos alkalmazás létrehozásával.
+	Mindig is érdekelt, hogy a programozási ismereteimet hogyan tudom hatékonyan átadni kezdő programozóknak, vagy olyanoknak akiknek egyáltalán nincs e téren tapasztalatuk. Foglakoztat ezen kívül az androidos okos eszközökre történő alkalmazás fejlesztés is, ezek elterjedtsége miatt. Ezt a két érdeklődési körömet szerettem volna összekapcsolni, egy programozást oktató Androidos alkalmazás létrehozásával.
 	
 	Ennek az alkalmazásnak az ötlete, és első verziói időben messze megelőzik a jelen dolgozatot. Amikor a fejlesztésbe belekezdtem, még igen csekély Android fejlesztéssel kapcsolatos ismerettel rendelkeztem, ez az egyik első alkalmazásom. Ennek megfelelő volt az állapota is. Sok helyen félkész, hibákkal teli, nem megfelelően 
-	tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet, azonban mind a kettő megtörtént.
+	tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet.
 	
-	Ez egy több éves fejlesztési folyamat része, melynek során feljavítottam és modernizáltam a kódot, teszteseteket készítettem és a tananyagot is jelentősen bővítettem és pontosítottam.
+	Az alkalmazás most már készen áll ezekre, ami egy több éves fejlesztési folyamat eredménye. Feljavítottam és modernizáltam a kódot, teszteseteket készítettem és a tananyagot is jelentősen bővítettem és pontosítottam.
 	
-	Az alkalmazás és a tanagyag eredetileg angol nyelven készült. A témavezetőm tanácsára magyar fordítást készítettem és most az alkalmazás és a teljes tananyag két nyelven is elérhető. Az androidos világban ezt úgy mondják, hogy lokalizált alkalmazás. A futtató eszköz beállított országától és beállításaitól függ, hogy kinél milyen 
+	Ha a fejlesztést a dolgozat írásával egy időben kezdtem volna meg, sok mindent máshogy csinálnék. Ma már az Android fejlesztés nyelve a \textit{Kotlin}, nem pedig a \textit{Java}. A felhasználói felületet írásának modern módszere a \textit{Compose}, ami felváltotta a régi, \xml-segítségével definiált elrendezéseket. 
+	Újabb alkalmazásaimban már ezeket használom, de a dolgozat tárgyát képező applikációt még a hagyományos eszközök segítségével készítettem.
+	
+	Az alkalmazás és a tanagyag eredetileg angol nyelven készült. A témavezetőm tanácsára magyar fordítást készítettem és most az alkalmazás és a teljes tananyag két nyelven is elérhető. Az androidos világban ezt úgy mondják, hogy lokalizált alkalmazás. A futtató eszköz országától és nyelvétől függ, hogy kinél milyen 
 	nyelven fog megnyílni a program.
 	
-	Az alkalmazást nyilvánosan elérhetővé és ingyenessé tettem. Ehhez az androidos irányelveknek megfelelően a \textit{Google Play Store}-t (\textit{Play} áruházat) használtam. Egy \textit{QR} kód segítségével megnyitható az alkalmazás áruházi adatlapja, ami szintén lokalizált (lásd \ref{qr}. ábra).
+	Az alkalmazást nyilvánosan elérhetővé és ingyenessé tettem. Ehhez az androidos irányelveknek megfelelően a \textit{Google Play Store}-t (\textit{Play} áruházat) használtam. Egy \textit{QR} kód segítségével megnyitható az alkalmazás áruházi adatlapja, ami szintén lokalizált (lásd \ref{qr}. ábra). A dolgozat olvasói innen letölthetik az applikációt.
 	
 	 \begin{figure}[h!]
 	 	\centering
@@ -119,6 +121,15 @@
 	\section{A tananyag struktúrája}  
 	
 	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A következő alfejezetekben részletesen leírom, hogy ezek mit takarnak, hogyan kapcsolódnak egymáshoz és milyen formában kerülnek tárolásra.
+	
+	A tananyag összes elemének van állapota, ami ezek egyik lehet:
+	
+	\begin{itemize}
+		\item Lezárt: Az ilyen tartalmat a felhasználó nem tudja megnyitni. 
+		\item Megnyitott: Ezeket elérhetőek, de még nincsenek teljesítve.
+		\item Teljesített: Már befejezett, továbbra is elérhető tartalmak.
+		\item Félkész: Speciális állapot, ehhez lásd a \ref{reszben_befejezett_kurzusok} részt.
+	\end{itemize}
 		
 	\subsection{XML}
 	
@@ -133,9 +144,9 @@
 	\end{lstlisting}
 	\bigskip
 	
-	A beépített \textit{Android} erőforrástípusok \xml-t használnak, ezért számomra is természetes volt, hogy ebben kódolom el a tananyag erőforrásfájljait.
+	Az Android fejlesztés egyik alapelve, hogy a forráskódtól, ami az alkalmazás viselkedését írja le, különítsük el a felhasználói felületet definiáló utasításokat. A kinézet megadásához sok minden hozzátartozik, például a szövegkonstansok, színek, méretek és képernyő elrendezések. Míg maga a program \textit{Java} nyelven íródik, a felhasználói felületet \xml-ben definiálhatjuk. Ezért számomra természetes volt, hogy \xml-ben kódolom el a tananyag erőforrásfájljait, mivel ehhez a fejlesztő környezet is jelentős támogatást nyújt. Az, hogy konkrétan hogyan van implementálva a tanagyag tárolása az már az alkalmazás felépítéséhez tartozik, erről a \ref{tananyag_tarolasa}. fejezetben írok.
 	
-	A továbbiakban az \xml dokumentumokban azokat a részeket, ahol nem konkrét adatot kell érteni [ és ] jelek közé fogom írni, ezáltal általánosabban adhatom meg a struktúrákat. A fenti \xml így átírva:
+	A továbbiakban az \xml dokumentumokban azokat a részeket, ahol nem konkrét adatot kell érteni szögletes zárójelek közé fogom írni, ezáltal általánosabban adhatom meg a struktúrákat. Például a fenti \xml így átírva:
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
@@ -148,12 +159,11 @@
 	\subsection{Kurzus}
 	\bigskip
 	
-	A kurzus a legnagyobb egység, a \textit{Java} nyelv egy nagy területéhez kapcsolódó ismereteket tartalmazza. Ezek az ismeretek lehetnek egyszerűek (a tananyag elején), vagy magas szintűek, amelyek már a korábbi kurzusokra épülnek (jellemzően a későbbi kurzusok).
+	A kurzus a legnagyobb egység, a \textit{Java} nyelv egy nagy területéhez kapcsolódó ismereteket tartalmazza. Ezek az ismeretek lehetnek egyszerűek (a tananyag elején), vagy magas szintűek, amelyek már a korábbi kurzusokra épülnek. Ennek hangsúlyozására a kurzusok zárva vannak, megnyitni őket csak az előttük levő összes többi kurzus teljesítésével lehet. A teljesítés vizsgával történik (\ref{vizsga}).
 	
-	Külön kurzusba vettem például az adatszerkezeteket, vagy a generikus programozást. Természetesen ezek a területek önmagukban is rengeteg ismeretet tartalmaznak, ezért további felosztásra van szükség, ezért bevezettem a fejezeteket.
+	Külön kurzusba vettem például az adatszerkezeteket, vagy a generikus programozást. Természetesen ezek a területek önmagukban is rengeteg ismeretet tartalmaznak, ezért további felosztásra van szükség. Ennek megoldására bevezettem a fejezeteket (\ref{fejezet}).
 	
 	Minden kurzus tartalmaz egy nevet és egy egyedi azonosítószámot, méghozzá úgy, hogy ezek a számok növekvő sorrendbe állítva meghatározzák a kurzusok sorrendjét.
-	
 	Ezen kívül minden kurzus tartalmazza, hogy mely fejezetek (\ref{fejezet}), feladatok (\ref{feladat}) és vizsga (\ref{vizsga}) tartozik hozzájuk.
 	
 	A fentiek alapján egy kurzust leíró \xml fájl a következőképpen néz ki:
@@ -180,11 +190,11 @@
 	\end{lstlisting}
 	\bigskip
 	
-	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok} alfejezetben írok.
+	Arról, hogy mit takar a befejezettség jelölő és a $<finished>$ tag, a \ref{reszben_befejezett_kurzusok} alfejezetben írok.
 	
 	\subsection{Fejezet}\label{fejezet}
 	
-	A kurzus nem osztatlan egység, hanem fejezetekből épül fel. Ezek további kisebb, összefüggő részekre bontják a kurzus tartalmát, hogy az átláthatóbb és könnyebben elsajátítható legyen.
+	A kurzus nem osztatlan egység, hanem fejezetekből épül fel. Ezek további kisebb, összefüggő részekre bontják a kurzus tartalmát, hogy az átláthatóbb és könnyebben elsajátítható legyen. A fejezetek sorrendje lényeges, mert közöttük is van egymásra épülés. A kurzushoz tartozó vizsga (\ref{vizsga}) minden fejezetből tartalmazhat kérdéseket, ezért csak akkor nyílik meg, ha a felhasználó a kurzus összes fejezetét elolvasta.
 	
 	Például az adatszerkezetek kurzus fejezetei a következők:
 	
@@ -214,7 +224,7 @@
 </resources>
 	\end{lstlisting}
 	
-	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{android_alk_felepites}. részben írok részletesen.
+	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{tananyag_torzse}. részben írok részletesen.
 	
 	\subsection{Feladat}\label{feladat}
 	
@@ -229,7 +239,9 @@
 
 	Megjegyzem, hogy ezen feladatok megoldásának nem kell olyan hatékonynak vagy általánosnak lennie, mint egy valódi implementáció, a cél csak a két lista alapelveinek megértése. Mivel a generikus programozás kurzus az adatszerkezetek után következik, ezért itt természetesen nem elvárás generikus listák programozása.
 
-	Egy-egy feladatnak olyan sokféle helyes implementációja van, hogy lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak összevetné a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt mellékeltem, ami az adott feladat alatt megtekinthető.
+	Egy-egy feladatnak olyan sokféle helyes implementációja van. Lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak összevetné a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt készítettem, ami az adott feladat alatt megtekinthető. 
+
+	A feladatok megoldása opcionális, a fejezetekkel ellentétben nem szükségesek a vizsga (\ref{vizsga}) megnyitásához és a kurzusok teljesítéséhez.
 
 	A feladatok \xml elkódolása így néz ki:
 	
@@ -252,13 +264,13 @@
 	\end{lstlisting}
 	\bigskip
 
-	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{android_alk_felepites}. részben írok részletesen.
+	Arról, hogy mi tartozhat a törzsbe a \ref{tananyag_torzse}. részben írok részletesen. Ez egyébként pontosan megegyezik azzal, ami egy fejezet törzsében szerepelhet.
 
 	\subsection{Vizsga}\label{vizsga}
 	
 	A vizsgák a tananyag valódi számonkérései, itt ugyanis a feladatokkal ellentétben lehetséges a megoldások pontos ellenőrzése. Minden kurzushoz egy vizsga tartozik, amelyben benne lehet bármi az adott kurzus fejezeteiből.
 	
-	Azért, hogy az alkalmazás a válaszokat ellenőrizni tudja, megkötéseket kell tenni a kérdések típusára. Nem lehet például esszékérdés. Ezt figyelembe véve a következő kérdéstípusokat implementáltam:
+	Azért, hogy az alkalmazás a válaszokat ellenőrizni tudja, megkötéseket kell tenni a kérdések típusára. Nem lehet például esszékérdés. Ezt figyelembe véve a következő kérdéstípusokat implementáltam\footnote{Részletesen az egyes kérdésekről a \ref{kerdesek} fejezetben írok.}:
 	
 	\begin{itemize}
 		\item Feleletválasztós kérdés, egy választási lehetőséggel (\textit{single choice}).
@@ -269,7 +281,7 @@
 	
 	A vizsgákhoz kérdéshalmaz tartozik, melyből az alkalmazás véletlenszerűen választ annyi, amennyi kérdésből az adott vizsga áll (jellemzően 25-30 darabot). Időlimit is van, ami alatt a felhasználónak be kell fejeznie a kitöltést. Az idő lejárta esetén a kitöltés akkori állapota kerül kiértékelésre.
 	
-	Sikeres vizsga esetén a következő kurzus elérhetővé válik. Amennyiben a vizsga nem sikeres, akkor néhány óráig nem lesz újra kitölthető. Ezt a korlátozást azért vezettem be, hogy ne lehessen a vizsgákat "\textit{brute-force}" módon teljesíteni. Ha a felhasználó már korábban sikeresen elvégezte a vizsgát, akkor azt korlátozás nélkül bármikor újra elindíthatja. A vizsgán elért legmagasabb pontszám eltárolásra kerül.
+	Sikeres vizsga esetén a következő kurzus megnyílik. Amennyiben a vizsga nem sikeres, akkor néhány óráig nem lesz újra kitölthető. Ezt a korlátozást azért vezettem be, hogy ne lehessen a vizsgákat "\textit{brute-force}" módon teljesíteni. Ha a felhasználó már korábban sikeresen elvégezte a vizsgát, akkor azt korlátozás nélkül bármikor újra elindíthatja. A vizsgán elért legmagasabb pontszám eltárolásra kerül.
 	
 	A vizsgákat definiáló \xml fájlok a következőképpen néznek ki:
 	
@@ -290,14 +302,6 @@
 
 	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok}. alfejezetben írok. A kérdéstípusok részletes definiálása a \ref{kerdesek}. részben történik.
 	
-	\subsection{Előrehaladás a tananyagban}
-	
-	Az alkalmazás kezdeti indításakor a felhasználó csak az első kurzus fejezeteihez és feladataihoz fér hozzá. A vizsga zárolva van. El kell olvasnia az összes fejezetet ahhoz, hogy a vizsga kitölthető legyen. A feladatok elkészítése opcionális, de ajánlott.
-	
-	A vizsga sikeres teljesítésével nyitható meg a következő kurzus, majd a folyamat ismétlődik addig, amíg van további kurzus.
-	
-	Korábbi fejezetek, feladatok, és vizsgák bármikor újra megtekinthetőek és kitöltetőek. 
-	
 	\subsection{Részben befejezett kurzusok}\label{reszben_befejezett_kurzusok}
 	
 	Az alkalmazás természetesen bővíthető új kurzusokkal. Azonban egy kurzus elkészítésé hosszú időt vehet igénybe, mivel ebbe beletartozik a tananyag megírásán kívül a feladatok és vizsgakérdések összeállítása is. Ezért az alkalmazás támogatja a részben befejezett kurzusokat és vizsgákat. Ezek segítségével az alkalmazás lényegében fejezetenként bővíthető.
@@ -310,8 +314,8 @@
 	
 	TODO: konkrét kurzusok fejezetek bemutatása, tervek...
 	
-	\section{Az Android alkalmazás felépítése}\label{android_alk_felepites}
-	
+	\section{A tananyag törzsét alkotó komponensek}\label{tananyag_torzse}
+
 	Már leírtam a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
 	
 	Az ehhez használt egyik legfontosabb komponens a \textit{TextView} osztály, amit Android alatt szöveges tartalom megjelenítésére lehet használni. A formázott szöveg megjelenítése is támogatott, ahol a formázási szabályokat \textit{HTML} nyelven adhatjuk meg. Ugyan a \textit{HTML}-nek csak egy kis része használható, de ennek az alkalmazásnak ez elég, mivel a szövegstílus (dőlt, félkövér) és a betűszín változtatható.
@@ -320,26 +324,26 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=Java]
-String rawText = "Ez egy <b>félkövér</b> szó.";
-Spanned formattedText = Html.fromHtml(rawText);
-textView.setText(formattedText);
+	String rawText = "Ez egy <b>félkövér</b> szó.";
+	Spanned formattedText = Html.fromHtml(rawText);
+	textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	Ezt a funkcionalitást az alkalmazás erősen kihasználja, nem csak egy-egy szó kiemelésére vagy, linkek beillesztésére, hanem a kódminták megformázására is.
+	Ezt a funkcionalitást az alkalmazás erősen kihasználja, nem csak egy-egy szó kiemelésére vagy, linkek beillesztésére, hanem a kódminták megformázására is (\ref{kodmintak}).
 	
-	Nehézséget okoz viszont, hogy a szövegek \textit{XML}-ben vannak megadva, mivel mind az \xml, mind a \textit{HTML} a $<$ és $>$ karaktereket használja. Azért, hogy ne legyenek ütközések, és az \xml ne próbálja meg értelmezni a \textit{HTML} tageket, a szöveget úgynevezett karakter-adat (\textit{CDATA}) blokkba kell helyezni:
+	Nehézséget okoz viszont, hogy a szövegek \xml-ben vannak megadva, mivel mind az \xml, mind a \textit{HTML} a $<$ és $>$ karaktereket használja. Azért, hogy ne legyenek ütközések, és az \xml ne próbálja meg értelmezni a \textit{HTML} tageket, a szöveget úgynevezett karakter-adat (\textit{CDATA}) blokkba kell helyezni:
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-<text>
- <![CDATA[
-  Ez egy <b>félkövér</b> szó.
- ]]>
-</text>
+	<text>
+	<![CDATA[
+	Ez egy <b>félkövér</b> szó.
+	]]>
+	</text>
 	\end{lstlisting}
 	
-	\subsection{Szöveges tartalmak}
+	\subsection{Egyszerű szöveg}
 	
 	A legegyszerűbb megjeleníthető komponens az egyszerű szöveg. Ilyet úgy helyezhetünk el egy fejezetben, vagy feladatban, hogy $<text>$ tagek közé helyezzük a formázott szöveget, használva az előző részben említett \textit{CDATA} blokkot. A megadott szöveg formázottan fog megjelenni az alkalmazásban.
 	
@@ -362,20 +366,20 @@ textView.setText(formattedText);
 	
 	Már ezzel a két komponenssel meg lehet jeleníteni a tananyag nagy részét, de azért hogy a fejezetek kevésbé legyenek monotonok, további komponenseket is implementáltam, melyek "megtörik" a szöveget. 
 	
-	\subsubsection{Bekeretezett szöveg}
+	\subsection{Bekeretezett szöveg}
 	
 	Ez a komponens lényegében egy szövegdoboz, ami eltérő háttérszínnel és saját címmel rendelkezik, ezáltal jobban felhívja a felhasználó figyelmét. Definiálása a $<boxed>$ taggel történik:
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-<boxed title="[Szövegdoboz címe]">
- <![CDATA[
-  [Formázott szöveg]
- ]]>
-</boxed>	
+	<boxed title="[Szövegdoboz címe]">
+	<![CDATA[
+	[Formázott szöveg]
+	]]>
+	</boxed>	
 	\end{lstlisting}
 	\bigskip
-
+	
 	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt. Ezt lásd a \ref{boxed_component_figure} ábrán.
 	
 	\begin{figure}[h!]
@@ -385,17 +389,17 @@ textView.setText(formattedText);
 		\label{boxed_component_figure}
 	\end{figure}
 	
-	\subsubsection{Magas szintű tartalom}
+	\subsection{Magas szintű tartalom}
 	
 	Ez a komponens hasonló a bekeretezett szöveghez, viszont speciálisan a nehezebb anyagrészek, kiegészítő információk megjelenítésére terveztem. Az $<advanced>$ taggel adható meg. Élénkpiros színnel fog megjelenni, és a felhasználó tudomására hozza, hogy az adott tartalom nehezebb, vagy csak egy későbbi kurzusban kerül részletes bemutatásra.
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-<advanced title="[Cím]">
- <![CDATA[
-  [Formázott szöveg]
- ]]>
-</advanced>	
+	<advanced title="[Cím]">
+	<![CDATA[
+	[Formázott szöveg]
+	]]>
+	</advanced>	
 	\end{lstlisting}
 	\bigskip
 	
@@ -410,7 +414,7 @@ textView.setText(formattedText);
 	
 	Ebben a komponensben még egy link is található, ami a megfelelő oldalra viszi a felhasználót (a telefon alapértelmezett böngészőjében).
 	
-	\subsection{Grafikus tartalmak}
+	\subsection{Képek}
 	
 	Lehetőség van képek beillesztésére a fejezetekbe és feladatokba, az $<image>$ tag segítségével. Egy attribútumban kell megadni, hogy melyik kép jelenjen meg. Arról, hogy hol tárolom a tananyagban felhasznált képeket részletesen a \ref{tananyag_tarolasa} részben írok. Az \xml struktúra a következőképpen néz ki:
 	
@@ -453,11 +457,11 @@ textView.setText(formattedText);
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-<code>
- <![CDATA[
-  [Formázott kód]
- ]]>
-</code>	
+	<code>
+	<![CDATA[
+	[Formázott kód]
+	]]>
+	</code>	
 	\end{lstlisting}
 	\bigskip
 	
@@ -481,7 +485,7 @@ textView.setText(formattedText);
 	
 	\bigskip
 	\begin{lstlisting}[language=Java]
-int x = ___ ;
+	int x = ___ ;
 	\end{lstlisting}  
 	\bigskip
 	
@@ -493,14 +497,14 @@ int x = ___ ;
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-<interactive instruction=[Kitöltési instrukció]>
- <data>
-  [Formázott kód, mezőket jelölő karakterekkel]
- </data>
- <answer place=[Index]>[Válasz]</answer>
- ...
- <answer place=[Index]>[Válasz]</answer>
-</interactive>
+	<interactive instruction=[Kitöltési instrukció]>
+	<data>
+	[Formázott kód, mezőket jelölő karakterekkel]
+	</data>
+	<answer place=[Index]>[Válasz]</answer>
+	...
+	<answer place=[Index]>[Válasz]</answer>
+	</interactive>
 	\end{lstlisting}
 	\bigskip
 	
@@ -508,7 +512,7 @@ int x = ___ ;
 	
 	\bigskip % Ide nem írok language jelölőt, mert valamiért kijelöli a default szót
 	\begin{lstlisting}
-<default place=[Index]>[Alapértelmezett érték]</default>
+	<default place=[Index]>[Alapértelmezett érték]</default>
 	\end{lstlisting}
 	\bigskip
 	
@@ -537,12 +541,12 @@ int x = ___ ;
 	
 	\bigskip
 	\begin{lstlisting}
-<answer place="0" group="add">3</answer>
-<answer place="1" group="add">+</answer>
-<answer place="0" group="subtract">13</answer>
-<answer place="1" group="subtract">-</answer>
-<answer place="0" group="div">40</answer>
-<answer place="1" group="div">/</answer>
+	<answer place="0" group="add">3</answer>
+	<answer place="1" group="add">+</answer>
+	<answer place="0" group="subtract">13</answer>
+	<answer place="1" group="subtract">-</answer>
+	<answer place="0" group="div">40</answer>
+	<answer place="1" group="div">/</answer>
 	\end{lstlisting}
 	\bigskip
 	
@@ -583,15 +587,15 @@ int x = ___ ;
 	
 	Ez a kérdéstípus tetszőleges számú lehetséges választ tud megjeleníteni, amelyek közül a felhasználó egyet jelölhet meg helyesként. Alap állapotában egyik válasz sincs megjelölve. A következőképpen van \xml-ben definiálva:
 	
-		\bigskip
+	\bigskip
 	\begin{lstlisting}[language=XML]
-<question type="single_choice">
- <text>[A kérdés szövege]</text>
- <answer>[Lehetséges válasz]</answer>
- ...
- <answer>[Lehetséges válasz]</answer>
- <correct>[Helyes válasz száma]</correct>
-</question>
+	<question type="single_choice">
+	<text>[A kérdés szövege]</text>
+	<answer>[Lehetséges válasz]</answer>
+	...
+	<answer>[Lehetséges válasz]</answer>
+	<correct>[Helyes válasz száma]</correct>
+	</question>
 	\end{lstlisting}
 	\bigskip
 	
@@ -613,13 +617,13 @@ int x = ___ ;
 	
 	Az elkódolás ennek megfelelően változik. Több $<correct>$ tag is megjelenhet, de egyébként pontosan ugyan olyan, mint az egy választási lehetőséggel rendelkező kérdések esetén. Megjelenített kédések több válaszlehetőséggel a \ref{question_multi_choice_figure}. ábrán láthatóak.
 	
- 	\begin{figure}[h!]
- 		\centering
- 		\includegraphics[width=5cm]{question_multi_choice}
- 		\includegraphics[width=5cm]{question_multi_choice_dark}
- 		\caption{Több válaszlehetőséges kérdések az alkalmazás angol változatából, normál és sötét témában.}
- 		\label{question_multi_choice_figure}
-	 \end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=5cm]{question_multi_choice}
+		\includegraphics[width=5cm]{question_multi_choice_dark}
+		\caption{Több válaszlehetőséges kérdések az alkalmazás angol változatából, normál és sötét témában.}
+		\label{question_multi_choice_figure}
+	\end{figure}
 	
 	\subsubsection{Szöveges kérdés}\label{question_text}
 	
@@ -627,12 +631,12 @@ int x = ___ ;
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-<question type="text">
- <text>[A kérdés szövege]</text>
- <correct>[Elfogadott szöveges válasz]</correct>
- ...
- <correct>[Elfogadott szöveges válasz]</correct>
-</question>
+	<question type="text">
+	<text>[A kérdés szövege]</text>
+	<correct>[Elfogadott szöveges válasz]</correct>
+	...
+	<correct>[Elfogadott szöveges válasz]</correct>
+	</question>
 	\end{lstlisting}
 	\bigskip
 	
@@ -644,11 +648,11 @@ int x = ___ ;
 	A probléma megoldására hoztam létre a nagybetűt figyelmen kívül hagyó kérdést, amit az $<ignoreCase>$ tag elhelyezésével lehet megadni:
 	
 	\begin{lstlisting}[language=XML]	
-<question type="text">
- <text>Minek a rövidítése a JDK?</text>
- <correct>Java Development Kit</correct>
- <ignoreCase/>
-</question>
+	<question type="text">
+	<text>Minek a rövidítése a JDK?</text>
+	<correct>Java Development Kit</correct>
+	<ignoreCase/>
+	</question>
 	\end{lstlisting}
 	
 	\noindent
@@ -659,11 +663,11 @@ int x = ___ ;
 	Ezt a nehézséget úgy oldottam meg, hogy a megoldásba elhelyezhetőek "fontos" szóközök, amiket az $<ignoreSpace>$ tag nem fog figyelmen kívül hagyni. Ha egy fontos szóköz hiányzik akkor a válasz nem lesz elfogadva. Itt látható a példa, ahol a fontos szóközöket jelölő $[s]$ karaktersorozatot illesztettem az $int$ és az $i$ közé:
 	
 	\begin{lstlisting}[language=XML]	
-<question type="text">
- <text>...</text>
- <correct>int[s]i = 0;</correct>
- <ignoreSpace/>
-</question>
+	<question type="text">
+	<text>...</text>
+	<correct>int[s]i = 0;</correct>
+	<ignoreSpace/>
+	</question>
 	\end{lstlisting}
 	
 	\noindent
@@ -676,16 +680,16 @@ int x = ___ ;
 		\caption{Szöveges kérdések az alkalmazás angol változatából, normál és sötét témában.}
 		\label{question_text_figure}
 	\end{figure}
-
+	
 	\subsubsection{Igaz-hamis kérdés}
 	
 	A kérdések írása során rengetegszer előjött az olyan feleletválasztós kérdés, ahol a két lehetséges válasz mindössze az $igaz$ és a $hamis$ volt. Erre az esetre külön típust készítettem, egyrészt azért, hogy a kérdés definíciója egyszerűsödjön, másrészt pedig, hogy a felhasználó számára is világosan látszódjon, hogy itt igaz-hamis kérdésről van szó. \xml elkódolása így néz ki:
 	
 	\begin{lstlisting}[language=XML]	
-<question type="true_false">
- <text>[A kérdés szövege]</text>
- <correct>[Itt 'true' vagy 'false' állhat]</correct>
-</question>
+	<question type="true_false">
+	<text>[A kérdés szövege]</text>
+	<correct>[Itt 'true' vagy 'false' állhat]</correct>
+	</question>
 	\end{lstlisting}
 	
 	Ez a kérdéstípus a feleletválasztós helyett két gombot jelenít meg, ahogy az a \ref{question_true_false_figure}. ábrán látható.
@@ -717,6 +721,8 @@ int x = ___ ;
 	\end{figure}
 	
 	A vizsga befejeződésekor a kérdések egyéni javítása mellett megjelenik az összpontszám is, ami alapján az alkalmazás eldönti, hogy a vizsga sikeres volt-e, vagy sem. A beállításoknál lehetőség van az vizsgák nehézségének megadására, az itt megadott nehézség dönti el, hogy hány százalék elérésére van szükség a sikeres vizsgához.
+	
+	\section{Az Android alkalmazás felépítése}\label{android_alk_felepites}
 	
 	%\subsection{Beolvasási folyamat} --> kell-e ez?
 	
@@ -1140,7 +1146,7 @@ public void testConfirmDialog() {
 	\end{figure}
 	\footnotetext{Az instrumentális teszt videó linkje: \url{https://youtu.be/4YkI0qD0FVg}}
 	
-	 At instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (játszótér funkció, lásd \ref{playground}.) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
+	 Az instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (játszótér funkció, lásd \ref{playground}.) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
 	 
 	 Ennek ellenére néhány esetben nem tudtam elkerülni a külső függőséget. Ilyek voltak például azok a tesztek, amikkel az alkalmazás és \textit{ClipSync} szerver (lásd \ref{clipsync}) együttműködését ellenőriztem. Ezek sikeres futásához értelemszerűen kell, hogy egy közeli számítógépen fusson a \textit{ClipSync} szerver.
 	

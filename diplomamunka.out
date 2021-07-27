@@ -6,38 +6,38 @@
 \BOOKMARK [2][-]{subsection.3.3}{Fejezet}{section.3}% 6
 \BOOKMARK [2][-]{subsection.3.4}{Feladat}{section.3}% 7
 \BOOKMARK [2][-]{subsection.3.5}{Vizsga}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.6}{Elorehalad\341s a tananyagban}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.7}{R\351szben befejezett kurzusok}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{A tananyag tartalma}{}% 11
-\BOOKMARK [1][-]{section.5}{Az Android alkalmaz\341s fel\351p\355t\351se}{}% 12
-\BOOKMARK [2][-]{subsection.5.1}{Sz\366veges tartalmak}{section.5}% 13
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Bekeretezett sz\366veg}{subsection.5.1}% 14
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Magas szintu tartalom}{subsection.5.1}% 15
-\BOOKMARK [2][-]{subsection.5.2}{Grafikus tartalmak}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.3}{K\363dmint\341k}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.4}{Interakt\355v k\363dmint\341k}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.5}{K\351rd\351sek}{section.5}% 19
-\BOOKMARK [3][-]{subsubsection.5.5.1}{Feleletv\341laszt\363s k\351rd\351s egy v\341laszlehetos\351ggel}{subsection.5.5}% 20
-\BOOKMARK [3][-]{subsubsection.5.5.2}{Feleletv\341laszt\363s k\351rd\351s t\366bb v\341laszlehetos\351ggel}{subsection.5.5}% 21
-\BOOKMARK [3][-]{subsubsection.5.5.3}{Sz\366veges k\351rd\351s}{subsection.5.5}% 22
-\BOOKMARK [3][-]{subsubsection.5.5.4}{Igaz-hamis k\351rd\351s}{subsection.5.5}% 23
-\BOOKMARK [3][-]{subsubsection.5.5.5}{A k\351rd\351sek ki\351rt\351kel\351se}{subsection.5.5}% 24
-\BOOKMARK [2][-]{subsection.5.6}{A tananyag t\341rol\341sa}{section.5}% 25
-\BOOKMARK [2][-]{subsection.5.7}{Adatb\341zis}{section.5}% 26
-\BOOKMARK [3][-]{subsubsection.5.7.1}{Strukt\372ra}{subsection.5.7}% 27
-\BOOKMARK [3][-]{subsubsection.5.7.2}{Megval\363s\355t\341s: SQLite \351s Room}{subsection.5.7}% 28
-\BOOKMARK [3][-]{subsubsection.5.7.3}{Room entit\341sok}{subsection.5.7}% 29
-\BOOKMARK [3][-]{subsubsection.5.7.4}{Room adatkezelok}{subsection.5.7}% 30
-\BOOKMARK [3][-]{subsubsection.5.7.5}{Megval\363s\355t\341s: szerver alkalmaz\341sban}{subsection.5.7}% 31
-\BOOKMARK [2][-]{subsection.5.8}{Hirdet\351sek az alkalmaz\341sban}{section.5}% 32
-\BOOKMARK [1][-]{section.6}{A ClipSync funkci\363}{}% 33
-\BOOKMARK [2][-]{subsection.6.1}{ClipSync szerver}{section.6}% 34
-\BOOKMARK [2][-]{subsection.6.2}{Bluetooth m\363d}{section.6}% 35
-\BOOKMARK [2][-]{subsection.6.3}{H\341l\363zati m\363d}{section.6}% 36
-\BOOKMARK [1][-]{section.7}{A j\341tsz\363t\351r funkci\363}{}% 37
-\BOOKMARK [2][-]{subsection.7.1}{Dinamikusan form\341zott k\363d}{section.7}% 38
-\BOOKMARK [2][-]{subsection.7.2}{Futtat\341s}{section.7}% 39
-\BOOKMARK [1][-]{section.8}{Tesztel\351s}{}% 40
-\BOOKMARK [2][-]{subsection.8.1}{Egys\351gtesztek}{section.8}% 41
-\BOOKMARK [2][-]{subsection.8.2}{Instrument\341lis tesztek}{section.8}% 42
-\BOOKMARK [2][-]{subsection.8.3}{Felhaszn\341l\363i fel\374let tesztek}{section.8}% 43
+\BOOKMARK [2][-]{subsection.3.6}{R\351szben befejezett kurzusok}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{A tananyag tartalma}{}% 10
+\BOOKMARK [1][-]{section.5}{A tananyag t\366rzs\351t alkot\363 komponensek}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Egyszeru sz\366veg}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{Bekeretezett sz\366veg}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.3}{Magas szintu tartalom}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.4}{K\351pek}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.5}{K\363dmint\341k}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.6}{Interakt\355v k\363dmint\341k}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.7}{K\351rd\351sek}{section.5}% 18
+\BOOKMARK [3][-]{subsubsection.5.7.1}{Feleletv\341laszt\363s k\351rd\351s egy v\341laszlehetos\351ggel}{subsection.5.7}% 19
+\BOOKMARK [3][-]{subsubsection.5.7.2}{Feleletv\341laszt\363s k\351rd\351s t\366bb v\341laszlehetos\351ggel}{subsection.5.7}% 20
+\BOOKMARK [3][-]{subsubsection.5.7.3}{Sz\366veges k\351rd\351s}{subsection.5.7}% 21
+\BOOKMARK [3][-]{subsubsection.5.7.4}{Igaz-hamis k\351rd\351s}{subsection.5.7}% 22
+\BOOKMARK [3][-]{subsubsection.5.7.5}{A k\351rd\351sek ki\351rt\351kel\351se}{subsection.5.7}% 23
+\BOOKMARK [1][-]{section.6}{Az Android alkalmaz\341s fel\351p\355t\351se}{}% 24
+\BOOKMARK [2][-]{subsection.6.1}{A tananyag t\341rol\341sa}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.2}{Adatb\341zis}{section.6}% 26
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Strukt\372ra}{subsection.6.2}% 27
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Megval\363s\355t\341s: SQLite \351s Room}{subsection.6.2}% 28
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Room entit\341sok}{subsection.6.2}% 29
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Room adatkezelok}{subsection.6.2}% 30
+\BOOKMARK [3][-]{subsubsection.6.2.5}{Megval\363s\355t\341s: szerver alkalmaz\341sban}{subsection.6.2}% 31
+\BOOKMARK [2][-]{subsection.6.3}{Hirdet\351sek az alkalmaz\341sban}{section.6}% 32
+\BOOKMARK [1][-]{section.7}{A ClipSync funkci\363}{}% 33
+\BOOKMARK [2][-]{subsection.7.1}{ClipSync szerver}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.2}{Bluetooth m\363d}{section.7}% 35
+\BOOKMARK [2][-]{subsection.7.3}{H\341l\363zati m\363d}{section.7}% 36
+\BOOKMARK [1][-]{section.8}{A j\341tsz\363t\351r funkci\363}{}% 37
+\BOOKMARK [2][-]{subsection.8.1}{Dinamikusan form\341zott k\363d}{section.8}% 38
+\BOOKMARK [2][-]{subsection.8.2}{Futtat\341s}{section.8}% 39
+\BOOKMARK [1][-]{section.9}{Tesztel\351s}{}% 40
+\BOOKMARK [2][-]{subsection.9.1}{Egys\351gtesztek}{section.9}% 41
+\BOOKMARK [2][-]{subsection.9.2}{Instrument\341lis tesztek}{section.9}% 42
+\BOOKMARK [2][-]{subsection.9.3}{Felhaszn\341l\363i fel\374let tesztek}{section.9}% 43
