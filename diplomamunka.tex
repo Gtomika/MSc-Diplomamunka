@@ -44,9 +44,6 @@
 	\vspace*{2 cm}
 	
 	\centerline{\textsc{\Large{Informatikai Intézet}}}
-	\vspace{0.3 cm}
-	\centerline{\textsc{\Large{Számítógépes Optimalizálás Tanszék (?)}}}
-	
 	\vspace{3 cm}
 	
 	%cím
@@ -65,7 +62,7 @@
 
 	\begin{flushright}
 		\hspace*{\fill} Témavezető: Dr. Csendes Tibor \newline
-		\hspace*{\fill} Egyetemi tanár \newline
+		\hspace*{\fill} egyetemi tanár \newline
 		\hspace*{\fill} Számítógépes Optimalizálás Tanszék 
 	\end{flushright}
 	
@@ -88,8 +85,7 @@
 
 	Mindig is érdekelt, hogy a programozási ismereteimet hogyan tudom hatékonyan átadni kezdő programozóknak, vagy olyanoknak akiknek egyáltalán nincs e téren tapasztalatuk. Foglakoztat ezen kívül az androidos okos eszközökre történő alkalmazás fejlesztés is, ezek elterjedtsége miatt. Ezt a két érdeklődési körömet szerettem volna összekapcsolni, egy programozást oktató Androidos alkalmazás létrehozásával.
 	
-	Ennek az alkalmazásnak az ötlete, és első verziói időben messze megelőzik a jelen dolgozatot. Amikor a fejlesztésbe belekezdtem, még igen csekély Android fejlesztéssel kapcsolatos ismerettel rendelkeztem, ez az egyik első alkalmazásom. Ennek megfelelő volt az állapota is. Sok helyen félkész, hibákkal teli, nem megfelelően 
-	tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet.
+	Ennek az alkalmazásnak az ötlete, és első verziói időben messze megelőzik a jelen dolgozatot. Amikor a fejlesztésbe belekezdtem, még igen csekély Android fejlesztéssel kapcsolatos ismerettel rendelkeztem, ez az egyik első alkalmazásom. Ennek megfelelő volt az állapota is. Sok helyen félkész, hibákkal teli, nem megfelelően tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet.
 	
 	Az alkalmazás most már készen áll ezekre, ami egy több éves fejlesztési folyamat eredménye. Feljavítottam és modernizáltam a kódot, teszteseteket készítettem és a tananyagot is jelentősen bővítettem és pontosítottam.
 	
@@ -99,7 +95,7 @@
 	Az alkalmazás és a tanagyag eredetileg angol nyelven készült. A témavezetőm tanácsára magyar fordítást készítettem és most az alkalmazás és a teljes tananyag két nyelven is elérhető. Az androidos világban ezt úgy mondják, hogy lokalizált alkalmazás. A futtató eszköz országától és nyelvétől függ, hogy kinél milyen 
 	nyelven fog megnyílni a program.
 	
-	Az alkalmazást nyilvánosan elérhetővé és ingyenessé tettem. Ehhez az androidos irányelveknek megfelelően a \textit{Google Play Store}-t (\textit{Play} áruházat) használtam. Egy \textit{QR} kód segítségével megnyitható az alkalmazás áruházi adatlapja, ami szintén lokalizált (lásd \ref{qr}. ábra). A dolgozat olvasói innen letölthetik az applikációt.
+	Az alkalmazást nyilvánosan elérhetővé és ingyenessé tettem. Ehhez az androidos irányelveknek megfelelően a \textit{Google Play Store}-t (\textit{Play} áruházat) használtam. Egy \textit{QR} kód segítségével megnyitható az alkalmazás áruházi adatlapja, ami szintén lokalizált (lásd \ref{qr}.\ ábra). A dolgozat olvasói innen letölthetik az applikációt. Továbbá nyilvános a forráskód is, melynek elérhetősége a dolgozat végén lévő \ref{osszefoglalo}.\ fejezetben látható.
 	
 	 \begin{figure}[h!]
 	 	\centering
@@ -109,15 +105,17 @@
 	 \end{figure}
  	\footnotetext{Az alkalmazás linkje: \url{http://play.google.com/store/apps/details?id=com.gaspar.learnjava}}
 
-	\section{A diplomamunka célja}
+	\section{A diplomamunka célja}\label{celok}
 	
-	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két fő komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra. 
+	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két fő komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra. Ennek a megjelenítésnek igényesen és érthetően kell kinéznie a képernyőmérettől függetlenül.
 
 	A tananyagnak strukturáltnak kell lennie, hogy a felhasználó könnyen tudjon navigálni benne. A programozás alapjaitól kell kezdődnie, hogy teljesen kezdők számára is használható lehessen. Fontos, hogy a tananyag csak olyan ismeretekre hivatkozzon, amik már a korábbi fejezetekben be lettek mutatva. Lenniük kell számonkéréseknek is, amelyekkel a felhasználó megbizonyosodhat róla, hogy megértette-e az anyagot. A tananyagnak elérhetőnek kell lennie magyar nyelven.
 	
-	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot, a struktúra megőrzésével megjeleníteni. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni. Az alkalmazás által támogatott nyelvek (lokalizáció) között ott kell lennie a magyarnak.
+	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot, a struktúra megőrzésével megjelenítse. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni. Az alkalmazás által támogatott nyelvek (lokalizáció) között ott kell lennie a magyarnak.
 	
-	A két fő komponens tehát az alkalmazás és a tananyag. Az első verziók mindössze ezekből épültek fel. Ahogy azonban haladtam a fejlesztés folyamatával, világossá vált, hogy további komponensekre is szükség van, ha az általam tervezett funkciókat meg szeretném valósítani. Ilyen további komponens lesz például egy kis asztali alkalmazás, ami a telefon és a számítógép közti szövegmegosztáshoz szükséges, és egy formázó program, ami kódmintákat olvasható formába alakítja. Ezekről a későbbiekben írok.
+	A két fő komponens tehát az alkalmazás és a tananyag. Az első verziók mindössze ezekből épültek fel. Ahogy azonban haladtam a fejlesztés folyamatával, világossá vált, hogy további komponensekre is szükség van, ha az általam tervezett funkciókat meg szeretném valósítani. Ilyen további komponens lesz például egy kis asztali alkalmazás, ami az okos eszköz és a számítógép közti szövegmegosztáshoz szükséges, és egy formázó program, ami kódmintákat olvasható formába alakítja. Ezekről a későbbiekben írok.
+	
+	Az alkalmazásnak rendelkeznie kell teszteléssel, az androidos szokásoknak és szabványoknak megfelelően.
 	
 	\section{A tananyag struktúrája}  
 	
@@ -129,7 +127,7 @@
 		\item Lezárt: Az ilyen tartalmat a felhasználó nem tudja megnyitni. 
 		\item Megnyitott: Ezeket elérhetőek, de még nincsenek teljesítve.
 		\item Teljesített: Már befejezett, továbbra is elérhető tartalmak.
-		\item Félkész: Speciális állapot, ehhez lásd a \ref{reszben_befejezett_kurzusok} részt.
+		\item Félkész: Speciális állapot, ehhez lásd a \ref{reszben_befejezett_kurzusok}.\ részt.
 	\end{itemize}
 		
 	\subsection{XML}
@@ -145,7 +143,7 @@
 	\end{lstlisting}
 	\bigskip
 	
-	Az Android fejlesztés egyik alapelve, hogy a forráskódtól, ami az alkalmazás viselkedését írja le, különítsük el a felhasználói felületet definiáló utasításokat. A kinézet megadásához sok minden hozzátartozik, például a szövegkonstansok, színek, méretek és képernyő elrendezések. Míg maga a program \textit{Java} nyelven íródik, a felhasználói felületet \xml-ben definiálhatjuk. Ezért számomra természetes volt, hogy \xml-ben kódolom el a tananyag erőforrásfájljait, mivel ehhez a fejlesztő környezet is jelentős támogatást nyújt. Az, hogy konkrétan hogyan van implementálva a tanagyag tárolása az már az alkalmazás felépítéséhez tartozik, erről a \ref{tananyag_tarolasa}. fejezetben írok.
+	Az Android fejlesztés egyik alapelve, hogy a forráskódtól, ami az alkalmazás viselkedését írja le, különítsük el a felhasználói felületet definiáló utasításokat. A kinézet megadásához sok minden hozzátartozik, például a szövegkonstansok, színek, méretek és képernyő elrendezések. Míg maga a program \textit{Java} nyelven íródik, a felhasználói felületet \xml-ben definiálhatjuk. Ezért számomra természetes volt, hogy \xml-ben kódolom el a tananyag erőforrásfájljait, mivel ehhez a fejlesztő környezet is jelentős támogatást nyújt. Az, hogy konkrétan hogyan van implementálva a tanagyag tárolása az már az alkalmazás felépítéséhez tartozik, erről a \ref{tananyag_tarolasa}.\ fejezetben írok.
 	
 	A továbbiakban az \xml dokumentumokban azokat a részeket, ahol nem konkrét adatot kell érteni szögletes zárójelek közé fogom írni, ezáltal általánosabban adhatom meg a struktúrákat. Például a fenti \xml így átírva:
 	
@@ -191,7 +189,7 @@
 	\end{lstlisting}
 	\bigskip
 	
-	Arról, hogy mit takar a befejezettség jelölő és a $<finished>$ tag, a \ref{reszben_befejezett_kurzusok} alfejezetben írok.
+	Arról, hogy mit takar a befejezettség jelölő és a $<finished>$ tag, a \ref{reszben_befejezett_kurzusok}.\ alfejezetben írok.
 	
 	\subsection{Fejezet}\label{fejezet}
 	
@@ -210,7 +208,7 @@
 
 	A listából látszik, hogy vannak átkötő fejezetek is, melyek elmagyarázzák, hogy miért fontosak a korábbi, vagy későbbi fejezetek ismeretei. Például a \textit{Tömbök} fejezet után a felhasználóban felmerülhet, hogy miért kell további adatszerkezetekkel foglalkozni. Ezért közbeiktattam egy plusz fejezetet, ami részletesen megmagyarázza, hogy milyen hátrányai vannak a tömböknek és hogy mely esetekben érdemes más adatstruktúrát választani.
 	
-	A fejezetek is rendelkeznek azonosítóval és névvel. Ezen kívül tartalmazzák a fejezet törzsét, ami majd konkrétan megjelenik a felhasználónak, amikor megnyitja az adott fejezetet. 
+	A fejezetek is rendelkeznek azonosítóval és névvel. Ezen kívül tartalmazzák a fejezet törzsét, ami majd konkrétan megjelenik a felhasználónak, amikor megnyitja az adott fejezetet (természetesen formázott, könnyen olvasható módon). 
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
@@ -225,7 +223,7 @@
 </resources>
 	\end{lstlisting}
 	
-	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{tananyag_torzse}. részben írok részletesen.
+	Arról, hogy mi tartozhat a törzsbe, és ezek hogyan vannak elkódolva, a \ref{tananyag_torzse}.\ részben írok részletesen.
 	
 	\subsection{Feladat}\label{feladat}
 	
@@ -265,13 +263,13 @@
 	\end{lstlisting}
 	\bigskip
 
-	Arról, hogy mi tartozhat a törzsbe a \ref{tananyag_torzse}. részben írok részletesen. Ez egyébként pontosan megegyezik azzal, ami egy fejezet törzsében szerepelhet.
+	Arról, hogy mi tartozhat a törzsbe a \ref{tananyag_torzse}.\ részben írok részletesen. Ez egyébként pontosan megegyezik azzal, ami egy fejezet törzsében szerepelhet.
 
 	\subsection{Vizsga}\label{vizsga}
 	
 	A vizsgák a tananyag valódi számonkérései, itt ugyanis a feladatokkal ellentétben lehetséges a megoldások pontos ellenőrzése. Minden kurzushoz egy vizsga tartozik, amelyben benne lehet bármi az adott kurzus fejezeteiből.
 	
-	Azért, hogy az alkalmazás a válaszokat ellenőrizni tudja, megkötéseket kell tenni a kérdések típusára. Nem lehet például esszékérdés. Ezt figyelembe véve a következő kérdéstípusokat implementáltam\footnote{Részletesen az egyes kérdésekről a \ref{kerdesek} fejezetben írok.}:
+	Azért, hogy az alkalmazás a válaszokat ellenőrizni tudja, megkötéseket kell tenni a kérdések típusára. Nem lehet például esszékérdés. Ezt figyelembe véve a következő kérdéstípusokat implementáltam\footnote{Részletesen az egyes kérdésekről a \ref{kerdesek}.\ fejezetben írok.}:
 	
 	\begin{itemize}
 		\item Feleletválasztós kérdés, egy választási lehetőséggel (\textit{single choice}).
@@ -301,7 +299,7 @@
 </resources>
 	\end{lstlisting}
 
-	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok}. alfejezetben írok. A kérdéstípusok részletes definiálása a \ref{kerdesek}. részben történik.
+	Arról, hogy mit takar a befejezettség jelölő és a \textit{<finished>} tag, a \ref{reszben_befejezett_kurzusok}.\ alfejezetben írok. A kérdéstípusok részletes definiálása a \ref{kerdesek}.\ részben történik.
 	
 	\subsection{Részben befejezett kurzusok}\label{reszben_befejezett_kurzusok}
 	
@@ -313,7 +311,7 @@
 	
 	\section{A tananyag tartalma}
 	
-	A tananyag jelenleg 7 kurzusból áll, amik további fejezetekre vannak bontva. Ezekről egy összefoglalót mutat az \ref{kurzusok_tablazat}. táblázat.
+	A tananyag jelenleg 7 kurzusból áll, amik további fejezetekre vannak bontva. Ezekről egy összefoglalót mutat az \ref{kurzusok_tablazat}.\ táblázat.
 	
 	\bigskip
 	\begin{table}[h!]
@@ -360,9 +358,9 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=Java]
-	String rawText = "Ez egy <b>félkövér</b> szó.";
-	Spanned formattedText = Html.fromHtml(rawText);
-	textView.setText(formattedText);
+String rawText = "Ez egy <b>félkövér</b> szó.";
+Spanned formattedText = Html.fromHtml(rawText);
+textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
@@ -372,11 +370,11 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<text>
-	<![CDATA[
+<text>
+<![CDATA[
 	Ez egy <b>félkövér</b> szó.
-	]]>
-	</text>
+]]>
+</text>
 	\end{lstlisting}
 	
 	\subsection{Egyszerű szöveg}
@@ -387,11 +385,11 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<title text="Második paragrafus"/>
+<title text="Második paragrafus"/>
 	\end{lstlisting}
 	\bigskip
 	
-	Egy példáért lásd az \ref{title_component_figure} ábrát.
+	Egy példáért lásd az \ref{title_component_figure}.\ ábrát.
 	
 	\begin{figure}[h!]
 		\centering
@@ -408,15 +406,15 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<boxed title="[Szövegdoboz címe]">
-	<![CDATA[
+<boxed title="[Szövegdoboz címe]">
+<![CDATA[
 	[Formázott szöveg]
-	]]>
-	</boxed>	
+]]>
+</boxed>	
 	\end{lstlisting}
 	\bigskip
 	
-	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt. Ezt lásd a \ref{boxed_component_figure} ábrán.
+	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt. Ezt lásd a \ref{boxed_component_figure}.\ ábrán.
 	
 	\begin{figure}[h!]
 		\centering
@@ -431,15 +429,15 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<advanced title="[Cím]">
-	<![CDATA[
+<advanced title="[Cím]">
+<![CDATA[
 	[Formázott szöveg]
-	]]>
-	</advanced>	
+]]>
+</advanced>	
 	\end{lstlisting}
 	\bigskip
 	
-	Ilyen jelzővel láttam el például a \textit{absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével (\ref{advanced_component_figure}. ábra). Ez részletesebben egy későbbi kurzusban, a \textit{Java 8} nevűben van leírva.
+	Ilyen jelzővel láttam el például a \textit{absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével (\ref{advanced_component_figure}.\ ábra). Ez részletesebben egy későbbi kurzusban, a \textit{Java 8} nevűben van leírva.
 	
 	\begin{figure}[h!]
 		\centering
@@ -452,14 +450,14 @@
 	
 	\subsection{Képek}
 	
-	Lehetőség van képek beillesztésére a fejezetekbe és feladatokba, az $<image>$ tag segítségével. Egy attribútumban kell megadni, hogy melyik kép jelenjen meg. Arról, hogy hol tárolom a tananyagban felhasznált képeket részletesen a \ref{tananyag_tarolasa} részben írok. Az \xml struktúra a következőképpen néz ki:
+	Lehetőség van képek beillesztésére a fejezetekbe és feladatokba, az $<image>$ tag segítségével. Egy attribútumban kell megadni, hogy melyik kép jelenjen meg. Arról, hogy hol tárolom a tananyagban felhasznált képeket részletesen a \ref{tananyag_tarolasa}.\ részben írok. Az \xml struktúra a következőképpen néz ki:
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<image name="[Kép neve]"/>
+<image name="[Kép neve]"/>
 	\end{lstlisting}
 	
-	Például \textit{tömbök} fejezetben a több dimenziós tömbök megértését képpel segítettem elő, amint az a \ref{image_component_figure}. ábrán látható.
+	Például \textit{tömbök} fejezetben a több dimenziós tömbök megértését képpel segítettem elő, amint az a \ref{image_component_figure}.\ ábrán látható.
 	
 	\begin{figure}
 		\centering
@@ -487,17 +485,21 @@
 	
 	További formázást igényelt, hogy a \textit{HTML} nyelv esetén a $<$ szimbólumot speciálisan kell jelölni, hogy az értelmező ne vegye egy új tag kezdetének. A megoldás az $\&lt$ karaktersorozattal történő helyettesítés. Ezért az olyan kódminták, melyek például összehasonlítást tartalmaznak mind külön formázást igényelnek.
 	
-	Látható, hogy rengeteg formázási szabályt vezettem be. Ha ehhez hozzávesszük a kódminták nagy számát, akkor látszik, hogy a manuális formázás nem célszerű. Ezért erre  célra egy külön formázó programot készítettem, ami egy megadott mappában lévő \textit{Java} kódot átalakít olyan \textit{HTML} kóddá, ami a fent említett összes szabálynak eleget tesz. Ez a program reguláris kifejezések alapján azonosítja a listában látható kifejezéseket és elhelyezi körülöttük a színezést és a tördelést biztosító tageket.  
+	Látható, hogy rengeteg formázási szabályt vezettem be. Ha ehhez hozzávesszük a kódminták nagy számát, akkor látszik, hogy a manuális formázás nem célszerű. Ezért erre  célra egy külön formázó programot készítettem, ami egy megadott mappában lévő \textit{Java} kódot átalakít olyan \textit{HTML} kóddá, ami a fent említett összes szabálynak eleget tesz. Ez a program reguláris kifejezések alapján azonosítja a listában látható kifejezéseket és elhelyezi körülöttük a színezést és a tördelést biztosító tageket. A formázó teljes forráskódja elérhető a \textit{GitHub}-on:
+	
+	\begin{center}
+		\url{https://github.com/Gtomika/learn-java-code-formatter}
+	\end{center}  
 	
 	A fejezetekben és feladatokban kódmintát a $<code>$ tag segítségével definiálok. A tag belsejébe kell helyezni, azt a formázott kódot, amit az előző részben említett segédprogram ad eredményül.
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<code>
-	<![CDATA[
+<code>
+<![CDATA[
 	[Formázott kód]
-	]]>
-	</code>	
+]]>
+</code>	
 	\end{lstlisting}
 	\bigskip
 	
@@ -511,11 +513,11 @@
 		\label{code_component_figure}
 	\end{figure}
 	
-	Megjelenített kódmintákért lásd a \ref{code_component_figure}. ábrát. A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync} részben írok.
+	Megjelenített kódmintákért lásd a \ref{code_component_figure}.\ ábrát. A képek bal alsó sarkában lévő ikonokkal a kódminták betűmérete állítható. A jobb alsó sarokban lévő gomb aktiválja a \textit{ClipSync} funckiót, melyről részletesebben a \ref{clipsync}.\ részben írok.
 	
 	\subsection{Interaktív kódminták}\label{interaktiv_kodmintak}
 	
-	Azért, hogy a tananyagot interaktívabbá tegyem, implementáltam a kódmintáknak olyan változatát is, ahol egyes szavak, vagy kifejezések hiányosak, kitöltésüket a felhasználó egy feladatkiírás alapján elvégezheti. Ez a komponens is \xml-ben van definiálva, és formázott kódot vár. A formázás folyamatáról a \ref{kodmintak_formazas}. részben írtam.
+	Azért, hogy a tananyagot interaktívabbá tegyem, implementáltam a kódmintáknak olyan változatát is, ahol egyes szavak, vagy kifejezések hiányosak, kitöltésüket a felhasználó egy feladatkiírás alapján elvégezheti. Ez a komponens is \xml-ben van definiálva, és formázott kódot vár. A formázás folyamatáról a \ref{kodmintak}.\ részben írtam.
 	
 	Az interaktív kódmintának meg kell adni, hogy hol legyenek benne módosítható részek, mezők, melyek tartalmát a felhasználó átírhatja. Ezek megadásához a formázott kódba három alulvonás jelet kell beszúrni. Ahol a beolvasás során ezt a karaktersorozatot találja az alkalmazás, oda egy módosítható rész fog kerülni. Például így lehet megjeleníteni egy változódeklarálást, ahol a változó értéke módosítható lesz:
 	
@@ -533,14 +535,14 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<interactive instruction=[Kitöltési instrukció]>
+<interactive instruction=[Kitöltési instrukció]>
 	<data>
-	[Formázott kód, mezőket jelölő karakterekkel]
+		[Formázott kód, mezőket jelölő karakterekkel]
 	</data>
 	<answer place=[Index]>[Válasz]</answer>
 	...
 	<answer place=[Index]>[Válasz]</answer>
-	</interactive>
+</interactive>
 	\end{lstlisting}
 	\bigskip
 	
@@ -548,7 +550,7 @@
 	
 	\bigskip % Ide nem írok language jelölőt, mert valamiért kijelöli a default szót
 	\begin{lstlisting}
-	<default place=[Index]>[Alapértelmezett érték]</default>
+<default place=[Index]>[Alapértelmezett érték]</default>
 	\end{lstlisting}
 	\bigskip
 	
@@ -558,8 +560,8 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=Java]
-	int num = ___ ;
-	num = num ___ 5 ;
+int num = ___ ;
+num = num ___ 5;
 	\end{lstlisting}  
 	\bigskip
 	
@@ -577,16 +579,16 @@
 	
 	\bigskip
 	\begin{lstlisting}
-	<answer place="0" group="add">3</answer>
-	<answer place="1" group="add">+</answer>
-	<answer place="0" group="subtract">13</answer>
-	<answer place="1" group="subtract">-</answer>
-	<answer place="0" group="div">40</answer>
-	<answer place="1" group="div">/</answer>
+<answer place="0" group="add">3</answer>
+<answer place="1" group="add">+</answer>
+<answer place="0" group="subtract">13</answer>
+<answer place="1" group="subtract">-</answer>
+<answer place="0" group="div">40</answer>
+<answer place="1" group="div">/</answer>
 	\end{lstlisting}
 	\bigskip
 	
-	Példák alap és javított állapotban lévő kódmintákról a \ref{interactive_component_figure}. és a \ref{interactive_component_completed_figure}. ábrákon láthatóak. 
+	Példák alap és javított állapotban lévő kódmintákról a \ref{interactive_component_figure}.\ és a \ref{interactive_component_completed_figure}.\ ábrákon láthatóak. 
 	
 	\begin{figure}
 		\centering
@@ -599,11 +601,11 @@
 		\centering
 		\includegraphics[width=5cm]{interactive_correct}
 		\includegraphics[width=5cm]{interactive_incorrect}
-		\caption{A \ref{interactive_component_figure}. ábrán látható interaktív kódminta, javítva (angol változat).}
+		\caption{A \ref{interactive_component_figure}.\ ábrán látható interaktív kódminta, javítva (angol változat).}
 		\label{interactive_component_completed_figure}
 	\end{figure}
 	
-	A bal alsó sarokban lévő ikonok a \ref{kodmintak} fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzete állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek. A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
+	A bal alsó sarokban lévő ikonok a \ref{kodmintak}.\ fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzete állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek. A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
 	
 	\subsection{Kérdések}\label{kerdesek}
 	
@@ -625,19 +627,19 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<question type="single_choice">
+<question type="single_choice">
 	<text>[A kérdés szövege]</text>
 	<answer>[Lehetséges válasz]</answer>
 	...
 	<answer>[Lehetséges válasz]</answer>
 	<correct>[Helyes válasz száma]</correct>
-	</question>
+</question>
 	\end{lstlisting}
 	\bigskip
 	
 	Minden $<answer>$ tag elkódol egy lehetséges megoldást, a $<correct>$ tag pedig ezek közül a helyes válasz (0-tól számolt) indexe. Én jellemzően olyan kérdéseket írtam, ahol 3-4 válaszlehetőség van. 
 	
-	Az, hogy miként jelennek meg az alkalmazásban ezek a kérdések, a \ref{question_single_choice_figure} ábrán látható.
+	Az, hogy miként jelennek meg az alkalmazásban ezek a kérdések, a \ref{question_single_choice_figure}.\ ábrán látható.
 	
 	\begin{figure}[h!]
 		\centering
@@ -651,7 +653,7 @@
 	
 	Egy újabb feleletválasztós típus, éppen ezért sokban hasonlít a fent ismertettet egy választási lehetőséggel rendelkező kérdésre. A különbség, hogy ebben az esetben a felhasználó a megjelenített lehetséges válaszok közül bármyennyit megjelölhet helyesként.
 	
-	Az elkódolás ennek megfelelően változik. Több $<correct>$ tag is megjelenhet, de egyébként pontosan ugyan olyan, mint az egy választási lehetőséggel rendelkező kérdések esetén. Megjelenített kédések több válaszlehetőséggel a \ref{question_multi_choice_figure}. ábrán láthatóak.
+	Az elkódolás ennek megfelelően változik. Több $<correct>$ tag is megjelenhet, de egyébként pontosan ugyan olyan, mint az egy választási lehetőséggel rendelkező kérdések esetén. Megjelenített kédések több válaszlehetőséggel a \ref{question_multi_choice_figure}.\ ábrán láthatóak.
 	
 	\begin{figure}[h!]
 		\centering
@@ -667,12 +669,12 @@
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
-	<question type="text">
+<question type="text">
 	<text>[A kérdés szövege]</text>
 	<correct>[Elfogadott szöveges válasz]</correct>
 	...
 	<correct>[Elfogadott szöveges válasz]</correct>
-	</question>
+</question>
 	\end{lstlisting}
 	\bigskip
 	
@@ -684,11 +686,11 @@
 	A probléma megoldására hoztam létre a nagybetűt figyelmen kívül hagyó kérdést, amit az $<ignoreCase>$ tag elhelyezésével lehet megadni:
 	
 	\begin{lstlisting}[language=XML]	
-	<question type="text">
+<question type="text">
 	<text>Minek a rövidítése a JDK?</text>
 	<correct>Java Development Kit</correct>
 	<ignoreCase/>
-	</question>
+</question>
 	\end{lstlisting}
 	
 	\noindent
@@ -699,15 +701,15 @@
 	Ezt a nehézséget úgy oldottam meg, hogy a megoldásba elhelyezhetőek "fontos" szóközök, amiket az $<ignoreSpace>$ tag nem fog figyelmen kívül hagyni. Ha egy fontos szóköz hiányzik akkor a válasz nem lesz elfogadva. Itt látható a példa, ahol a fontos szóközöket jelölő $[s]$ karaktersorozatot illesztettem az $int$ és az $i$ közé:
 	
 	\begin{lstlisting}[language=XML]	
-	<question type="text">
+<question type="text">
 	<text>...</text>
 	<correct>int[s]i = 0;</correct>
 	<ignoreSpace/>
-	</question>
+</question>
 	\end{lstlisting}
 	
 	\noindent
-	Megjegyzem, hogy a két módosító tag együtt is használható, de ez jellemzően nem szükséges, mert ha kódrészletre kérdezünk, akkor az abban lévő kulcsszavak esetén csak a kisbetűs írásmód helyes. Megjelenített szöveges kérdések a \ref{question_text_figure}. ábrán láthatóak.
+	Megjegyzem, hogy a két módosító tag együtt is használható, de ez jellemzően nem szükséges, mert ha kódrészletre kérdezünk, akkor az abban lévő kulcsszavak esetén csak a kisbetűs írásmód helyes. Megjelenített szöveges kérdések a \ref{question_text_figure}.\ ábrán láthatóak.
 	
 	\begin{figure}[h!]
 		\centering
@@ -722,13 +724,13 @@
 	A kérdések írása során rengetegszer előjött az olyan feleletválasztós kérdés, ahol a két lehetséges válasz mindössze az $igaz$ és a $hamis$ volt. Erre az esetre külön típust készítettem, egyrészt azért, hogy a kérdés definíciója egyszerűsödjön, másrészt pedig, hogy a felhasználó számára is világosan látszódjon, hogy itt igaz-hamis kérdésről van szó. \xml elkódolása így néz ki:
 	
 	\begin{lstlisting}[language=XML]	
-	<question type="true_false">
+<question type="true_false">
 	<text>[A kérdés szövege]</text>
 	<correct>[Itt 'true' vagy 'false' állhat]</correct>
-	</question>
+</question>
 	\end{lstlisting}
 	
-	Ez a kérdéstípus a feleletválasztós helyett két gombot jelenít meg, ahogy az a \ref{question_true_false_figure}. ábrán látható.
+	Ez a kérdéstípus a feleletválasztós helyett két gombot jelenít meg, ahogy az a \ref{question_true_false_figure}.\ ábrán látható.
 	
 	\begin{figure}[h!]
 		\centering
@@ -746,7 +748,7 @@
 	
 	Minden egyes kérdés megjeleníti a javítás eredményét. A jó válaszokat zöld színnel, a hibásakat pirossal emeltem ki. Azoknál a kérdés típusoknál, ahol látszódnak a lehetséges válaszok, ott ez a javítás egyértelművé teszi a felhasználó számára, hogy hol hibázott, és mi lett volna a helyes megoldás. A szöveges kérdésnél azonban nincsenek megjelenítve lehetséges válaszok, így ha ezt a vizsgázó elrontotta, akkor mutatok egy helyes választ is.
 	
-	Azt bemutatni, hogy miként néz ki minden kérdéstípus javítás után, helyes és helytelen megoldással túl sok képet eredményezne, de a \ref{corrected_questions}. ábrán látható néhány javított kérdés.
+	Azt bemutatni, hogy miként néz ki minden kérdéstípus javítás után, helyes és helytelen megoldással túl sok képet eredményezne, de a \ref{corrected_questions}.\ ábrán látható néhány javított kérdés.
 	
 	\begin{figure}[h!]
 		\centering
@@ -793,7 +795,7 @@
 		\item Teljesített feladat: A feladatok teljesítése opcionális, de az alkalmazás ezt is eltárolja.
 	\end{itemize}
 	
-	A \ref{tananyag_tarolasa} fejezetben említett \textit{Resource System} és \textit{Asset System} futásidőben csakis fájl olvasást tesznek lehetővé, írást nem. Ezért egy relációs adatbázist használok. \textit{NoSQL} adatbázis is lehetne, arról hogy miért a választott módszer mellett döntöttem, a \ref{sqlite_roon} fejezetben írok.
+	A \ref{tananyag_tarolasa}.\ fejezetben említett \textit{Resource System} és \textit{Asset System} futásidőben csakis fájl olvasást tesznek lehetővé, írást nem. Ezért egy relációs adatbázist használok. \textit{NoSQL} adatbázis is lehetne, arról hogy miért a választott módszer mellett döntöttem, a \ref{sqlite_roon}.\ fejezetben írok.
 	
 	Az előrehaladást a programban és az adatbázisban is egységesen jelölöm. Erre egy saját \textit{Java} annotációt használok:
 	
@@ -826,7 +828,7 @@ public @interface Status {
 	A vizsgák esetén vannak további dinamikusan változó adatok:
 	
 	\begin{itemize}
-		\item Az utolsó indítás időpontja: Ez szükséges, hogy a \ref{vizsga} részben említett indítási korlátot be lehessen tartani.
+		\item Az utolsó indítás időpontja: Ez szükséges, hogy a \ref{vizsga}.\ részben említett indítási korlátot be lehessen tartani.
 		\item Legmagasabb pontszám: Dinamikusan változó, ezért az adatbázisban kell tárolni.
 	\end{itemize}
 	
@@ -886,8 +888,8 @@ public interface ChapterDao {
  @Update //a frissítő SQL utasítás automatikusan generálódik
  void updateChapterStatus(ChapterStatus chapterStatus);
 	
- @Query("SELECT * FROM chapter_status WHERE chapter_id == :chapterId")
- ChapterStatus queryChapterStatus(int chapterId);
+ @Query("SELECT * FROM chapter_status WHERE chapter_id == :id")
+ ChapterStatus queryChapterStatus(int id);
 }
 	\end{lstlisting}
 
@@ -915,7 +917,7 @@ new Thread(() -> {
 	
 	Ahogy a tananyag tárolásával (\ref{tananyag_tarolasa}) kapcsolatban is felmerült a szerver használata, úgy itt is megjelenik, mint lehetőség. Az adatbázist kezelhetné a szerver, melyet az alkalmazás \textit{REST API} segítségével ér el. Ennek előnye, hogy az adatbázis biztonságosabbá válna. Míg az \textit{Android}-os eszközön lévő adatbázist a felhasználó el tudja érni és módosíthatja, addig a szerverhez nincs hozzáférése. Ez az előny azonban nem olyan jelentős, mivel ez az alkalmazás nem biztonság kritikus. 
 	
-	Hátrány, hogy a tananyagban történő előrehaladás mentése így internet kapcsolatot igényelne. Az adatbázis struktúrája is bonyolódna. A \ref{adatbazis_struktura}. fejezetben látható modell egy felhasználót ír le, ilyenből a szervernek többet is kezelnie kellene.
+	Hátrány, hogy a tananyagban történő előrehaladás mentése így internet kapcsolatot igényelne. Az adatbázis struktúrája is bonyolódna. A \ref{adatbazis_struktura}.\ fejezetben látható modell egy felhasználót ír le, ilyenből a szervernek többet is kezelnie kellene.
 	
 	A szerveroldali adatbázis nem merült fel valós lehetőségként, ugyan azon okok miatt, mint ahogy a tananyag tárolásához sem használtam a szervert.
 
@@ -960,7 +962,7 @@ new Thread(() -> {
 		\item Szerettem volna kipróbálni, hogy miként küldhetnek és fogadhatnak adatokat az alkalmazások \textit{Android}on, az eszköz \textit{Bluetooth} kapcsolata segítségével.
 	\end{itemize} 
 	
-	Úgy határoztam, hogy két különböző módot is implementálok, amelyekkel meg lehet osztani a kódmintákat: egyet a \textit{Bluetooth} segítségével, a másikat pedig hálózaton keresztül. Az alkalmazás önmagában azonban egyikhez sem elég, mivel ez csak küldeni tudja az adatokat. Kellett egy program, ami a számítógépen fut és képes fogadni az érkező adatokat, majd azokat vágólapra másolni. Ezt \textit{ClipSync} szervernek neveztem el.
+	Úgy határoztam, hogy két különböző módot is implementálok, amelyekkel meg lehet osztani a kódmintákat: egyet a \textit{Bluetooth} segítségével, a másikat pedig hálózaton keresztül. Az alkalmazás önmagában azonban egyikhez sem elég, mivel ez csak küldeni tudja az adatokat. Kellett egy program, ami a számítógépen fut és képes fogadni az érkező szöveget, majd azt a vágólapra másolni. Ezt \textit{ClipSync} szervernek neveztem el.
 	
 	\subsection{ClipSync szerver}
 	
@@ -980,7 +982,7 @@ new Thread(() -> {
 		\caption{\textit{Bluetooth} hiba képernyő, a szerver magyar változatából.}
 	\end{figure}
 	
-	A szerver letöltési linkjét megjelenítettem az alkalmazáson belül, ahogyan az utasításokat is a beüzemelésére. Ezek megtalálhatóak a szerver weboldalán, ami \textit{GitHub} segítségével van hostolva és a \ref{qr_clipsync}. ábrán látható \textit{QR} kóddal érhető el.
+	A szerver letöltési linkjét megjelenítettem az alkalmazáson belül, ahogyan az utasításokat is a beüzemelésére. Ezek megtalálhatóak a szerver weboldalán, ami \textit{GitHub} segítségével van hostolva és a \ref{qr_clipsync}.\ ábrán látható \textit{QR} kóddal érhető el.
 
 	\begin{figure}[h!]
 		\centering
@@ -1030,11 +1032,11 @@ new Thread(() -> {
 	
 	A célom az volt, hogy olyan kódot jelenítsek meg, ami kinézetében megegyezik a fejezetekben és feladatokban látható statikus kódmintákkal (\ref{kodmintak}), és az úgynevezett interaktív kódmintákkal (\ref{interaktiv_kodmintak}), de teljes mértékben szerkeszthető.  
 	
-	A \ref{kodmintak}. fejezetben leírtam, hogy a tananyagban lévő kódmintákat egy erre célra készült, főleg reguláris kifejezéseket használó program segítségével formáztam meg, majd a tananyagot alkotó \xml fájlokba már a formázott kód került. Ez a megközelítés nem kivitelezhető a játszótér esetén, mert a lehetséges kódminták száma végtelen.
+	A \ref{kodmintak}.\ fejezetben leírtam, hogy a tananyagban lévő kódmintákat egy erre célra készült, főleg reguláris kifejezéseket használó program segítségével formáztam meg, majd a tananyagot alkotó \xml fájlokba már a formázott kód került. Ez a megközelítés nem kivitelezhető a játszótér esetén, mert a lehetséges kódminták száma végtelen.
 	
 	A probléma megoldására a már meglévő formázó programot használtam, amit kisebb módosításokkal beépítettem az alkalmazásba. Ezt nagyban segítette, hogy mind az alkalmazás, mind a formázó program azonos nyelven, Java-ban íródtak. A kód formázása így már dinamikusan megoldható, és minden esetben újra fog futni, ha a felhasználó szerkeszti a tartalmát. Ezt persze optimalizálásnak vetettem alá, mivel a formázás viszonylag hosszú folyamat. Az alkalmazás megvárja, amíg a felhasználó már nem gépel, és csak utána indít formázást.
 	
-	A \ref{playground_code_figure}. ábra mutatja a szerkesztőfelületet. Ahogy a képen is látszik, több forrásfájl is támogatott, ezek közül mindig a kiválasztott jelenik meg.
+	A \ref{playground_code_figure}.\ ábra mutatja a szerkesztőfelületet. Ahogy a képen is látszik, több forrásfájl is támogatott, ezek közül mindig a kiválasztott jelenik meg.
 	
 	\begin{figure}[h!]
 		\centering
@@ -1069,11 +1071,11 @@ new Thread(() -> {
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=5cm]{playground_output}
-		\caption{Az eredményablak, miután futtattuk a \ref{playground_code_figure}. ábrán látható kódot.}
+		\caption{Az eredményablak, miután futtattuk a \ref{playground_code_figure}.\ ábrán látható kódot.}
 		\label{playground_output_figure}
 	\end{figure}
 
-	A \ref{playground_output_figure}. ábrán látható a futtatás eredménye. Bemenet megadására is lehetőség van, ami standard inputra (\textit{System.in}) fog kerülni, ez a \ref{playground_code_figure}. és a \ref{playground_output_figure}. ábrák bal felső sarkában látható \textit{Input} rész kiválasztásával tehető meg.
+	A \ref{playground_output_figure}.\ ábrán látható a futtatás eredménye. Bemenet megadására is lehetőség van, ami standard inputra (\textit{System.in}) fog kerülni, ez a \ref{playground_code_figure}.\ és a \ref{playground_output_figure}.\ ábrák bal felső sarkában látható \textit{Input} rész kiválasztásával tehető meg.
 
 	\section{Tesztelés}
 
@@ -1089,9 +1091,9 @@ new Thread(() -> {
 	
 	Android esetén az egységtesztek a fejlesztő számítógépén futnak, nem pedig a mobil eszközön, vagy emulátoron. Ez lényegében azt jelenti, hogy tisztán \textit{Java} kódot tesztelhetünk, de olyat ami az Android fejlesztőcsomagból tartalmaz hívásokat már nem. Ebből következik, hogy az alkalmazáshoz sem férünk hozzá tesztelés közben.
 	
-	Ez jelentős limitáció, de azért egy Android alkalmazásnak is vannak olyan részei, amely tisztán \textit{Java} kódot tartalmaznak és ezek tesztelésére az egységtesztek a legalkalmasabbak. A dolgozat témáját alkotó alkalmazás tesztelésekor is használtam egységteszteket, azonban elég keveset, ennek oka éppen a fent említett korlát. Az általam kigondolt tesztesetek nagy részéhez ugyanis szükség van a futó alkalmazásra.
+	Ez jelentős limitáció, de azért egy Android alkalmazásnak is vannak olyan részei, amely tisztán \textit{Java} kódot tartalmaznak és ezek tesztelésére az egységtesztek a legalkalmasabbak. A dolgozat témáját alkotó alkalmazás tesztelésekor is használtam egységteszteket, azonban elég keveset, ennek oka éppen a fent említett korlátozás. Az általam kigondolt tesztesetek nagy részéhez ugyanis szükség van a futó alkalmazásra.
 	
-	A kód formázásának tesztelésekor például jól tudtam alkalmazni az egységteszteket. Ahogy azt a \ref{kodmintak}. és a \ref{dinamikusan_formazott_kod}. fejezetekben kifejtettem, az alkalmazás képes a kódminták formázott megjelenítésére. A formázást végző kód reguláris kifejezéseken alapul, nem használ semmit az Android fejlesztőcsomagból ezért egységtesztekkel is tesztelhető.
+	A kód formázásának tesztelésekor például jól tudtam alkalmazni az egységteszteket. Ahogy azt a \ref{kodmintak}.\ és a \ref{dinamikusan_formazott_kod}.\ fejezetekben kifejtettem, az alkalmazás képes a kódminták formázott megjelenítésére. A formázást végző kód reguláris kifejezéseken alapul, nem használ semmit az Android fejlesztőcsomagból ezért egységtesztekkel is tesztelhető.
 	
 	Vegyük például a következő egyszerű utasítást, amit formázni szeretnénk:
 	
@@ -1099,7 +1101,7 @@ new Thread(() -> {
 String s;
 	\end{lstlisting}
 	
-	A \ref{kodmintak}. fejezetben megadott formázási szabályok alapján itt egyedül a \textit{String} osztálynévnek kell kijelölést kapnia, ezért a formázott kódnak a következőképpen kell kinéznie (a konkrét színértéket az egyszerűség kedvéért nem mutatom):
+	A \ref{kodmintak}.\ fejezetben megadott formázási szabályok alapján itt egyedül a \textit{String} osztálynévnek kell kijelölést kapnia, ezért a formázott kódnak a következőképpen kell kinéznie (a konkrét színértéket az egyszerűség kedvéért nem mutatom):
 	
 	\begin{lstlisting}[language=Java]
 <font color=...>String</font> s;
@@ -1125,11 +1127,11 @@ public void testClassFormatting() {
 	Az instrumentális tesztek futtatása is a \textit{JUnit} feladata, de ez önmagában nem elég, még két teszt keretrendszerre is szükség van:
 	
 	\begin{itemize}
-		\item \textit{Espresso}: képes minden teszteset előtt a megfelelő helyen elindítani az alkalmazást (majd utána bezárni). A felhasználói felületére is hatni lehet vele, feltételeket lehet megfogalmazni a felület állapotára (lásd \ref{felhasznaloi_fel_teszt}).
+		\item \textit{Espresso}: képes minden teszteset előtt a megfelelő helyen elindítani az alkalmazást (majd utána bezárni). A felhasználói felületre is hatni lehet vele, feltételeket lehet megfogalmazni a felület állapotára (lásd \ref{felhasznaloi_fel_teszt}).
 		\item \textit{UI Automator}: nem az alkalmazást, hanem más alkalmazásokat és az Android rendszert irányíthatjuk és ellenőrizhetjük vele tesztek közben. Akkor hasznos, ha egy teszteset eredménye nem az alkalmazáson belül van (például azt szeretnénk tesztelni, hogy megjelent-e egy értesítés).
 	\end{itemize}
 	
-	Az instrumentális teszt lehet fehérdobozos és feketedobozos is. Előbbire itt fogok példát adni, az utóbbira pedig a \ref{felhasznaloi_fel_teszt}. fejezetben.
+	Az instrumentális teszt lehet fehérdobozos és feketedobozos is. Előbbire itt fogok példát adni, az utóbbira pedig a \ref{felhasznaloi_fel_teszt}.\ fejezetben.
 	
 	Ahhoz, hogy az itt következő tesztesetet az olvasó teljes mértékben megértse, pár mondatot írnom kell bizonyos Androidos koncepciókról. Az első az alkalmazáshoz tartozó \textit{preferenciák} fogalma. Ez egyszerű kulcs-érték párokat jelent, lényegében egy szótár adatstruktúra, ahol a kulcsok szövegek, az értékek pedig akármilyen primitív típusok lehetnek. Egy ilyen (kezdetben üres) preferencia szótár minden alkalmazásnak biztosított. Azok a kulcs-érték párok, amiket az alkalmazás ebbe belerak megmaradnak az újraindítások között is.
 	
@@ -1172,7 +1174,7 @@ public void testConfirmDialog() {
 	
 	Érdemes egy-egy teszteset rendelni a felhasználó minden egyes döntéséhez. A fenti példához két döntés kapcsolódik: a felhasználó a megerősíti, hogy befejezi a vizsgát, vagy visszakozik. Ezt a két döntést a megjelenő dialógusablak megfelelő gombjainak megnyomásával (szintén a \textit{perform} segítségével) lehet szimulálni. Ezeket a teszteseteket meg is valósítottam, és a vizsga eredményét megjelenítő nézetre tettem feltételt. Ha felhasználó megerősíti, a befejezést, akkor a feltétel az, hogy ez a nézet látszódik (\textit{isDisplayed}), ha pedig visszakozik, akkor az elvárt viselkedés, hogy az eredménynézet nem jelenik meg (erre is van beépített feltétel, \textit{isNotDisplayed}).
 	
-	Az eddig bemutatott instrumentális tesztek az egyszerűbbek közé tartoznak. A gyakorlatban a tesztek általában több felhasználói interakció szimulálásából, és több feltétel megadásából állnak. Ilyen összetett teszt például az, amit a vizsga folyamat teljes ellenőrzésére készíttettem. Ez a teszt megnyit egy próba vizsgát, ami minden kérdéstípusból tartalmaz néhányat, fix sorrendben. Az \textit{Espresso} keretrendszer segítségével a tesztet úgy programoztam, hogy az összes kérdésre adja meg a helyes választ, majd zárja le a vizsgát. A folyamat során több feltételt is ellenőrzök, például, hogy sikeresen befejeződött-e a vizsga, és hogy maximális pontszám lett-e megadva. A teszt futásáról videót is készítettem, ahol látszik, hogy a keretrendszer emberfeletti sebességgel kitölti a próbavizsgát, majd megkapja rá a legmagasabb pontszámot. A videóért lásd a \ref{qr_instrumental_test}. ábrát.
+	Az eddig bemutatott instrumentális tesztek az egyszerűbbek közé tartoznak. A gyakorlatban a tesztek általában több felhasználói interakció szimulálásából, és több feltétel megadásából állnak. Ilyen összetett teszt például az, amit a vizsga folyamat teljes ellenőrzésére készíttettem. Ez a teszt megnyit egy próba vizsgát, ami minden kérdéstípusból tartalmaz néhányat, fix sorrendben. Az \textit{Espresso} keretrendszer segítségével a tesztet úgy programoztam, hogy az összes kérdésre adja meg a helyes választ, majd zárja le a vizsgát. A folyamat során több feltételt is ellenőrzök, például, hogy sikeresen befejeződött-e a vizsga, és hogy maximális pontszám lett-e megadva. A teszt futásáról videót is készítettem, ahol látszik, hogy a keretrendszer emberfeletti sebességgel kitölti a próbavizsgát, majd megkapja rá a legmagasabb pontszámot. A videóért lásd a \ref{qr_instrumental_test}.\ ábrát.
 	
 	\begin{figure}[h!]
 		\centering
@@ -1182,11 +1184,11 @@ public void testConfirmDialog() {
 	\end{figure}
 	\footnotetext{Az instrumentális teszt videó linkje: \url{https://youtu.be/4YkI0qD0FVg}}
 	
-	 Az instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (játszótér funkció, lásd \ref{playground}.) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
+	 Az instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (játszótér funkció, lásd \ref{playground}) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
 	 
 	 Ennek ellenére néhány esetben nem tudtam elkerülni a külső függőséget. Ilyek voltak például azok a tesztek, amikkel az alkalmazás és \textit{ClipSync} szerver (lásd \ref{clipsync}) együttműködését ellenőriztem. Ezek sikeres futásához értelemszerűen kell, hogy egy közeli számítógépen fusson a \textit{ClipSync} szerver.
 	
-	 Az alkalmazás minden képernyőjéhez (Android esetén ezeket \textit{activity}-nek nevezik) írtam instrumentális teszteket. Egyes esetekben egy képernyőhöz túl sok funkcionalitás tartozott, ilyenkor ezt szétbontottam kisebb részekre (ezek neve \textit{fragmens}) és a teszteket is eszerint csoportosítottam. Az összesítést a \ref{table_test_summary}. táblázat mutatja. 
+	 Az alkalmazás minden képernyőjéhez (Android esetén ezeket \textit{activity}-nek nevezik) írtam instrumentális teszteket. Egyes esetekben egy képernyőhöz túl sok funkcionalitás tartozott, ilyenkor ezt szétbontottam kisebb részekre (ezek neve \textit{fragmens}) és a teszteket is eszerint csoportosítottam. Az összesítést a \ref{table_test_summary}.\ táblázat mutatja. 
 	
 	\bigskip
 	\begin{table}[h!]
@@ -1227,4 +1229,32 @@ public void testConfirmDialog() {
 		\label{table_test_summary}
 	\end{table}
 
+	\section{Összefoglaló}\label{osszefoglalo}
+	
+	A \ref{celok}.\ fejezetben leírtam, hogy mit szeretnék megvalósítani a dolgozat tárgyát képező alkalmazásban. A megadott célok közül a legtöbbet sikerült teljesíteni, ahogy az olvasható a tananyagról és az alkalmazás felépítéséről szóló fejezetekben.
+	
+	Bizonyos célokat azonban nem sikerült megvalósítani, általában időhiány vagy a technikai tudásom nem elégséges szintje miatt. Más célok androidos alkalmazás esetén eleve irreálisak voltak, csak ezt a fejlesztés kezdetén még nem tudtam.
+	
+	Például a célkitűzések közt szerepel, hogy az alkalmazásnak minden méretű képernyőn igényesen kell kinéznie. Ezt csak kis képernyőkre tudtam elérni (okostelefonokra), nagyobb méretű eszközökre (táblagépekre) nem. Ennek standard módja az lett volna, ha táblagépekre külön képernyő elrendezéseket definiálok, ez azonban idő hiányában nem történt meg.
+	
+	Szerettem volna megfelelően átnézni a tananyagot, hogy megtaláljak benne minden elírást, nyelvtani, vagy a fordítás során keletkezett hibát és egyéb inkonzisztenciákat. Ez azonban nem sikerült elég alaposan, a tananyagban továbbra is előfordulhatnak pontatlanságok.
+	
+	Ennek ellenére úgy gondolom, hogy használható és igényes programot (igazából programokat) sikerült készítenem, amely segíti a felhasználót a \textit{Java} nyelv megértésében, mindez két nyelven is elérhető. Biztatom a tisztelt Olvasót, hogy amennyiben rendelkezik androidos okos eszközzel, győződjön meg erről maga. Az alkalmazás telepíthető a \ref{qr}.\ ábrán látható \textit{QR} kód segítségével.  
+	
+	A teljes forráskód nyilvánosan elérhető a \textit{GitHub}-on:
+	
+	\begin{center}
+	 	\url{https://github.com/Gtomika/learn-java}
+	\end{center}
+
+	Természetesen az érzékeny adatok, mint például \textit{API} kulcsok, vagy hirdetési azonosítók nem nyilvánosak, de az alkalmazás egy változata ezek nélkül is lefordítható, azonban itt egyes funkciók nem úgy fognak működni, ahogy az a \textit{Play} áruházban megjelent teljes verzióban látható.
+	
+	\renewcommand\refname{Használt segédanyagok}
+	\begin{thebibliography}{9}
+		\bibitem{androiddoc}
+		Hivatalos Android dokumentáció, \textit{Google}, \url{https://developer.android.com/docs/}
+		\bibitem{headfirst}
+		Head First Android Development: A Brain-Friendly Guide 2nd Edition, \textit{Dawn Griffiths, David Griffiths}, 2017
+	\end{thebibliography}
+	
 \end{document}
