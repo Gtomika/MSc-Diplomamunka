@@ -83,13 +83,13 @@
 	
 	\section{Bevezető}
 
-	Mindig is érdekelt, hogy a programozási ismereteimet hogyan tudom hatékonyan átadni kezdő programozóknak, vagy olyanoknak akiknek egyáltalán nincs e téren tapasztalatuk. Foglakoztat ezen kívül az androidos okos eszközökre történő alkalmazás fejlesztés is, ezek elterjedtsége miatt. Ezt a két érdeklődési körömet szerettem volna összekapcsolni, egy programozást oktató Androidos alkalmazás létrehozásával.
+	Mindig is érdekelt, hogy a programozási ismereteimet hogyan tudom hatékonyan átadni kezdő programozóknak, vagy olyanoknak akiknek egyáltalán nincs e téren tapasztalatuk. Foglakoztat ezen kívül az androidos okos eszközökre történő alkalmazás fejlesztés is, az ilyen eszközök elterjedtsége miatt. Ezt a két érdeklődési körömet szerettem volna összekapcsolni, egy programozást oktató Androidos alkalmazás létrehozásával.
 	
-	Ennek az alkalmazásnak az ötlete, és első verziói időben messze megelőzik a jelen dolgozatot. Amikor a fejlesztésbe belekezdtem, még igen csekély Android fejlesztéssel kapcsolatos ismerettel rendelkeztem, ez az egyik első alkalmazásom. Ennek megfelelő volt az állapota is. Sok helyen félkész, hibákkal teli, nem megfelelően tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet.
+	Az alkalmazás ötlete, és első verziói időben messze megelőzik a jelen dolgozatot. Amikor a fejlesztésbe belekezdtem, még igen csekély Android fejlesztéssel kapcsolatos ismerettel rendelkeztem, ez volt az egyik első alkalmazásom. Ennek megfelelő volt az állapota is. Sok helyen félkész, hibákkal teli, nem megfelelően tesztelt program volt, ami csak egy rövid tananyagot tartalmazott. Nem gondoltam, hogy valaha olyan állapotba kerül, hogy megjelenhet, vagy egy diplomamunka tárgya lehet.
 	
 	Az alkalmazás most már készen áll ezekre, ami egy több éves fejlesztési folyamat eredménye. Feljavítottam és modernizáltam a kódot, teszteseteket készítettem és a tananyagot is jelentősen bővítettem és pontosítottam.
 	
-	Ha a fejlesztést a dolgozat írásával egy időben kezdtem volna meg, sok mindent máshogy csinálnék. Ma már az Android fejlesztés nyelve a \textit{Kotlin}, nem pedig a \textit{Java}. A felhasználói felületet írásának modern módszere a \textit{Compose}, ami felváltotta a régi, \xml-segítségével definiált elrendezéseket. 
+	Ha a fejlesztést a dolgozat írásával egy időben kezdtem volna meg, sok mindent máshogy csinálnék. Ma már az Android fejlesztés nyelve a \textit{Kotlin}, nem pedig a \textit{Java}. A felhasználói felületet írásának modern módszere a \textit{Compose}, ami felváltotta a régi, \xml segítségével definiált elrendezéseket. 
 	Újabb alkalmazásaimban már ezeket használom, de a dolgozat tárgyát képező applikációt még a hagyományos eszközök segítségével készítettem.
 	
 	Az alkalmazás és a tanagyag eredetileg angol nyelven készült. A témavezetőm tanácsára magyar fordítást készítettem és most az alkalmazás és a teljes tananyag két nyelven is elérhető. Az androidos világban ezt úgy mondják, hogy lokalizált alkalmazás. A futtató eszköz országától és nyelvétől függ, hogy kinél milyen 
@@ -109,9 +109,9 @@
 	
 	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két fő komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra. Ennek a megjelenítésnek igényesen és érthetően kell kinéznie a képernyőmérettől függetlenül.
 
-	A tananyagnak strukturáltnak kell lennie, hogy a felhasználó könnyen tudjon navigálni benne. A programozás alapjaitól kell kezdődnie, hogy teljesen kezdők számára is használható lehessen. Fontos, hogy a tananyag csak olyan ismeretekre hivatkozzon, amik már a korábbi fejezetekben be lettek mutatva. Lenniük kell számonkéréseknek is, amelyekkel a felhasználó megbizonyosodhat róla, hogy megértette-e az anyagot. A tananyagnak elérhetőnek kell lennie magyar nyelven.
+	A tananyagnak strukturáltnak kell lennie, hogy a felhasználó könnyen tudjon navigálni benne. A programozás alapjaitól kell kezdődnie, hogy teljesen kezdők számára is használható lehessen. Fontos, hogy a tananyag csak olyan ismeretekre hivatkozzon, amik már a korábbi fejezetekben be lettek mutatva. Lenniük kell számonkéréseknek is, amelyekkel a felhasználó megbizonyosodhat róla, hogy megértette az anyagot. A tananyagnak elérhetőnek kell lennie magyar és angol nyelven is.
 	
-	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot, a struktúra megőrzésével megjelenítse. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni. Az alkalmazás által támogatott nyelvek (lokalizáció) között ott kell lennie a magyarnak.
+	Az alkalmazásnak képesnek kell lennie, hogy a tananyagot, a struktúra megőrzésével megjelenítse. A programozás oktatásánál elengedhetetlenek a kódminták, ezeket formázottan és könnyen olvashatóan kell mutatni (tabulálás, színezés). A felhasználó által kitöltött számonkéréseket ki kell tudni értékelni, a helyes és helytelen válaszokat pedig jelölni. A felhasználói felület nyelvei (lokalizáció) között ott kell lennie a magyarnak és az angolnak is.
 	
 	A két fő komponens tehát az alkalmazás és a tananyag. Az első verziók mindössze ezekből épültek fel. Ahogy azonban haladtam a fejlesztés folyamatával, világossá vált, hogy további komponensekre is szükség van, ha az általam tervezett funkciókat meg szeretném valósítani. Ilyen további komponens lesz például egy kis asztali alkalmazás, ami az okos eszköz és a számítógép közti szövegmegosztáshoz szükséges, és egy formázó program, ami kódmintákat olvasható formába alakítja. Ezekről a későbbiekben írok.
 	
@@ -119,8 +119,7 @@
 	
 	\section{A tananyag struktúrája}  
 	
-	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A következő alfejezetekben részletesen leírom, hogy ezek mit takarnak, hogyan kapcsolódnak egymáshoz és milyen formában kerülnek tárolásra.
-	
+	A tananyagot kurzusokra, fejezetekre, feladatokra és vizsgákra osztottam. A dolgozat következő részében  leírom, hogy ezek mit takarnak, hogyan kapcsolódnak egymáshoz és milyen formában kerülnek tárolásra.
 	A tananyag összes elemének van állapota, ami ezek egyik lehet:
 	
 	\begin{itemize}
@@ -129,6 +128,8 @@
 		\item Teljesített: Már befejezett, továbbra is elérhető tartalmak.
 		\item Félkész: Speciális állapot, ehhez lásd a \ref{reszben_befejezett_kurzusok}.\ részt.
 	\end{itemize}
+		
+	Egy anyagrész állapota először lezárt, amíg az előtte lévő anyagrészeket nem teljesítjük. Ennek oka, hogy a megnyitni kívánt tartalom támaszkodhat a korábbi anyagokra, ezért azok teljesítése előfeltétel. Miután a korábbi anyagrészek teljesítve lettek, az utánuk következő tartalom is megnyílik. A teljesítés egy, az alkalmazás által kiértékelt vizsgával történik.
 		
 	\subsection{XML}
 	
@@ -143,7 +144,7 @@
 	\end{lstlisting}
 	\bigskip
 	
-	Az Android fejlesztés egyik alapelve, hogy a forráskódtól, ami az alkalmazás viselkedését írja le, különítsük el a felhasználói felületet definiáló utasításokat. A kinézet megadásához sok minden hozzátartozik, például a szövegkonstansok, színek, méretek és képernyő elrendezések. Míg maga a program \textit{Java} nyelven íródik, a felhasználói felületet \xml-ben definiálhatjuk. Ezért számomra természetes volt, hogy \xml-ben kódolom el a tananyag erőforrásfájljait, mivel ehhez a fejlesztő környezet is jelentős támogatást nyújt. Az, hogy konkrétan hogyan van implementálva a tanagyag tárolása az már az alkalmazás felépítéséhez tartozik, erről a \ref{tananyag_tarolasa}.\ fejezetben írok.
+	Az Android fejlesztés egyik alapelve, hogy a forráskódtól, ami az alkalmazás viselkedését írja le, különítsük el a felhasználói felületet definiáló erőforrásokat. A kinézet megadásához sok minden hozzátartozik, például a szövegkonstansok, színek, méretek és képernyő elrendezések. Míg maga a program \textit{Java} nyelven íródik, a felhasználói felületet \xml-ben definiálhatjuk. Ezért számomra természetes volt, hogy \xml-ben kódolom el a tananyag erőforrásfájljait, mivel ez mélyen beépült az Android fejlesztésbe, és ehhez a fejlesztő környezet is jelentős támogatást nyújt. Az itt következő fejezetekben bemutatom, hogy miként vannak elkódolva a tananyag egyes elemei \xml-ben.
 	
 	A továbbiakban az \xml dokumentumokban azokat a részeket, ahol nem konkrét adatot kell érteni szögletes zárójelek közé fogom írni, ezáltal általánosabban adhatom meg a struktúrákat. Például a fenti \xml így átírva:
 	
@@ -193,9 +194,7 @@
 	
 	\subsection{Fejezet}\label{fejezet}
 	
-	A kurzus nem osztatlan egység, hanem fejezetekből épül fel. Ezek további kisebb, összefüggő részekre bontják a kurzus tartalmát, hogy az átláthatóbb és könnyebben elsajátítható legyen. A fejezetek sorrendje lényeges, mert közöttük is van egymásra épülés. A kurzushoz tartozó vizsga (\ref{vizsga}) minden fejezetből tartalmazhat kérdéseket, ezért csak akkor nyílik meg, ha a felhasználó a kurzus összes fejezetét elolvasta.
-	
-	Például az adatszerkezetek kurzus fejezetei a következők:
+	A kurzus nem osztatlan egység, hanem fejezetekből épül fel. Ezek további kisebb, összefüggő részekre bontják a kurzus tartalmát, hogy az átláthatóbb és könnyebben elsajátítható legyen. A fejezetek sorrendje lényeges, mert közöttük is van egymásra épülés. A kurzushoz tartozó vizsga (\ref{vizsga}) minden fejezetből tartalmazhat kérdéseket, ezért csak akkor nyílik meg, ha a felhasználó a kurzus összes fejezetét elolvasta. Például az \textit{Adatszerkezetek} kurzus fejezetei a következők:
 	
 	\begin{enumerate}
 		\item Tömbök.
@@ -214,8 +213,8 @@
 	\begin{lstlisting}[language=XML]
 <resources>
   <chapterdata>
-	<id>[Fejezet azonosító]</id>
-    <name>[Fejezetnév]</name>
+   <id>[Fejezet azonosító]</id>
+   <name>[Fejezetnév]</name>
   </chapterdata>
 
   [Fejezet törzse]	
@@ -229,20 +228,18 @@
 	
 	A feladat egy önálló programozási munkát takar, ami mindig egy kurzushoz kapcsolódik. Ahhoz, hogy a felhasználó meg tudja oldani, szüksége lesz az adott kurzus és az azt megelőző kurzusok ismereteire is.
 	
-	Egy kurzushoz több feladat is tartozhat, de mindegyikhez adott legalább egy. Továbbra is maradva az adatszerkezetek kurzusnál, ehhez például két feladatot mellékeltem:
+	Egy kurzushoz több feladat is tartozhat, de mindegyikhez adott legalább egy. Továbbra is maradva az \textit{Adatszerkezetek} kurzusnál, ehhez például két feladatot mellékeltem:
 	
 	\begin{itemize}
 		\item Tömb alapú lista implementálása.
 		\item Láncolt lista implementálása.
 	\end{itemize}
 
-	Megjegyzem, hogy ezen feladatok megoldásának nem kell olyan hatékonynak vagy általánosnak lennie, mint egy valódi implementáció, a cél csak a két lista alapelveinek megértése. Mivel a generikus programozás kurzus az adatszerkezetek után következik, ezért itt természetesen nem elvárás generikus listák programozása.
+	Megjegyzem, hogy ezen feladatok megoldásának nem kell olyan hatékonynak vagy általánosnak lennie, mint egy valódi implementáció, a cél csak a két lista alapelveinek megértése. Mivel a \textit{Generikus programozás} kurzus az adatszerkezetek után következik, ezért itt természetesen nem elvárás generikus listák programozása.
 
-	Egy-egy feladatnak olyan sokféle helyes implementációja van. Lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak összevetné a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt készítettem, ami az adott feladat alatt megtekinthető. 
+	Egy-egy feladatnak sokféle helyes implementációja van. Lehetetlen ellenőrizni, hogy a felhasználó megoldása megfelelő-e. Ennek ellenére szerettem volna biztosítani, hogy ha a felhasználó elakad, vagy csak összevetné a megoldását egy másikkal, akkor erre lehetősége legyen. Minden feladat mellé referencia implementációt készítettem, ami az adott feladat alatt megtekinthető. 
 
-	A feladatok megoldása opcionális, a fejezetekkel ellentétben nem szükségesek a vizsga (\ref{vizsga}) megnyitásához és a kurzusok teljesítéséhez.
-
-	A feladatok \xml elkódolása így néz ki:
+	A feladatok megoldása opcionális, a fejezetekkel ellentétben nem szükségesek a vizsga (\ref{vizsga}) megnyitásához és a kurzusok teljesítéséhez. \xml elkódolásuk így néz ki:
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
@@ -290,7 +287,7 @@
   <examdata>
 	<id>[Vizsga azonosító]</id>
 	<questionAmount>[Kérdések mennyisége]</questionAmount>
-	<timeLimit>[Időkorlát, perceben]</timeLimit>
+	<timeLimit>[Időkorlát, percben]</timeLimit>
     <finished>[Befejezettség jelölő]</finished>
   </examdata>
   
@@ -313,7 +310,6 @@
 	
 	A tananyag jelenleg 7 kurzusból áll, amik további fejezetekre vannak bontva. Ezekről egy összefoglalót mutat az \ref{kurzusok_tablazat}.\ táblázat.
 	
-	\bigskip
 	\begin{table}[h!]
 		\centering
 		\addtolength{\leftskip} {-2cm} % increase (absolute) value if needed
@@ -348,6 +344,16 @@
 		\label{kurzusok_tablazat}
 	\end{table}
 	
+	Ahogy azt már írtam, a tananyag bármikor bővíthető, a meglévő kurzusokhoz új fejezetek adhatók hozzá, vagy akár teljesen új kurzusok is létrehozhatók. Vannak elképzeléseim olyan új kurzusokról, amiket esetleg majd a jövőben adok hozzá az alkalmazáshoz:
+	
+	\begin{itemize}
+		\item Grafikus felhasználói felület készítése \textit{Java}-ban.
+		\item Hálózati alkalmazások létrehozása.
+		\item A legmodernebb \textit{Java} újításai (13-as verziótól egészen 16-ig).
+	\end{itemize}
+
+	Egy új kurzus elkészítése azonban komoly feladat, mert a törzsanyagon kívül szükséges még a kódminták, a vizsgakérdések, a feladatok és végül a teljes angol fordítás megírása.
+	
 	\section{A tananyag törzsét alkotó komponensek}\label{tananyag_torzse}
 
 	Már leírtam a tananyag struktúráját és azt, hogy ez hogyan van \xml-ben elkódolva. Most bemutatom, hogy miként vannak definiálva azok a komponensek, amelyeket a felhasználó a fejezetek, feladatok és vizsgák megnyitásakor lát és amelyek a tananyag törzsét alkotják.
@@ -364,7 +370,7 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	Ezt a funkcionalitást az alkalmazás erősen kihasználja, nem csak egy-egy szó kiemelésére vagy, linkek beillesztésére, hanem a kódminták megformázására is (\ref{kodmintak}).
+	Ezt a funkcionalitást az alkalmazás erősen kihasználja, nem csak egy-egy szó kiemelésére vagy linkek beillesztésére, hanem a kódminták megformázására is (\ref{kodmintak}).
 	
 	Nehézséget okoz viszont, hogy a szövegek \xml-ben vannak megadva, mivel mind az \xml, mind a \textit{HTML} a $<$ és $>$ karaktereket használja. Azért, hogy ne legyenek ütközések, és az \xml ne próbálja meg értelmezni a \textit{HTML} tageket, a szöveget úgynevezett karakter-adat (\textit{CDATA}) blokkba kell helyezni:
 	
@@ -379,7 +385,7 @@ textView.setText(formattedText);
 	
 	\subsection{Egyszerű szöveg}
 	
-	A legegyszerűbb megjeleníthető komponens az egyszerű szöveg. Ilyet úgy helyezhetünk el egy fejezetben, vagy feladatban, hogy $<text>$ tagek közé helyezzük a formázott szöveget, használva az előző részben említett \textit{CDATA} blokkot. A megadott szöveg formázottan fog megjelenni az alkalmazásban.
+	A legegyszerűbb megjeleníthető komponens az egyszerű szöveg. Ilyet úgy helyezhetünk el egy fejezetben, vagy feladatban, hogy $<text>$ tagek közé rakjuk a formázott szöveget, használva az előző részben említett \textit{CDATA} blokkot. A megadott szöveg formázottan fog megjelenni az alkalmazásban.
 	
 	Lehetőség van címsor beszúrására. Ez a fejezetek vagy feladatok további kisebb, összefüggő részekre való felbontását teszi lehetővé. Címsort a $<title>$ taggel szúrhatunk be, tartalmát pedig egy attribútummal lehet szabályozni:
 	
@@ -394,7 +400,7 @@ textView.setText(formattedText);
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=5cm]{title_text_component}
-		\caption{Részlet az \textit{input beolvasása} fejezetből (angol változat): címsor és szöveg.}
+		\caption{Részlet az \textit{Input beolvasása} fejezetből (angol változat): címsor és szöveg.}
 		\label{title_component_figure}
 	\end{figure}
 	
@@ -402,7 +408,7 @@ textView.setText(formattedText);
 	
 	\subsection{Bekeretezett szöveg}
 	
-	Ez a komponens lényegében egy szövegdoboz, ami eltérő háttérszínnel és saját címmel rendelkezik, ezáltal jobban felhívja a felhasználó figyelmét. Definiálása a $<boxed>$ taggel történik:
+	Ez a komponens lényegében egy szövegdoboz, ami eltérő háttérszínnel és saját címmel rendelkezik, ezáltal jobban felhívja magára a felhasználó figyelmét. Definiálása a $<boxed>$ taggel történik:
 	
 	\bigskip
 	\begin{lstlisting}[language=XML]
@@ -414,7 +420,7 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	Például a metódusok fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt. Ezt lásd a \ref{boxed_component_figure}.\ ábrán.
+	Például a \textit{Metódusok} fejezetben ilyen szövegdobozba raktam a visszatérési érték nélküli metódusokkal kapcsolatos részt. Ezt lásd a \ref{boxed_component_figure}.\ ábrán.
 	
 	\begin{figure}[h!]
 		\centering
@@ -437,7 +443,7 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	Ilyen jelzővel láttam el például a \textit{absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével (\ref{advanced_component_figure}.\ ábra). Ez részletesebben egy későbbi kurzusban, a \textit{Java 8} nevűben van leírva.
+	Ilyen jelzővel láttam el például a \textit{Absztrakt osztályok és interfészek} fejezetben azt a rész, ahol a megemlítem, hogy milyen változásokon mentek keresztül az interfészek a \textit{Java 8} megjelenésével (\ref{advanced_component_figure}.\ ábra). Ez részletesebben egy későbbi kurzusban, a \textit{Java 8} nevűben van leírva.
 	
 	\begin{figure}[h!]
 		\centering
@@ -457,7 +463,7 @@ textView.setText(formattedText);
 <image name="[Kép neve]"/>
 	\end{lstlisting}
 	
-	Például \textit{tömbök} fejezetben a több dimenziós tömbök megértését képpel segítettem elő, amint az a \ref{image_component_figure}.\ ábrán látható.
+	Például \textit{Tömbök} fejezetben a több dimenziós tömbök megértését képpel segítettem elő, amint az a \ref{image_component_figure}.\ ábrán látható.
 	
 	\begin{figure}
 		\centering
@@ -481,11 +487,11 @@ textView.setText(formattedText);
 		\item Kommentek. 
 	\end{itemize}
 	
-	A megjelenő kódmintáknak ugyanolyan sortörésekkel és tabulálással kell megjelenni az alkalmazásban, mint ahogy megírásra kerültek. Ezért a minták szövegébe a sorok végére $<br>$ sortörő taget kell elhelyezni, és a tabulálást pedig a $\&nbsp;$ szimbólummal kellet jelölni. A korábban bemutatott komponenseknél ez nem volt lényeges, ezeket az Android rendszer úgy tördelheti, ahogy a képernyő méretei megengedik, azonban a kódmintáknál fontos a helyes tördelés.
+	A megjelenő kódmintáknak ugyanolyan sortörésekkel és tabulálással kell megjelenni az alkalmazásban, mint ahogy megírásra kerültek. Ezért a minták szövegébe a sorok végére $<br>$ sortörő taget kell elhelyezni, és a tabulálást pedig a $\&nbsp;$ szimbólummal kell jelölni. A korábban bemutatott komponenseknél ez nem volt lényeges, ezeket az Android rendszer úgy tördelheti, ahogy a képernyő méretei megkövetelik, azonban a kódmintáknál fontos a helyes tördelés.
 	
 	További formázást igényelt, hogy a \textit{HTML} nyelv esetén a $<$ szimbólumot speciálisan kell jelölni, hogy az értelmező ne vegye egy új tag kezdetének. A megoldás az $\&lt$ karaktersorozattal történő helyettesítés. Ezért az olyan kódminták, melyek például összehasonlítást tartalmaznak mind külön formázást igényelnek.
 	
-	Látható, hogy rengeteg formázási szabályt vezettem be. Ha ehhez hozzávesszük a kódminták nagy számát, akkor látszik, hogy a manuális formázás nem célszerű. Ezért erre  célra egy külön formázó programot készítettem, ami egy megadott mappában lévő \textit{Java} kódot átalakít olyan \textit{HTML} kóddá, ami a fent említett összes szabálynak eleget tesz. Ez a program reguláris kifejezések alapján azonosítja a listában látható kifejezéseket és elhelyezi körülöttük a színezést és a tördelést biztosító tageket. A formázó teljes forráskódja elérhető a \textit{GitHub}-on:
+	Látható, hogy rengeteg formázási szabályt vezettem be. Ha ehhez hozzávesszük a kódminták nagy számát, akkor látszik, hogy a manuális formázás nem célszerű. Ezért erre  célra egy külön formázó programot készítettem, ami egy megadott mappában lévő \textit{Java} kódot átalakít olyan \textit{HTML} kóddá, ami a fent említett összes szabálynak eleget tesz. Ez a program reguláris kifejezések alapján azonosítja a listában látható elemeket és elhelyezi körülöttük a színezést és a tördelést biztosító tageket. A formázó segédprogram teljes forráskódja elérhető a \textit{GitHub}-on:
 	
 	\begin{center}
 		\url{https://github.com/Gtomika/learn-java-code-formatter}
@@ -503,7 +509,7 @@ textView.setText(formattedText);
 	\end{lstlisting}
 	\bigskip
 	
-	A megjelenítésnél nehézséget okoz, hogy a kódmintákban kosszú sorok lehetnek, amelyen nem minden eszköz képernyőjén férnek el egy sorban, viszont a mintákat a rendszer nem tördelheti szabadon. Ezért az alkalmazás kódmintái vízszintesen görgethetőek, ha vannak bennül olyan sorok, amelyek nem férnek el a képernyőn.
+	A megjelenítésnél nehézséget okoz, hogy a kódmintákban kosszú sorok lehetnek, amelyek nem minden eszköz képernyőjén férnek el egy sorban, viszont a mintákat a rendszer nem tördelheti szabadon. Ezért az alkalmazás kódmintái vízszintesen görgethetőek, ha vannak bennül olyan sorok, amelyek nem férnek el a képernyőn.
 	
 	\begin{figure}
 		\centering
@@ -529,7 +535,7 @@ textView.setText(formattedText);
 	
 	Az olvashatóság miatt itt nem tüntettem fel a formázást, egy valódi minta esetén \textit{HTML} tagek is szerepelnek a formázott kódban.
 	
-	A mezők azonosítása indexelés alapján történik. Mindegyik mezőhöz meg kell adni, hogy oda milyen megoldásokat vár az alkalmazás. Szintén megadható alapértelmezett tartalom, ilyenkor az adott mező nem üresen, hanem a megadott tartalommal jelenik meg. Ez felhasználható például olyan interaktív minta megadására, ahol a felhasználó dolga a kódrészlet kijavítása, nem pedig egyszerűen a kitöltése.
+	A mezők azonosítása indexelés alapján történik. Mindegyik mezőhöz meg kell adni, hogy oda milyen megoldásokat vár az alkalmazás. Szintén megadható alapértelmezett tartalom, ilyenkor az adott mező nem üresen, hanem a megadott tartalommal jelenik meg. Ez felhasználható például olyan interaktív minta megadására, ahol a feladat a kódrészlet kijavítása, nem pedig egyszerűen a kitöltése.
 	
 	Az interaktív kódmintákat a következő \xml struktúrával lehet megadni:
 	
@@ -565,6 +571,7 @@ num = num ___ 5;
 	\end{lstlisting}  
 	\bigskip
 	
+	\noindent
 	Látható, hogy több megoldás is van:
 	
 	\begin{itemize}
@@ -573,7 +580,7 @@ num = num ___ 5;
 		\item Nyolcat kapunk továbbá a 40 és a \textit{/} megadásával is.
 	\end{itemize}
 	
-	A probléma azonban nem oldható meg annyival, hogy lehetséges megoldásként az első mezőhöz felvesszük a 3, 13 és 40 értékeket, a másodikhoz pedig a \textit{+}, \textit{-} és \textit{\%} szimbólumokat. Ebben az esetben ugyanis ezek helytelen kombinációját is elfogadná az alkalmazás, pedig csak a listában megadott kombinációk helyesek.
+	A probléma azonban nem oldható meg annyival, hogy lehetséges megoldásként az első mezőhöz felvesszük a 3, 13 és 40 értékeket, a másodikhoz pedig a \textit{+}, \textit{-} és \textit{/} szimbólumokat. Ebben az esetben ugyanis ezek helytelen kombinációját is elfogadná az alkalmazás, pedig csak a listában megadott kombinációk helyesek.
 	
 	Ezt a nehézséget úgy hidaltam át, hogy csoportosíthatóvá tettem a válaszokat. Egy csoportba tartozó válaszok csak együtt lesznek elfogadva. Az előző példa válaszait így a következőképpen lehet elkódolni:
 	
@@ -605,17 +612,17 @@ num = num ___ 5;
 		\label{interactive_component_completed_figure}
 	\end{figure}
 	
-	A bal alsó sarokban lévő ikonok a \ref{kodmintak}.\ fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzete állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek. A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
+	A bal alsó sarokban lévő ikonok az \ref{kodmintak}.\ fejezetből már ismert betűméret állítók, a jobb alsó sarokban lévő gombokkal pedig a felhasználó elkérheti a megoldást, vagy alaphelyzetbe állíthatja a komponenst. A helyes és helytelen megoldások kijelölésre kerülnek. A helytelen megoldásnál megfigyelhető kérdőjel ikon segítségével el lehet kérni az adott mező helyes megoldását, arra az esetre, ha a felhasználó elakadna.
 	
 	\subsection{Kérdések}\label{kerdesek}
 	
-	A kérdések hasonló elven működnek, mint a fejezeteben megjelenő komponensek, a kérdések azonban csak a vizsgákban fordulnak elő. Szintén \xml-ben vannak definiálva.
+	A kérdések hasonló elven működnek, mint a fejezetekben megjelenő komponensek, azonban csak a vizsgákban fordulnak elő. Szintén \xml-ben vannak definiálva.
 	
 	Míg a fejezeteket és feladatokat megadó \xml fájlokban minden komponens felhasználásra kerül, méghozzá a megadott sorrendben, addig a vizsgákat definiáló fájlokban a kérdések sorrendje nem számít, és az sem biztos, hogy mind meg is fog jelenni. Ennek oka a változatosság. Ha egy vizsga megnyitásakor mindig ugyanazok a kérdések, ugyanabban a sorrendben jelennének meg, az kiszámítható lenne.
 	
 	Ennek elkerülésére az alkalmazás a vizsga megnyitásakor az \xml értelmezése után egy véletlenszerű, előre megadott méretű listát állít össze a kérdésekből. Az egy vizsgához tartozó kérdés mennyiség szintén a vizsgát leíró \xml-ben van megadva, ez jellemzően 20-25 kérdés.
 	
-	Ahogy a fejezetekben megjelenő komponenseknek, úgy a kérdéseknek is több típusa van. Ennek oka egyrészt a monotonitás megtörése, másrészt a különböző kérdéstípusok lehetőséget adnak a vizsga készítőjének, hogy sokféle kérdést fel tudjon tenni. Például, ha csak feleletválasztós kérdés lenne, akkor nem lehetne olyan kérdést feltenni, amiben írásos választ várunk.
+	Ahogy a fejezetekben megjelenő komponenseknek, úgy a kérdéseknek is több típusa van. Ennek oka egyrészt a monotonitás megtörése, másrészt a különböző kérdéstípusok lehetőséget adnak a vizsga készítőjének, hogy sokféleképpen tudjon rákérdezni az adott anyagrészre. Például, ha csak feleletválasztós kérdés lenne, akkor nem lehetne írásos választ bekérni.
 	
 	Minden kérdéstípusnak automatikusan javíthatónak kell lennie, hogy az alkalmazás ki tudja értékelni az elkészült vizsgát. Ez kizárja az olyan kérdéseket, amik hosszú szöveges választ várnak (esszé).
 	
@@ -651,7 +658,7 @@ num = num ___ 5;
 	
 	\subsubsection{Feleletválasztós kérdés több válaszlehetőséggel}
 	
-	Egy újabb feleletválasztós típus, éppen ezért sokban hasonlít a fent ismertettet egy választási lehetőséggel rendelkező kérdésre. A különbség, hogy ebben az esetben a felhasználó a megjelenített lehetséges válaszok közül bármyennyit megjelölhet helyesként.
+	Egy újabb feleletválasztós típus, éppen ezért sokban hasonlít a fent ismertettet egy választási lehetőséggel rendelkező kérdésre. A különbség, hogy ebben az esetben a felhasználó a megjelenített lehetséges válaszok közül bármennyit megjelölhet helyesként.
 	
 	Az elkódolás ennek megfelelően változik. Több $<correct>$ tag is megjelenhet, de egyébként pontosan ugyan olyan, mint az egy választási lehetőséggel rendelkező kérdések esetén. Megjelenített kédések több válaszlehetőséggel a \ref{question_multi_choice_figure}.\ ábrán láthatóak.
 	
@@ -681,7 +688,7 @@ num = num ___ 5;
 	\noindent
 	Megfigyelhető, hogy itt nincsen $<answer>$ tag, mivel ez a kérdéstípus nem mutat lehetséges válaszokat a felhasználónak. $<correct>$ tagből több is támogatott, mindegyik esetén pontos egyezés lesz szükséges a felhasználó válaszával, hogy az el legyen fogadva.
 	
-	Amikor elkezdtem ténylegesen kérdéseket írni, rájöttem, hogy ez a fajta validáció rugalmatlan, és nagyon hosszú kérdés definíciókat eredményez. Például szeretném megkérdezni a felhasználótól, hogy \textit{minek a rövidítése a JDK}. A válasz persze \textit{Java Development Kit}, de mi történjem, ha a vizsgázó ezt kis betűkkel írja le, vagy esetleg csak az első szó lesz nagybetűs. Szerettem volna ezeket mind elfogadni, mivel teljesen helyes válaszok, ehhez azonban nagyon sokféle helyes választ kellett definiálnom, és még így is előfordulhat, hogy a felhasználó által beírt válasz helyes, de éppen nem lesz köztük.
+	Amikor elkezdtem ténylegesen kérdéseket írni, rájöttem, hogy ez a fajta validáció rugalmatlan, és nagyon hosszú kérdés definíciókat eredményez. Például szeretném megkérdezni a felhasználótól, hogy minek a rövidítése a \textit{JDK}. A válasz persze \textit{Java Development Kit}, de mi történjem, ha a vizsgázó ezt kis betűkkel írja le, vagy esetleg csak az első szó lesz nagybetűs. Szerettem volna ezeket mind elfogadni, mivel teljesen helyes válaszok, ehhez azonban nagyon sokféle helyes megoldást kellett definiálnom, és még így is előfordulhat, hogy a felhasználó által beírt válasz helyes, de éppen nem lesz köztük.
 	
 	A probléma megoldására hoztam létre a nagybetűt figyelmen kívül hagyó kérdést, amit az $<ignoreCase>$ tag elhelyezésével lehet megadni:
 	
@@ -694,9 +701,11 @@ num = num ___ 5;
 	\end{lstlisting}
 	
 	\noindent
-	Egy sokkal nehezebb problémával szembesültem, amikor olyan kérdéseket kezdtem írni, amelyek valamilyen kódrészlet megadását kérik. Vegyük azt a példát, ahol adott egy $i$ nevű változó, és azt kérjük a felhasználótól, hogy írjon utasítást, ami ennek a változónak a $4$ értéket adja. A helyes válasz persze $i = 4;$, de a szóközök gondot jelenthetnek. Korrekt megoldás az is, ha egyáltalán nem írunk szóközt az egyenlőség jel elé, vagy után, de a Java fordító azt is elfogadja, ha 20 szóközt írunk elé, vagy mögé.
+	Ebben az esetben a \textit{Java Development Kit} szöveg el lesz fogadva, akárhogy is változzanak benne a kis-, és nagybetűk.
 	
-	Logikusnak tűnik egy $<ignoreSpace>$ tag bevezetése, ami majd minden szóközt töröl a felhasználó válaszából, és csak utána veti össze a helyes megoldással. A fenti példát megoldaná, viszont könnyen találhatunk olyat, ahol ez nem kivitelezhető. Tegyük fel, hogy egy olyan utasításra akarunk rákérdezni, ami deklarál egy $int$ típusú $i$ változót, és az értékét $0$-ra állítja. Ez nyilván $int \ i = 0;$ lesz. Ha azonban erre alkalmaznánk a szóközöket kidobó ellenőrzést, akkor az elfogadná a $inti=0;$ választ is, ami pedig érvénytelen.
+	Egy sokkal nehezebb problémával szembesültem, amikor olyan kérdéseket kezdtem írni, amelyek valamilyen kódrészlet megadását kérik. Vegyük azt a példát, ahol adott egy $i$ nevű egész értékű változó, és azt kérjük a felhasználótól, hogy írjon utasítást, ami ennek a változónak a $4$-es értéket adja. A helyes válasz persze $i = 4;$, de a szóközök gondot jelenthetnek. Korrekt megoldás az is, ha egyáltalán nem írunk szóközt az egyenlőség jel elé, vagy után, de a Java fordító akár azt is elfogadja, ha 20 szóközt írunk elé, vagy mögé.
+	
+	Logikusnak tűnik egy $<ignoreSpace>$ tag bevezetése, ami majd minden szóközt töröl a felhasználó válaszából, és csak utána veti össze a helyes megoldással. A fenti példára ez működne, viszont könnyen találhatunk olyat, ahol ez nem kivitelezhető. Tegyük fel, hogy egy olyan utasításra akarunk rákérdezni, ami deklarál egy $int$ típusú $i$ változót, és az értékét $0$-ra állítja. Ez nyilván $int \ i = 0;$ lesz. Ha azonban erre alkalmaznánk a szóközöket kidobó ellenőrzést, akkor az elfogadná a $inti=0;$ választ is, ami pedig érvénytelen.
 	
 	Ezt a nehézséget úgy oldottam meg, hogy a megoldásba elhelyezhetőek "fontos" szóközök, amiket az $<ignoreSpace>$ tag nem fog figyelmen kívül hagyni. Ha egy fontos szóköz hiányzik akkor a válasz nem lesz elfogadva. Itt látható a példa, ahol a fontos szóközöket jelölő $[s]$ karaktersorozatot illesztettem az $int$ és az $i$ közé:
 	
@@ -781,7 +790,7 @@ num = num ___ 5;
 	
 	Biztosított továbbá az \textit{Asset System} (eszköz rendszer), mely annyiban tér el az előbb bemutatott erőforrás rendszertől, hogy itt nincsenek kategóriák, be tud fogadni bármilyen erőforrásfájlt, amelyre egy alkalmazásnak szüksége lehet. Ez tehát alkalmasabb módszer a tananyag tárolására, mint az erőforrás rendszer, és át is tértem ennek a használatára.
 	
-	Egy további érdekes lehetőség a tananyag tárolására egy szerver alkalmazás használata. A \textit{backend} biztosíthatna egy \textit{REST API}-t, amellyel az alkalmazás le tudná kérni a tananyag tartalmát. Ennek a módszernek az előnye, hogy így az alkalmazásból nem nyerhetőek ki a tananyagot alkotó \xml fájlok, mivel azok a szerveren vannak. Továbbá az alkalmazás mérete is csökkenne. Hátrány, hogy az alkalmazás alapvető használata internettől függővé válna, anélkül még egy fejezetet sem lehetne betölteni. 
+	Egy további érdekes lehetőség a tananyag tárolására egy szerver alkalmazás használata. A \textit{backend} biztosíthatna egy \textit{API}-t, amellyel az alkalmazás le tudná kérni a tananyag tartalmát. Ennek a módszernek az előnye, hogy így az alkalmazásból nem nyerhetőek ki a tananyagot alkotó \xml fájlok, mivel azok a szerveren vannak. Továbbá az alkalmazás mérete is csökkenne. Hátrány, hogy az alapvető használat internettől függővé válna, anélkül még egy fejezetet sem lehetne betölteni. 
 	
 	Valós lehetőségként ez a tárolási forma egyáltalán nem merült fel, mivel a tervezés során nem gondolkodtam szerver alkalmazásban.
 	
@@ -815,7 +824,7 @@ public @interface Status {
 	 
 	\subsubsection{Struktúra}\label{adatbazis_struktura}
 	 
-	Az adatbázis szerkezete egyszerű. A tananyag négy egységéhez (kurzus, fejezete, feladat, vizsga) rendel egy-egy táblát, és ezen táblák rekordjai tárolják az előrehaladást. Így néz ki az egyed-kapcsolat diagram:
+	Az adatbázis szerkezete egyszerű. A tananyag négy egységéhez (kurzus, fejezet, feladat, vizsga) rendel egy-egy táblát, és ezen táblák rekordjai tárolják az előrehaladást. Így néz ki az egyed-kapcsolat diagram:
 	
 	\begin{center}
 		\includegraphics[width=\linewidth]{db_model}
@@ -846,9 +855,9 @@ public @interface Status {
 		\item Adatbázis frissítés a főszálon: ha a főszálon adunk ki \textit{SQL} utasítást, akkor ez blokkolni fog, és a felhasználói felület nem lesz válaszképes. 
 	\end{itemize}
 
-	Pontos tervezéssel és helyes implementációval ez mind elkerülhető, de javasolt egy olyan keretrendszer használata, mely az adatbázis kezelés veszélyeit kezeli. Egy ilyen keretrendszer a \textit{Room}, amely az Android fejlesztői könyvtár (\textit{AndroidX}) része.
+	Pontos tervezéssel és helyes implementációval ez mind elkerülhető, de javasolt egy olyan keretrendszer használata, mely az adatbázis kezelés veszélyeit elfedi, vagy legalább fordítási időben figyelmeztet a problémákra. Egy ilyen keretrendszer a \textit{Room}, amely az Android fejlesztői könyvtár (\textit{AndroidX}) része. Ez egy \textit{ORM (Object Relational Mapping)} rendszer, ahol \textit{Java} osztályokkal adhatjuk meg az adatbázis szerkezetét.
 	
-	A \textit{Room} elrejti a programozó elől az \textit{SQLite} adatbázist, helyette két komponenst biztosít, melyekkel a struktúrája és tartalma módosítható. Ezen kívül meg fogja tiltani, hogy a főszálról adatbázis műveletet végezzünk (ilyen esetben kivétel dobódik). 
+	A \textit{Room} elrejti a programozó elől az \textit{SQLite} adatbázist, helyette két komponenst biztosít, melyekkel a struktúrája és tartalma módosítható. Ezen kívül meg fogja tiltani, hogy a főszálról adatbázis műveletet végezzünk (ilyen esetben kivétel dobódik, így kényszerítve a programozót háttérszálak használatára). 
 	
 	\subsubsection{Room entitások}
 	
@@ -858,7 +867,7 @@ public @interface Status {
 @Entity(tableName = "chapter_status")
 public class ChapterStatus {
 	
- @PrimaryKey //külső kulcs jelző
+ @PrimaryKey //kulcs jelző
  @ColumnInfo(name = "chapter_id")
  private int chapterId;
 	
@@ -872,7 +881,7 @@ public class ChapterStatus {
 	
 	Látható, hogy annotációk segítségével adhatjuk meg, hogy milyen mezői legyenek az adott táblának. Az alkalmazás indításakor ez a tábla létre fog jönni az adatbázisban, anélkül, hogy egyetlen \textit{SQL} utasítást is írnunk kellene. Azokat a \textit{Room} fogja összeállítani, az általunk megadott adatok alapján, és garantáltan helyesek lesznek.
 	
-	A későbbiekben ezt az osztályt példányosíthatjuk, ezek az objektumok rekordokat fognak reprezentálni.
+	A későbbiekben ezt az osztályt példányosíthatjuk, ezek az objektumok rekordokat fognak reprezentálni, amikkel beszúrásokat, frissítéseket és törléseket végezhetünk az adott táblában.
 
 	\subsubsection{Room adatkezelők}
 	
@@ -893,10 +902,10 @@ public interface ChapterDao {
 }
 	\end{lstlisting}
 
-	Bizonyos egyszerű műveletekre vannak előre adott annotációk, melyek automatikusan fogják generálni a a megfelelő \textit{SQL} utasítást (beszúrás, frissítés, törlés). Ezek azonban nem elegendőek, ezért a \textit{@Query} annotációval saját utasítást írhatunk. Ennek a tartalma fordítási időben ellenőrizve lesz. Megfigyelhető, hogy még arra is lehetőség van, hogy a kapott paraméterek értékét behelyettesítsük az \textit{SQL} utasításba. A fenti kódban is látható egy saját utasítás, ami képes az adatbázisból egy fejezetet az azonosítója alapján lekérni.
+	Bizonyos egyszerű műveletekre vannak előre adott annotációk, melyek automatikusan fogják generálni a a megfelelő \textit{SQL} utasítást (beszúrás, frissítés, törlés). Ezek azonban nem elegendőek, ezért a \textit{@Query} annotációval saját utasítást írhatunk. Ennek a tartalma és szintaxisa fordítási időben ellenőrizve lesz. Megfigyelhető, hogy még arra is lehetőség van, hogy a kapott paraméterek értékét behelyettesítsük az \textit{SQL} utasításba. A fenti kódban is látható egy saját utasítás, ami képes az adatbázisból egy fejezetet az azonosítója alapján lekérni.
 
 	Ezután az adatbázist ezzel az interfésszel módosíthatjuk, anélkül, hogy a kód más részeibe \textit{SQL} utasítást kelleni írni. Ez növeli a karbantarthatóságot és 
-	csökkenti az \textit{SQL} írásakor gyakran előforduló hibákat (elírt tábla vagy oszlop név). A következő kódminta például hozzáad egy új fejezetet az adatbázisba, ami elérhető lesz (\textit{UNLOCKED} státusz):
+	csökkenti az \textit{SQL} írásakor gyakran előforduló hibákat (elírt tábla-, vagy oszlopnév). A következő kódminta például hozzáad egy új fejezetet az adatbázishoz, ami elérhető lesz (\textit{UNLOCKED} státusz):
 	
 	\begin{lstlisting}[language=Java]
 //egy új szálon
@@ -948,7 +957,7 @@ new Thread(() -> {
 		\includegraphics[width=5cm]{test_ad}
 	\end{center}
 
-	A hirdetési fiók tulajdonosa bevételhez jut, ha a felhasználók az éles hirdetések valamelyikére kattintanak. Megjegyzem, hogy mivel az alkalmazást eddig nagyon kevesen töltötték le, ezért az ebből származó bevételeim is igen csekélyek, havonta nagyjából 20-30 Forintot tesznek ki.
+	A hirdetési fiók tulajdonosa bevételhez jut, ha a felhasználók az éles hirdetések valamelyikére kattintanak. Megjegyzem, hogy mivel az alkalmazást eddig nagyon kevesen töltötték le, ezért az ebből származó bevételeim is igen csekélyek, havonta nagyjából 100 Forintot tesznek ki.
 
 	\section{A ClipSync funkció}\label{clipsync}
 	
@@ -1014,14 +1023,14 @@ new Thread(() -> {
 	
 	\begin{itemize}
 		\item Az androidos eszköz és a számítógép ugyanazon a helyi hálózaton vannak.
-		\item Az androidos eszköz \textbf{nem mobil HotSpot}, azaz nem osztja meg a saját internetét.
+		\item Az androidos eszköz nem mobil \textit{HotSpot}, azaz nem osztja meg a saját internetét. Nem sikerült kiderítenem, hogy ez miért okoz gondot, de szerencsére a felhasználóknak csak kis százaléka használja így az eszközét.
 	\end{itemize}
 
-	A megvalósítás igen egyszerű, az alkalmazás szórt üzenetet (\textit{broadcast}-ot) küld a helyi hálózatra, amit a szerver figyel. Ha olyan adatot kap, ami az alkalmazástól jött, akkor arra válaszol. Az alkalmazás attól függően értesíti a felhasználót, hogy ez a válasz megjött-e.  
+	A megvalósítás igen egyszerű, az alkalmazás szórt üzenetet (\textit{broadcast}-ot) küld a helyi hálózatra, amit a szerver figyel. Ha olyan adatot kap, ami az alkalmazástól jött, akkor arra válaszol. Az alkalmazás attól függően értesíti a felhasználót, hogy ez a válasz megjött-e egy bizonyos időn belül.  
 	
 	\section{A játszótér funkció}\label{playground}
 
-	Mivel az alkalmazás a programozásról szól, szerettem volna egy olyan lehetőséget beépíteni, ahol a felhasználó az alkalmazáson belül készíthet egyszerűbb Java programokat, és azokat futtatni is tudja. Ennek a \textit{játszótér} nevet adtam (angol változatban \textit{playground}). Már az elejétől fogva tudtam, hogy ez jelentős feladat lesz, ahol nehézséget főleg ez a két dolog fogja okozni:
+	Mivel az alkalmazás a programozásról szól, szerettem volna egy olyan lehetőséget beépíteni, ahol a felhasználó az alkalmazáson belül készíthet egyszerűbb Java programokat, és azokat futtatni is tudja. Ennek a \textit{Játszótér} nevet adtam (angol változatban \textit{Playground}). Már az elejétől fogva tudtam, hogy ez jelentős feladat lesz, ahol nehézséget főleg ez a két dolog fogja okozni:
 	
 	\begin{itemize}
 		\item Dinamikusan szerkeszthető kódminta, ami formázottan jelenik meg.
@@ -1032,9 +1041,9 @@ new Thread(() -> {
 	
 	A célom az volt, hogy olyan kódot jelenítsek meg, ami kinézetében megegyezik a fejezetekben és feladatokban látható statikus kódmintákkal (\ref{kodmintak}), és az úgynevezett interaktív kódmintákkal (\ref{interaktiv_kodmintak}), de teljes mértékben szerkeszthető.  
 	
-	A \ref{kodmintak}.\ fejezetben leírtam, hogy a tananyagban lévő kódmintákat egy erre célra készült, főleg reguláris kifejezéseket használó program segítségével formáztam meg, majd a tananyagot alkotó \xml fájlokba már a formázott kód került. Ez a megközelítés nem kivitelezhető a játszótér esetén, mert a lehetséges kódminták száma végtelen.
+	A \ref{kodmintak}.\ fejezetben leírtam, hogy a tananyagban lévő kódmintákat egy erre célra készült, főleg reguláris kifejezéseket használó program segítségével formáztam meg, majd a tananyagot alkotó \xml fájlokba már a formázott kód került. Ez a megközelítés nem kivitelezhető a \textit{Játszótér} esetén, mert a lehetséges kódminták száma végtelen.
 	
-	A probléma megoldására a már meglévő formázó programot használtam, amit kisebb módosításokkal beépítettem az alkalmazásba. Ezt nagyban segítette, hogy mind az alkalmazás, mind a formázó program azonos nyelven, Java-ban íródtak. A kód formázása így már dinamikusan megoldható, és minden esetben újra fog futni, ha a felhasználó szerkeszti a tartalmát. Ezt persze optimalizálásnak vetettem alá, mivel a formázás viszonylag hosszú folyamat. Az alkalmazás megvárja, amíg a felhasználó már nem gépel, és csak utána indít formázást.
+	A probléma megoldására a már meglévő formázó programot használtam, amit kisebb módosításokkal beépítettem az alkalmazásba. Ezt nagyban segítette, hogy mind az alkalmazás, mind a formázó program azonos nyelven, \textit{Java}-ban íródtak. A kód formázása így már dinamikusan megoldható, és minden esetben újra fog futni, ha a felhasználó szerkeszti a tartalmát. Ezt persze optimalizálásnak vetettem alá, mivel a formázás viszonylag hosszú folyamat. Az alkalmazás megvárja, amíg a felhasználó már nem gépel, és csak utána indít formázást.
 	
 	A \ref{playground_code_figure}.\ ábra mutatja a szerkesztőfelületet. Ahogy a képen is látszik, több forrásfájl is támogatott, ezek közül mindig a kiválasztott jelenik meg.
 	
@@ -1057,14 +1066,14 @@ new Thread(() -> {
 		\item Már létező \textit{API} használata.
 	\end{enumerate}
 
-	Először az első lehetőséget szerettem volna megvalósítani, mivel ez nem igényel internetkapcsolatot és költségekkel sem jár, mert nem kell szervert fenntartani, vagy fizetni bármilyen \textit{API} használatáért. Ezt azonban nem tudtam megvalósítani. Több fórumon való konzultáció után kiderült, hogy az általános vélekedés szerint lehetetlen Java kódot fordítani és futtatni Android eszközön. Találtam ugyan olyan alkalmazást a \textit{Play} áruházban, ami képes erre, de nem tudtam megfejteni, hogy hogyan működik.
+	Először az első lehetőséget szerettem volna megvalósítani, mivel ez nem igényel internetkapcsolatot és költségekkel sem jár, mert nem kell szervert fenntartani, vagy fizetni bármilyen \textit{API} használatáért. Ezt azonban nem tudtam megvalósítani. Több fórumon való konzultáció után kiderült, hogy szinte lehetetlen \textit{Java} kódot fordítani és futtatni Android eszközön. Találtam ugyan olyan alkalmazást a \textit{Play} áruházban, ami képes erre, de nem tudtam megfejteni, hogy hogyan működik.
 	
-	Ezután saját szerver alkalmazásban gondolkodtam. \textit{Spring Boot} alapú szervert szerettem volna, mivel ez Java-ban íródik és a Java viszonylag jó felületet biztosít fordításra és futtatásra, a \href{https://docs.oracle.com/javase/7/docs/api/java/lang/Compiler.html}{\textit{java.lang.Compiler}} segítségével (ez sajnos Android-on nem csinál semmit). Kiderült azonban, hogy ilyen szerver készítése nehezebb, mint vártam. Ki kell dolgozni, hogy hol hozza létre a kapott forrásfájlokat, úgy, hogy akár egyszerre több futtatási kérés is érkezhet. 
+	Ezután saját szerver alkalmazásban gondolkodtam. \textit{Spring Boot} alapú szervert szerettem volna, mivel ez Java-ban íródik és a Java viszonylag jó felületet biztosít fordításra és futtatásra, a \href{https://docs.oracle.com/javase/7/docs/api/java/lang/Compiler.html}{\textit{java.lang.Compiler}} osztály segítségével (ez sajnos Android-on nem csinál semmit). Kiderült azonban, hogy ilyen szerver készítése nehezebb, mint vártam. Ki kell dolgozni, hogy hol hozza létre a kapott forrásfájlokat, úgy, hogy akár egyszerre több futtatási kérés is érkezhet. 
 	
 	Továbbá komoly biztonsági kockázat is van, ugyanis a felhasználó lényegében bármilyen kódot küldhet, ami aztán a szerveren fut majd. Ennek kivédésére a \href{https://docs.oracle.com/javase/8/docs/api/java/lang/SecurityManager.html}{\textit{java.lang.SecurityManager}} osztály használatát terveztem, amivel meg lehet akadályozni a fájl írást vagy a hálózati hívásokat.
 	
 	A saját szerver tervezése közben felmerült sok nehézség miatt úgy döntöttem, hogy már létező \textit{API}-t keresek, ami tud Java fordítást és futtatást készíteni.
-	Meglepetésemre találtam olyan ingyenes és nyílt forráskódú futtató \textit{API}-t, ez a \href{https://glot.io/}{\textit{Glot.io}}\footnote{A Glot.io itt érhető el: https://glot.io/}. A dolgozat írásakor az alkalmazás ezt használja a futtatásra, azonban a jövőben ez lehet, hogy megváltozik. A \textit{Glot.io}-nál ugyan nincsenek időbeli vagy mennyiségi korlátok, de elképzelhető, hogy tiltana, ha túl sok hívás érkezik az alkalmazástól.
+	Meglepetésemre találtam ingyenes és nyílt forráskódú futtató \textit{API}-t, ez a \href{https://glot.io/}{\textit{Glot.io}}\footnote{A Glot.io itt érhető el: https://glot.io/}. A dolgozat írásakor az alkalmazás ezt használja a futtatásra, azonban a jövőben ez lehet, hogy megváltozik. A \textit{Glot.io}-nál ugyan nincsenek időbeli vagy mennyiségi korlátok, de elképzelhető, hogy tiltana, ha túl sok hívás érkezik az alkalmazástól.
 	
 	Megjegyzem, hogy a \textit{Glot.io} a saját szerver legtöbb problémáját elegáns módon, \textit{Docker} konténerek használatával hidalja át. A jövőben, ha mégis saját szerver mellett döntök, én is ezt a módszert fogom alkalmazni.
 
@@ -1085,11 +1094,11 @@ new Thread(() -> {
 
 	\subsection{Egységtesztek}
 	
-	Az egységtesztelés olyan alacsony szintű, fehérdobozos módszer, amellyel jellemzően a kód egy kis egységei, például metódusok tesztelhetőek. Majdnem minden tesztelési folyamatnak a részei, általában ezekből van a legtöbb egy tesztbázisban.  
+	Az egységtesztelés olyan alacsony szintű, fehérdobozos módszer, amellyel jellemzően a kód kis egységei, például metódusok tesztelhetőek. Majdnem minden tesztelési folyamatnak a részei, általában ezekből van a legtöbb egy tesztbázisban.  
 	
 	Az egységteszt mindig elszigetelten fut, a keretrendszer csakis azt a metódust fogja futtatni, amire az adott teszt vonatkozik, majd az eredményt ellenőrzi. Az ellenőrzés feltételekkel (\textit{assertion}) történik, például változókra és logikai kifejezésekre adhatunk meg feltételeket.
 	
-	Android esetén az egységtesztek a fejlesztő számítógépén futnak, nem pedig a mobil eszközön, vagy emulátoron. Ez lényegében azt jelenti, hogy tisztán \textit{Java} kódot tesztelhetünk, de olyat ami az Android fejlesztőcsomagból tartalmaz hívásokat már nem. Ebből következik, hogy az alkalmazáshoz sem férünk hozzá tesztelés közben.
+	Android esetén az egységtesztek a fejlesztő számítógépén futnak, nem pedig a mobil eszközön, vagy emulátoron. Ez lényegében azt jelenti, hogy tisztán \textit{Java} kódot tesztelhetünk így, de olyat ami az Android fejlesztőcsomagból tartalmaz hívásokat már nem. Ebből következik, hogy az alkalmazáshoz sem férünk hozzá tesztelés közben.
 	
 	Ez jelentős limitáció, de azért egy Android alkalmazásnak is vannak olyan részei, amely tisztán \textit{Java} kódot tartalmaznak és ezek tesztelésére az egységtesztek a legalkalmasabbak. A dolgozat témáját alkotó alkalmazás tesztelésekor is használtam egységteszteket, azonban elég keveset, ennek oka éppen a fent említett korlátozás. Az általam kigondolt tesztesetek nagy részéhez ugyanis szükség van a futó alkalmazásra.
 	
@@ -1135,7 +1144,7 @@ public void testClassFormatting() {
 	
 	Ahhoz, hogy az itt következő tesztesetet az olvasó teljes mértékben megértse, pár mondatot írnom kell bizonyos Androidos koncepciókról. Az első az alkalmazáshoz tartozó \textit{preferenciák} fogalma. Ez egyszerű kulcs-érték párokat jelent, lényegében egy szótár adatstruktúra, ahol a kulcsok szövegek, az értékek pedig akármilyen primitív típusok lehetnek. Egy ilyen (kezdetben üres) preferencia szótár minden alkalmazásnak biztosított. Azok a kulcs-érték párok, amiket az alkalmazás ebbe belerak megmaradnak az újraindítások között is.
 	
-	Fejlesztésnél gyakori követelmény, hogy tudjuk, mikor indul először az alkalmazás. Ilyenkor általában különféle inicializálásokat kell elvégezni. Ezt a preferenciák segítségével a legegyszerűbb megoldani. Definiálunk egy kulcsot, például \textit{FIRST\_START} néven. Az alkalmazás minden induláskor megnézi, hogy ez a kulcs benne van-e a preferenciákban.  Ha még nincs, akkor tudjuk, hogy most indul először, futtathatjuk az inicializáló kódot, majd végül beletesszük a kulcsot a preferenciák közé. Ha a kulcs már jelen van, akkor az alkalmazás már nem az első alkalommal indul.
+	Fejlesztésnél gyakori követelmény, hogy tudjuk, mikor indul legelőször az alkalmazás. Ilyenkor általában különféle inicializálásokat kell elvégezni. Ezt a preferenciák segítségével a legegyszerűbb megoldani. Definiálunk egy kulcsot, például \textit{FIRST\_START} néven. Az alkalmazás minden induláskor megnézi, hogy ez a kulcs benne van-e a preferenciákban.  Ha még nincs, akkor tudjuk, hogy most indul először, futtathatjuk az inicializáló kódot, majd végül beletesszük a kulcsot a preferenciák közé. Ha a kulcs már jelen van, akkor az alkalmazás már nem az első alkalommal indul.
 	
 	Ezt a módszert én is használtam, a működését pedig egy instrumentális teszt segítségével ellenőriztem. A teszt elindítja az alkalmazást, majd pedig egy feltételt fogalmaz meg arra, hogy a preferenciák már tartalmazzák az első indítást jelölő kulcsot. Látható, hogy ez fehérdobozos teszt, mivel ismernünk kell hozzá a forráskódban lévő első indítás kulcs nevét. A teszt kódja (vázlatosan) itt látható:
 	
@@ -1184,9 +1193,9 @@ public void testConfirmDialog() {
 	\end{figure}
 	\footnotetext{Az instrumentális teszt videó linkje: \url{https://youtu.be/4YkI0qD0FVg}}
 	
-	 Az instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (játszótér funkció, lásd \ref{playground}) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
+	 Az instrumentális tesztek egyik alapelve, hogy ne rendelkezzenek külső függőséggel. Külső függőségről akkor beszélünk, ha például a teszteset hívást intéz egy szerver felé, és a sikerhez a szerver válaszára is szükség van. Ilyen tesztek esetén az ajánlás az, hogy szimuláljuk (\textit{mock}-oljuk) a külső függőséget úgy, hogy a válasz biztos megérkezik. Ehhez az ajánláshoz én is igyekeztem tartani magamat a tesztek írása közben. Például azoknál a teszteseteknél, amiknek része volt kód futtatása (\textit{Játszótér} funkció, lásd \ref{playground}. rész) a külső \textit{API} hívásokat helyettesítettem olyanokkal, amik mindig válaszolnak. 
 	 
-	 Ennek ellenére néhány esetben nem tudtam elkerülni a külső függőséget. Ilyek voltak például azok a tesztek, amikkel az alkalmazás és \textit{ClipSync} szerver (lásd \ref{clipsync}) együttműködését ellenőriztem. Ezek sikeres futásához értelemszerűen kell, hogy egy közeli számítógépen fusson a \textit{ClipSync} szerver.
+	 Ennek ellenére néhány esetben nem tudtam elkerülni a külső függőséget. Ilyek voltak például azok a tesztek, amikkel az alkalmazás és \textit{ClipSync} szerver (lásd \ref{clipsync}. fejezet) együttműködését ellenőriztem. Ezek sikeres futásához értelemszerűen kell, hogy egy közeli számítógépen fusson a \textit{ClipSync} szerver.
 	
 	 Az alkalmazás minden képernyőjéhez (Android esetén ezeket \textit{activity}-nek nevezik) írtam instrumentális teszteket. Egyes esetekben egy képernyőhöz túl sok funkcionalitás tartozott, ilyenkor ezt szétbontottam kisebb részekre (ezek neve \textit{fragmens}) és a teszteket is eszerint csoportosítottam. Az összesítést a \ref{table_test_summary}.\ táblázat mutatja. 
 	
