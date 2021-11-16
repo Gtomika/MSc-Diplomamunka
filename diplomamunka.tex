@@ -13,6 +13,8 @@
 \usepackage{makecell}
 \usepackage{enumitem}
 \usepackage{threeparttable}
+\usepackage{mathptmx}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,bindingoffset=1cm]{geometry}
 
 \usepackage{array}
 \newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
@@ -20,6 +22,22 @@
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
 	#1\ignorespaces
 }
+
+\makeatletter
+\renewcommand*{\ps@plain}{%
+	\let\@mkboth\@gobbletwo
+	\let\@oddhead\@empty
+	\def\@oddfoot{%
+		\reset@font
+		\hfil
+		\thepage
+		% \hfil % removed for aligning to the right
+	}%
+	\let\@evenhead\@empty
+	\let\@evenfoot\@oddfoot
+}
+\makeatother
+\pagestyle{plain}
 
 \graphicspath{ {./images/} }
 
@@ -70,15 +88,14 @@
 	
 	\centerline{\Large{\textsc{Szeged, 2021}}}
 	
+
 	%tartalomjegyzék oldala -------------------------------------------------
 	\newpage
-	\thispagestyle{empty}
 	
 	\tableofcontents
 	
 	%tényleges kezdet --------------------------------------------------------
 	\newpage
-	\setcounter{page}{1}
 	\fontsize{12}{16}\selectfont
 	
 	\section{Bevezető}
@@ -105,7 +122,7 @@
 	 \end{figure}
  	\footnotetext{Az alkalmazás linkje: \url{http://play.google.com/store/apps/details?id=com.gaspar.learnjava}}
 
-	\section{A diplomamunka célja}\label{celok}
+	\section{Feladatkiírás}\label{celok}
 	
 	A cél egy olyan Android eszközökön futó alkalmazás, ami segítséget nyújt a \textit{Java} programozási nyelv megtanulásához. Ehhez két fő komponensre van szükség: a konkrét alkalmazásra, mely képes valamilyen standard formában megadott tananyagot megjeleníteni, és magára a tananyagra. Ennek a megjelenítésnek igényesen és érthetően kell kinéznie a képernyőmérettől függetlenül.
 
@@ -1258,12 +1275,36 @@ public void testConfirmDialog() {
 
 	Természetesen az érzékeny adatok, mint például \textit{API} kulcsok, vagy hirdetési azonosítók nem nyilvánosak, de az alkalmazás egy változata ezek nélkül is lefordítható, azonban itt egyes funkciók nem úgy fognak működni, ahogy az a \textit{Play} áruházban megjelent teljes verzióban látható.
 	
-	\renewcommand\refname{Használt segédanyagok}
+	\newpage
+	
+	\section{Irodalomjegyzék}
+	
+	\begingroup
+	\renewcommand{\section}[2]{}%
 	\begin{thebibliography}{9}
 		\bibitem{androiddoc}
 		Hivatalos Android dokumentáció, \textit{Google}, \url{https://developer.android.com/docs/}
 		\bibitem{headfirst}
 		Head First Android Development: A Brain-Friendly Guide 2nd Edition, \textit{Dawn Griffiths, David Griffiths}, 2017
 	\end{thebibliography}
+	\endgroup
+
+	\section{Nyilatkozat}
+	
+	Alulírott Gáspár Tamás programtervező informatikus MSc szakos hallgató, kijelentem, hogy a dolgozatomat a Szegedi Tudományegyetem, Informatikai Intézet Számítógépes Optimalizálás Tanszékén készítettem, programtervező informatikus MSc diploma megszerzése érdekében.
+	
+	Kijelentem, hogy a dolgozatot más szakon korábban nem védtem meg, saját munkám eredménye, és csak a hivatkozott forrásokat (szakirodalom, eszközök, stb.) használtam fel.
+	
+	Tudomásul veszem, hogy diplomamunkámat a Szegedi Tudományegyetem Informatikai Intézet könyvtárában, a helyben olvasható könyvek között helyezik el.
+	
+	\begin{tabular}{l r}
+		2021. november. 16. & \includegraphics[width=4cm, height=1cm]{signature}
+	\end{tabular}
+
+	\section{Köszönetnyilvánítás}
+	
+	Szeretném megköszönni a családomnak és a témavezetőmnek, Dr. Csendes Tibornak, hogy támogattak ennek a dolgozatnak az elkészítésében.
+
+	
 	
 \end{document}
